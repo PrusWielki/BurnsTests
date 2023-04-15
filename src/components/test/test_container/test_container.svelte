@@ -7,7 +7,7 @@
 	export const helpDescription: string = '';
 </script>
 
-<div class="max-w-xl flex flex-col">
+<div class="flex max-w-xl flex-col">
 	<div>{title}</div>
 	{#each questions as question}
 		<div>{question}</div>
