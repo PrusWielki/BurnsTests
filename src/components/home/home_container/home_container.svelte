@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { TEST_NAMES } from '../../../cms/home/home';
 </script>
 
 <div id="home-grid" class="grid h-screen w-screen grid-rows-3 sm:grid-cols-3">
@@ -10,7 +11,7 @@
 			id="option1"
 			class="z-10 font-sans text-2xl font-bold text-white transition duration-300 group-hover:-translate-y-1 md:text-6xl"
 		>
-			Option 1
+			{TEST_NAMES[0]}
 		</div>
 	</div>
 	<div
@@ -20,7 +21,7 @@
 		<div
 			class="z-10 font-sans text-2xl font-bold text-white transition duration-300 group-hover:-translate-y-1 md:text-6xl"
 		>
-			Option 2
+			{TEST_NAMES[1]}
 		</div>
 	</div>
 	<div
@@ -30,7 +31,7 @@
 		<div
 			class="z-10 font-sans text-2xl font-bold text-white transition duration-300 group-hover:-translate-y-1 md:text-6xl"
 		>
-			Option 2
+			{TEST_NAMES[2]}
 		</div>
 	</div>
 </div>
