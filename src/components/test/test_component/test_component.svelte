@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	export const title: string = 'test';
 	export const questions: Array<string> = ['question 1'];
 	export const onClick: Function = () => {};
@@ -9,8 +9,8 @@
 </script>
 
 <div
-	class=" z-10 flex h-full w-full max-w-xl flex-col items-center justify-center"
-	transition:fly={{ y: -screen.height / 2, duration: 1000, delay: 1000 }}
+	class="absolute z-10 flex h-full w-1/3 flex-col items-center justify-center"
+	transition:fade={{ delay: 300, duration: 500 }}
 >
 	<div>{title}</div>
 	{#each questions as question}
