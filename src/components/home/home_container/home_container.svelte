@@ -6,6 +6,8 @@
 
 <div id="home-grid" class="grid h-screen w-screen grid-rows-3 sm:grid-cols-3 sm:grid-rows-none">
 	{#each TEST_NAMES as testName, index}
-		<Option bind:active={active[index]} {testName} backgroundName={BACKGROUND_NAMES[index]} />
+		{#if active[index] === false}
+			<Option bind:active={active[index]} {testName} backgroundName={BACKGROUND_NAMES[index]} />
+		{/if}
 	{/each}
 </div>

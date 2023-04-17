@@ -1,5 +1,6 @@
 <script lang="ts">
 	// import animals from '$lib/assets/background/animals.jpg';
+	import { fly } from 'svelte/transition';
 	export let backgroundName: string = '/background/animals.jpg';
 	export let testName: string = '';
 	export let active: boolean = false;
@@ -17,6 +18,7 @@
 	on:keypress={() => {
 		active = true;
 	}}
+	transition:fly={{ y: -screen.height, duration: 2000 }}
 >
 	<div
 		id="option"
