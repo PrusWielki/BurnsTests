@@ -1,15 +1,12 @@
 <script lang="ts">
-	export const title: string = 'test';
-	export const questions: Array<string> = ['question 1'];
-	export const onClick: Function = () => {};
-	export const minRange: number = 0;
-	export const maxRange: number = 4;
-	export const helpDescription: string = '';
+	import TestComponent from '../test_component/test_component.svelte';
 </script>
 
-<div class="flex max-w-xl flex-col">
-	<div>{title}</div>
-	{#each questions as question}
-		<div>{question}</div>
-	{/each}
+<div
+	id="test-grid"
+	class="fixed left-0 top-0 -z-10 grid h-screen w-screen grid-rows-3 sm:grid-cols-3 sm:grid-rows-none"
+>
+	<TestComponent />
+	<TestComponent />
+	<TestComponent />
 </div>

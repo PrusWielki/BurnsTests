@@ -1,36 +1,48 @@
 <script lang="ts">
+	import { TEST_NAMES, BACKGROUND_NAMES } from '../../../cms/home/home';
+	import { QUESTION_SET } from '../../../cms/tests/questions';
+	import { TITLES } from '../../../cms/tests/titles';
+	import { MAX_RANGES, MIN_RANGES } from '../../../cms/tests/ranges';
+	import Option from '../option/option.svelte';
+	import TestComponent from '../../test/test_component/test_component.svelte';
+
+	let active: Array<boolean> = [false, false, false];
+	let activeIndex: number = 0;
+	const checkIfActive = (active: Array<boolean>) => {
+		for (let i = 0; i < active.length; i++) {
+			if (active[i] === true) {
+				console.log('tru');
+				activeIndex = i;
+				return true;
+			}
+		}
+		return false;
+	};
+	$: console.log(active);
 </script>
 
-<div id="home-grid" class="grid h-screen w-screen grid-rows-3 sm:grid-cols-3">
-	<div
-		id="option1-wrapper"
-		class="group flex h-full w-full cursor-pointer items-center justify-center bg-opacity-80 bg-[url('/background/mountains.jpg')] bg-cover bg-center after:absolute after:left-0 after:top-0 after:h-1/3 after:w-full after:bg-black after:bg-opacity-30 after:transition-all after:duration-500 after:content-[''] hover:after:opacity-10 sm:h-screen after:sm:h-full after:sm:w-1/3"
-	>
-		<div
-			id="option1"
-			class="z-10 font-sans text-2xl font-bold text-white transition duration-300 group-hover:-translate-y-1 md:text-6xl"
-		>
-			Option 1
-		</div>
-	</div>
-	<div
-		id="option2-wrapper"
-		class="group flex h-full w-full cursor-pointer items-center justify-center bg-opacity-80 bg-[url('/background/trees.jpg')] bg-cover bg-center after:absolute after:left-0 after:top-1/3 after:h-1/3 after:w-full after:bg-black after:bg-opacity-30 after:transition-all after:duration-500 after:content-[''] hover:after:opacity-10 sm:h-screen after:sm:left-1/3 after:sm:top-0 after:sm:h-full after:sm:w-1/3"
-	>
-		<div
-			class="z-10 font-sans text-2xl font-bold text-white transition duration-300 group-hover:-translate-y-1 md:text-6xl"
-		>
-			Option 2
-		</div>
-	</div>
-	<div
-		id="option3-wrapper"
-		class="group flex h-full w-full cursor-pointer items-center justify-center bg-opacity-80 bg-[url('/background/animals.jpg')] bg-cover bg-center after:absolute after:left-0 after:top-2/3 after:h-1/3 after:w-full after:bg-black after:bg-opacity-30 after:transition-all after:duration-500 after:content-[''] hover:after:opacity-10 sm:h-screen after:sm:left-2/3 after:sm:top-0 after:sm:h-full after:sm:w-1/3"
-	>
-		<div
-			class="z-10 font-sans text-2xl font-bold text-white transition duration-300 group-hover:-translate-y-1 md:text-6xl"
-		>
-			Option 2
-		</div>
-	</div>
+<div
+	id="home-grid"
+	class="grid h-screen w-screen grid-rows-3 overflow-hidden sm:grid-cols-3 sm:grid-rows-none"
+>
+	{#if !checkIfActive(active)}
+		{#each TEST_NAMES as testName, index}
+			<div id="option-container" class="grid grid-cols-1 grid-rows-1">
+				<Option bind:active={active[index]} {testName} backgroundName={BACKGROUND_NAMES[index]} />
+			</div>
+		{/each}
+	{:else}
+		<Option
+			bind:active={active[activeIndex]}
+			testName={TEST_NAMES[activeIndex]}
+			backgroundName={BACKGROUND_NAMES[activeIndex]}
+		/>
+		<TestComponent
+			bind:active={active[activeIndex]}
+			questions={QUESTION_SET[activeIndex]}
+			title={TITLES[activeIndex]}
+			maxRange={MAX_RANGES[activeIndex]}
+			minRange={MIN_RANGES[activeIndex]}
+		/>
+	{/if}
 </div>
