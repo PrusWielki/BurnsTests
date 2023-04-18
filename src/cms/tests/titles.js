@@ -1,1 +1,1 @@
-export const TITLES = ['Depression', 'Anxiety', 'Relationships'];
+export const TITLES = ['Anxiety', 'Depression', 'Relationships'];
