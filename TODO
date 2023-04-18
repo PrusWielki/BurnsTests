@@ -1,5 +1,4 @@
 fill with proper test data
 Create proper table - userId, relate to users table
 set up auth
-how to make the tests look well on mobile? make all of the cards slide away? Maybe change the design for dekstop, make all the cards slide away, test fad in in the middle? easier that way
-to fix the above change it so that upon click the image takes whole screen and gets lower brightness and the test sits on top of it and the text disappears
+add back button to questions

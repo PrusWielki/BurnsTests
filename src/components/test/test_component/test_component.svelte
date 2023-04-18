@@ -17,23 +17,23 @@
 >
 	<div
 		id="test-container"
-		class="flex h-4/6 max-h-fit w-3/6 flex-col items-center justify-center gap-4 rounded-md bg-white"
+		class="flex h-4/6 max-h-fit w-full flex-col items-center justify-between gap-4 rounded-md bg-zinc-600 py-4 sm:w-3/6"
 	>
 		<div class="text-center font-sans text-4xl font-bold capitalize text-zinc-400">{title}</div>
 		<div
 			id="question-set-container"
-			class="leanscroll flex max-h-96 flex-col gap-4 overflow-auto px-4"
+			class="leanscroll flex max-h-96 flex-col gap-4 overflow-auto px-4 py-4"
 		>
 			{#each questions as question, index}
 				<div class="grid grid-cols-2">
-					<div id={`question-${index}`} class="font-sans text-lg text-zinc-300">asd</div>
+					<div id={`question-${index}`} class="font-sans text-lg text-zinc-300">{question}</div>
 					<div>
 						<input
 							type="range"
 							min={minRange}
 							max={maxRange}
 							bind:value={answerSet[index]}
-							class="range range-sm w-64"
+							class="range range-sm sm:w-64"
 							step={1}
 						/>
 						<div class="flex w-full justify-between px-2 text-xs">
@@ -49,7 +49,7 @@
 			id="save-button"
 			class="btn font-semibold"
 			on:click={async () => {
-				const { error } = await supabase.from('ExampleTest').insert({ questions: answerSet });
+				const { error } = await supabase.from('Tests').insert({ questions: answerSet });
 				if (error) console.log(error);
 				active = !active;
 			}}>save</button
