@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+	import { supabase } from '../../../database/supabaseClient';
 	export let title: string = 'test';
 	export let questions: Array<string> = ['question 1'];
 	export let minRange: number = 0;
@@ -27,7 +28,7 @@
 						type="range"
 						min={minRange}
 						max={maxRange}
-						value={answerSet[index]}
+						bind:value={answerSet[index]}
 						class="range range-sm"
 						step={1}
 					/>
@@ -40,8 +41,13 @@
 			</div>
 		{/each}
 	</div>
-	<button id="save-button" class="btn font-semibold" on:click={() => (active = !active)}
-		>save</button
+	<button
+		id="save-button"
+		class="btn font-semibold"
+		on:click={async () => {
+			const { error } = await supabase.from('ExampleTest').insert({ questions: answerSet });
+			console.log(error);
+		}}>save</button
 	>
 </div>
 
