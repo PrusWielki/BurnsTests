@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { TEST_NAMES, BACKGROUND_NAMES } from '../../../cms/home/home';
+	import { QUESTION_SET } from '../../../cms/tests/questions';
 	import Option from '../option/option.svelte';
 	import TestComponent from '../../test/test_component/test_component.svelte';
 	let active: Array<boolean> = [false, false, false];
@@ -14,7 +15,7 @@
 			{#if active[index] === false}
 				<Option bind:active={active[index]} {testName} backgroundName={BACKGROUND_NAMES[index]} />
 			{:else}
-				<TestComponent bind:active={active[index]} />
+				<TestComponent bind:active={active[index]} questions={QUESTION_SET[index]} />
 			{/if}
 		</div>
 	{/each}
