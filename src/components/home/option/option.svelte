@@ -20,7 +20,7 @@
 >
 	<div
 		id="option"
-		class="absolute z-10 font-sans text-2xl font-bold text-white transition duration-300 group-hover:-translate-y-1 md:text-6xl"
+		class="absolute z-10 font-sans font-bold text-white transition duration-300 group-hover:-translate-y-1 sm:text-xl md:text-4xl xl:text-6xl"
 	>
 		{testName}
 	</div>
