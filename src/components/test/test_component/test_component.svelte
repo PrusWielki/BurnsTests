@@ -46,7 +46,8 @@
 		class="btn font-semibold"
 		on:click={async () => {
 			const { error } = await supabase.from('ExampleTest').insert({ questions: answerSet });
-			console.log(error);
+			if (error) console.log(error);
+			active = !active;
 		}}>save</button
 	>
 </div>
