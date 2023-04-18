@@ -9,7 +9,9 @@
 <div
 	id="option-wrapper"
 	style="background-image: url({backgroundName})"
-	class="group flex h-full w-full cursor-pointer items-center justify-center bg-opacity-80 bg-cover bg-center after:relative after:left-0 after:top-0 after:h-1/3 after:h-full after:w-full after:bg-black after:bg-opacity-30 after:transition-all after:duration-500 after:content-[''] hover:after:opacity-10 sm:h-screen"
+	class={`${
+		active ? 'absolute after:bg-opacity-50' : 'after:bg-opacity-30 hover:after:opacity-10'
+	} group flex h-full w-full cursor-pointer items-center justify-center bg-opacity-80 bg-cover bg-center after:relative after:left-0 after:top-0 after:h-full after:w-full after:bg-black  after:transition-all after:duration-500 after:content-['']  sm:h-screen`}
 	on:click={() => {
 		active = true;
 	}}
@@ -18,10 +20,14 @@
 	}}
 	transition:fly={{ y: -screen.height / 2, duration: 1000 }}
 >
-	<div
-		id="option"
-		class="absolute z-10 font-sans font-bold text-white transition duration-300 group-hover:-translate-y-1 sm:text-xl md:text-4xl xl:text-6xl"
-	>
-		{testName}
-	</div>
+	{#if !active}
+		<div
+			id="option"
+			class={`absolute ${
+				active && 'top-1/4'
+			} z-10 font-sans font-bold text-white transition duration-300 group-hover:-translate-y-1 sm:text-xl md:text-4xl xl:text-6xl`}
+		>
+			{testName}
+		</div>
+	{/if}
 </div>
