@@ -37,7 +37,7 @@
 			</div>
 			<div
 				class={` ${openTooltip && 'tooltip-open'} tooltip tooltip-left w-1/5`}
-				data-tip={helpDescription.map((description, index) => index + '. ' + description + '\n')}
+				data-tip={helpDescription.map((description, index) => index + '.   ' + description + '  ')}
 			>
 				<div
 					class="btn w-full text-zinc-300"
