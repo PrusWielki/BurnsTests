@@ -5,7 +5,7 @@
 	export let questions: Array<string> = ['question 1'];
 	export let minRange: number = 0;
 	export let maxRange: number = 4;
-	// export let helpDescription: string = '';
+	export let helpDescription: Array<string> = ['help'];
 	export let answerSet: Array<number> = [];
 	export let active: boolean = false;
 </script>
@@ -24,6 +24,14 @@
 			id="question-set-container"
 			class="leanscroll flex max-h-96 flex-col gap-4 overflow-auto px-4 py-4"
 		>
+			<div class="grid grid-cols-2">
+				<div />
+				<div class="flex w-full justify-between gap-4 text-xs">
+					{#each helpDescription as description}
+						<span>{description}</span>
+					{/each}
+				</div>
+			</div>
 			{#each questions as question, index}
 				<div class="grid grid-cols-2 gap-4">
 					<div id={`question-${index}`} class="font-sans text-lg text-zinc-300">

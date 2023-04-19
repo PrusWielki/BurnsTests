@@ -3,6 +3,7 @@
 	import { QUESTION_SET } from '../../../cms/tests/questions';
 	import { TITLES } from '../../../cms/tests/titles';
 	import { MAX_RANGES, MIN_RANGES } from '../../../cms/tests/ranges';
+	import { TEST_DESCRIPTION_HELP } from '../../../cms/tests/description';
 	import Option from '../option/option.svelte';
 	import TestComponent from '../../test/test_component/test_component.svelte';
 
@@ -43,6 +44,7 @@
 			title={TITLES[activeIndex]}
 			maxRange={MAX_RANGES[activeIndex]}
 			minRange={MIN_RANGES[activeIndex]}
+			helpDescription={TEST_DESCRIPTION_HELP[activeIndex]}
 		/>
 	{/if}
 </div>
