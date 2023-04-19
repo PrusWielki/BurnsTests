@@ -25,15 +25,17 @@
 			class="leanscroll flex max-h-96 flex-col gap-4 overflow-auto px-4 py-4"
 		>
 			{#each questions as question, index}
-				<div class="grid grid-cols-2">
-					<div id={`question-${index}`} class="font-sans text-lg text-zinc-300">{question}</div>
+				<div class="grid grid-cols-2 gap-4">
+					<div id={`question-${index}`} class="font-sans text-lg text-zinc-300">
+						{index + 1 + '. ' + question}
+					</div>
 					<div>
 						<input
 							type="range"
 							min={minRange}
 							max={maxRange}
 							bind:value={answerSet[index]}
-							class="range range-sm sm:w-64"
+							class="range range-sm"
 							step={1}
 						/>
 						<div class="flex w-full justify-between px-2 text-xs">
