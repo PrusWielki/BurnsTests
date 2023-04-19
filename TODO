@@ -1,3 +1,4 @@
 Create proper table - userId, relate to users table
 set up auth
 add back button to questions
+make the help description as a tool tip or on a side
