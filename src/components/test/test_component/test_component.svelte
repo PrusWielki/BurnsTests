@@ -19,7 +19,23 @@
 		id="test-container"
 		class="flex h-4/6 max-h-fit w-full flex-col items-center justify-between gap-4 rounded-md bg-zinc-600 py-4 sm:w-3/6"
 	>
-		<div class="text-center font-sans text-4xl font-bold capitalize text-zinc-300">{title}</div>
+		<div id="back-title-help-container" class="flex w-full justify-between px-2">
+			<div
+				class="btn w-1/5 text-zinc-300"
+				on:click={() => {
+					active = !active;
+				}}
+				on:keypress={() => {
+					active = !active;
+				}}
+			>
+				back
+			</div>
+			<div class="mx-auto text-center font-sans text-4xl font-bold capitalize text-zinc-300">
+				{title}
+			</div>
+			<div class="btn w-1/5 text-zinc-300">help</div>
+		</div>
 		<div
 			id="question-set-container"
 			class="leanscroll flex max-h-96 flex-col gap-4 overflow-auto px-4 py-4"
@@ -54,6 +70,10 @@
 					</div>
 				</div>
 			{/each}
+			<div id="description-container" class="grid grid-cols-2 gap-4">
+				<div class="font-sans text-lg text-zinc-300">Description</div>
+				<textarea class="textarea-bordered textarea bg-transparent" placeholder="..." />
+			</div>
 		</div>
 		<button
 			id="save-button"
