@@ -26,7 +26,7 @@
 		>
 			<div class="grid grid-cols-2">
 				<div />
-				<div class="flex w-full justify-between gap-4 text-xs">
+				<div class="flex w-full basis-full justify-between gap-4 text-xs">
 					{#each helpDescription as description}
 						<span>{description}</span>
 					{/each}
