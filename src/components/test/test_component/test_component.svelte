@@ -19,14 +19,14 @@
 		id="test-container"
 		class="flex h-4/6 max-h-fit w-full flex-col items-center justify-between gap-4 rounded-md bg-zinc-600 py-4 sm:w-3/6"
 	>
-		<div class="text-center font-sans text-4xl font-bold capitalize text-zinc-400">{title}</div>
+		<div class="text-center font-sans text-4xl font-bold capitalize text-zinc-300">{title}</div>
 		<div
 			id="question-set-container"
 			class="leanscroll flex max-h-96 flex-col gap-4 overflow-auto px-4 py-4"
 		>
 			<div class="grid grid-cols-2">
 				<div />
-				<div class="flex w-full basis-full justify-between gap-4 text-xs">
+				<div class="flex w-full basis-full justify-between gap-4 text-xs text-zinc-300">
 					{#each helpDescription as description}
 						<span>{description}</span>
 					{/each}
@@ -48,7 +48,7 @@
 						/>
 						<div class="flex w-full justify-between px-2 text-xs">
 							{#each Array(maxRange + 1) as _, i}
-								<span>{i}</span>
+								<span class="text-zinc-300">{i}</span>
 							{/each}
 						</div>
 					</div>
@@ -57,7 +57,7 @@
 		</div>
 		<button
 			id="save-button"
-			class="btn font-semibold"
+			class="btn w-1/4 font-semibold text-zinc-300 hover:-translate-y-0.5 hover:shadow-md"
 			on:click={async () => {
 				const { error } = await supabase.from('Tests').insert({ questions: answerSet });
 				if (error) console.log(error);
