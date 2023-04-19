@@ -8,6 +8,7 @@
 	export let helpDescription: Array<string> = ['help'];
 	export let answerSet: Array<number> = [];
 	export let active: boolean = false;
+	let openTooltip: boolean = false;
 </script>
 
 <div
@@ -34,20 +35,27 @@
 			<div class="mx-auto text-center font-sans text-4xl font-bold capitalize text-zinc-300">
 				{title}
 			</div>
-			<div class="btn w-1/5 text-zinc-300">help</div>
+			<div
+				class={` ${openTooltip && 'tooltip-open'} tooltip tooltip-left w-1/5`}
+				data-tip={helpDescription.map((description, index) => index + '. ' + description + '\n')}
+			>
+				<div
+					class="btn w-full text-zinc-300"
+					on:click={() => {
+						openTooltip = !openTooltip;
+					}}
+					on:keypress={() => {
+						openTooltip = !openTooltip;
+					}}
+				>
+					help
+				</div>
+			</div>
 		</div>
 		<div
 			id="question-set-container"
 			class="leanscroll flex max-h-96 flex-col gap-4 overflow-auto px-4 py-4"
 		>
-			<div class="grid grid-cols-2">
-				<div />
-				<div class="flex w-full basis-full justify-between gap-4 text-xs text-zinc-300">
-					{#each helpDescription as description}
-						<span>{description}</span>
-					{/each}
-				</div>
-			</div>
 			{#each questions as question, index}
 				<div class="grid grid-cols-2 gap-4">
 					<div id={`question-${index}`} class="font-sans text-lg text-zinc-300">
