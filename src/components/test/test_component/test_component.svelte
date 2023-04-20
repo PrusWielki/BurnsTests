@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { supabase } from '../../../database/supabaseClient';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+
 	export let title: string = 'test';
 	export let questions: Array<string> = ['question 1'];
 	export let minRange: number = 0;
@@ -87,7 +91,7 @@
 			id="save-button"
 			class="btn w-1/4 font-semibold text-zinc-300 hover:-translate-y-0.5 hover:shadow-md"
 			on:click={async () => {
-				const { error } = await supabase.from('Tests').insert({ questions: answerSet });
+				const { error } = await data.supabase.from('Tests').insert({ questions: answerSet });
 				if (error) console.log(error);
 				active = !active;
 			}}>save</button

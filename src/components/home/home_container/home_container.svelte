@@ -6,6 +6,8 @@
 	import { TEST_DESCRIPTION_HELP } from '../../../cms/tests/description';
 	import Option from '../option/option.svelte';
 	import TestComponent from '../../test/test_component/test_component.svelte';
+	import type { PageData } from './$types';
+	export let data: PageData;
 
 	let active: Array<boolean> = [false, false, false];
 	let activeIndex: number = 0;
@@ -45,6 +47,7 @@
 			maxRange={MAX_RANGES[activeIndex]}
 			minRange={MIN_RANGES[activeIndex]}
 			helpDescription={TEST_DESCRIPTION_HELP[activeIndex]}
+			{data}
 		/>
 	{/if}
 </div>
