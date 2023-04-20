@@ -1,2 +1,2 @@
-Create proper table - userId, relate to users table
-set up auth
+Reroute the page a bit maybe or not
+find a way to send users id together with test request
