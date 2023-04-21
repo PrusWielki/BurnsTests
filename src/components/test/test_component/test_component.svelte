@@ -90,9 +90,12 @@
 			id="save-button"
 			class="btn w-1/4 font-semibold text-zinc-300 hover:-translate-y-0.5 hover:shadow-md"
 			on:click={async () => {
-				const { error } = await data.supabase
-					.from('Tests')
-					.insert({ questions: answerSet, userId: data.session.user.id });
+				const { error } = await data.supabase.from('Tests').insert({
+					questions: answerSet,
+					user_id: data.session.user.id,
+					type: title,
+					created_at: new Date()
+				});
 				if (error) console.log(error);
 				active = !active;
 			}}>save</button
