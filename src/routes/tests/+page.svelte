@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TEST_NAMES, BACKGROUND_NAMES } from '../../cms/home/home';
+	import { TEST_NAMES, BACKGROUND_NAMES } from '../../cms/tests/tests';
 	import { QUESTION_SET } from '../../cms/tests/questions';
 	import { TITLES } from '../../cms/tests/titles';
 	import { MAX_RANGES, MIN_RANGES } from '../../cms/tests/ranges';
