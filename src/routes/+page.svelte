@@ -11,11 +11,11 @@
 		<div id="Title" class="mb-28 text-center text-xl text-zinc-300 sm:text-4xl">{TITLE}</div>
 		<div id="Login-Register-Container" class="flex flex-row gap-4">
 			<button
-				class="btn text-slate-300 transition duration-75 hover:-translate-y-0.5 sm:text-2xl"
+				class="btn text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
 				on:click={() => goto('/login')}>Login</button
 			>
 			<button
-				class="btn text-slate-300 transition duration-75 hover:-translate-y-0.5 sm:text-2xl"
+				class="btn text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
 				on:click={() => goto('/register')}>Register</button
 			>
 		</div>
