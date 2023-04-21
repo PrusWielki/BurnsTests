@@ -14,14 +14,12 @@
 	const checkIfActive = (active: Array<boolean>) => {
 		for (let i = 0; i < active.length; i++) {
 			if (active[i] === true) {
-				console.log('tru');
 				activeIndex = i;
 				return true;
 			}
 		}
 		return false;
 	};
-	$: console.log(active);
 </script>
 
 <div
