@@ -12,6 +12,7 @@
 	export let answerSet: Array<number> = [];
 	export let active: boolean = false;
 	let openTooltip: boolean = false;
+	let description: string = '';
 </script>
 
 <div
@@ -83,7 +84,11 @@
 			{/each}
 			<div id="description-container" class="grid grid-cols-2 gap-4">
 				<div class="font-sans text-lg text-zinc-300">Description</div>
-				<textarea class="textarea-bordered textarea bg-transparent" placeholder="..." />
+				<textarea
+					bind:value={description}
+					class="textarea-bordered textarea bg-transparent"
+					placeholder="..."
+				/>
 			</div>
 		</div>
 		<button
@@ -94,6 +99,7 @@
 					questions: answerSet,
 					user_id: data.session.user.id,
 					type: title,
+					description: description,
 					created_at: new Date()
 				});
 				if (error) console.log(error);
