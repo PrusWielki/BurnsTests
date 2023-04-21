@@ -102,7 +102,8 @@
 					user_id: data.session?.user.id,
 					type: title,
 					description: description,
-					created_at: new Date()
+					created_at: new Date(),
+					questions_sum: answerSet.reduce((a, b) => a + b, 0)
 				});
 				if (error) console.log(error);
 				active = !active;
