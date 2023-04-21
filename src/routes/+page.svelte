@@ -1,6 +1,8 @@
-<script lang="ts">
-	import HomeContainer from '../components/home/home_container/home_container.svelte';
-	import TestContainer from '../components/test/test_container/test_container.svelte';
+<script>
+	import { goto } from '$app/navigation';
 </script>
 
-<HomeContainer />
+<div>
+	<button class="btn-primary" on:click={() => goto('/login')}>Login</button>
+	<button class="btn-secondary" on:click={() => goto('/register')}>Register</button>
+</div>

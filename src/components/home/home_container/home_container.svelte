@@ -3,22 +3,23 @@
 	import { QUESTION_SET } from '../../../cms/tests/questions';
 	import { TITLES } from '../../../cms/tests/titles';
 	import { MAX_RANGES, MIN_RANGES } from '../../../cms/tests/ranges';
+	import { TEST_DESCRIPTION_HELP } from '../../../cms/tests/description';
 	import Option from '../option/option.svelte';
 	import TestComponent from '../../test/test_component/test_component.svelte';
+	import type { PageData } from './$types';
+	export let data: PageData;
 
 	let active: Array<boolean> = [false, false, false];
 	let activeIndex: number = 0;
 	const checkIfActive = (active: Array<boolean>) => {
 		for (let i = 0; i < active.length; i++) {
 			if (active[i] === true) {
-				console.log('tru');
 				activeIndex = i;
 				return true;
 			}
 		}
 		return false;
 	};
-	$: console.log(active);
 </script>
 
 <div
@@ -43,6 +44,8 @@
 			title={TITLES[activeIndex]}
 			maxRange={MAX_RANGES[activeIndex]}
 			minRange={MIN_RANGES[activeIndex]}
+			helpDescription={TEST_DESCRIPTION_HELP[activeIndex]}
+			{data}
 		/>
 	{/if}
 </div>
