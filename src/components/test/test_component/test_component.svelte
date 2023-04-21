@@ -9,10 +9,12 @@
 	export let minRange: number = 0;
 	export let maxRange: number = 4;
 	export let helpDescription: Array<string> = ['help'];
-	export let answerSet: Array<number> = [];
+	export let answerSet: Array<number> = Array(questions.length);
 	export let active: boolean = false;
 	let openTooltip: boolean = false;
 	let description: string = '';
+
+	for (let i = 0; i < questions.length; ++i) answerSet[i] = 0;
 </script>
 
 <div
