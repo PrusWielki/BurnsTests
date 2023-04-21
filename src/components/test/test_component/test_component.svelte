@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import type { PageData } from './$types';
+	import type { PageData } from '../../../routes/$types';
 
 	export let data: PageData;
 
@@ -97,7 +97,7 @@
 			on:click={async () => {
 				const { error } = await data.supabase.from('Tests').insert({
 					questions: answerSet,
-					user_id: data.session.user.id,
+					user_id: data.session?.user.id,
 					type: title,
 					description: description,
 					created_at: new Date()
