@@ -24,7 +24,7 @@
 >
 	<div
 		id="test-container"
-		class="flex h-4/6 max-h-fit w-full flex-col items-center justify-between gap-4 rounded-md bg-zinc-600 py-4 sm:w-3/6"
+		class="flex h-5/6 max-h-fit w-full flex-col items-center justify-between gap-4 rounded-md bg-zinc-600 py-4 sm:h-4/6 sm:w-3/6"
 	>
 		<div id="back-title-help-container" class="flex w-full justify-between px-2">
 			<div
@@ -60,7 +60,7 @@
 		</div>
 		<div
 			id="question-set-container"
-			class="leanscroll flex max-h-96 flex-col gap-4 overflow-auto px-4 py-4"
+			class="leanscroll flex flex-col gap-4 overflow-auto px-4 py-4 sm:max-h-96"
 		>
 			{#each questions as question, index}
 				<div class="grid grid-cols-2 gap-4">

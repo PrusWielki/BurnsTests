@@ -18,7 +18,7 @@
 	on:keypress={() => {
 		active = true;
 	}}
-	transition:fly={{ y: -screen.height / 2, duration: 1000 }}
+	in:fly={{ y: -screen.height / 2, duration: 1000 }}
 >
 	{#if !active}
 		<div
