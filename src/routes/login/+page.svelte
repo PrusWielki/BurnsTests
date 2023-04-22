@@ -5,7 +5,7 @@
 
 <div
 	id="login_main_container"
-	class="flex h-screen w-screen flex-col items-center justify-center"
+	class="flex h-screen w-screen flex-col items-center justify-center px-6"
 	in:fly={{ y: -600 }}
 >
 	<button

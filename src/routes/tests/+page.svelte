@@ -26,7 +26,7 @@
 	id="home-grid"
 	class="grid h-screen w-screen grid-rows-3 overflow-hidden sm:grid-cols-3 sm:grid-rows-none"
 >
-	<form action="/logout" method="GET" class="fixed left-10 top-10 z-30">
+	<form action="/logout" method="GET" class="fixed left-2 top-2 z-30 sm:left-10 sm:top-10">
 		<button
 			type="submit"
 			class="btn bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
