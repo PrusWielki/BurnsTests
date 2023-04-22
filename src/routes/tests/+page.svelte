@@ -44,7 +44,12 @@
 	{#if !checkIfActive(active)}
 		{#each TEST_NAMES as testName, index}
 			<div id="option-container" class="grid grid-cols-1 grid-rows-1">
-				<Option bind:active={active[index]} {testName} backgroundName={BACKGROUND_NAMES[index]} />
+				<Option
+					bind:active={active[index]}
+					{testName}
+					backgroundName={BACKGROUND_NAMES[index]}
+					allowOnClick
+				/>
 			</div>
 		{/each}
 	{:else}
