@@ -8,6 +8,7 @@
 	import TestComponent from '../../components/test/test_component/test_component.svelte';
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
+	import { fly } from 'svelte/transition';
 	export let data: PageData;
 
 	let active: Array<boolean> = [false, false, false];
@@ -29,12 +30,14 @@
 >
 	<form action="/logout" method="GET" class="fixed left-2 top-2 z-30 sm:left-10 sm:top-10">
 		<button
+			in:fly={{ y: -screen.height / 2, duration: 1000 }}
 			type="submit"
 			class="btn bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
 			>logout</button
 		>
 	</form>
 	<button
+		in:fly={{ y: -screen.height / 2, duration: 1000 }}
 		class="btn fixed right-2 top-2 z-30 bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:right-10 sm:top-10 sm:text-2xl"
 		on:click={() => goto('/results')}>Results</button
 	>
