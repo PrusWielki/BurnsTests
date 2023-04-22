@@ -7,6 +7,7 @@
 	import Option from '../../components/home/option/option.svelte';
 	import TestComponent from '../../components/test/test_component/test_component.svelte';
 	import type { PageData } from './$types';
+	import { goto } from '$app/navigation';
 	export let data: PageData;
 
 	let active: Array<boolean> = [false, false, false];
@@ -33,6 +34,10 @@
 			>logout</button
 		>
 	</form>
+	<button
+		class="btn fixed right-2 top-2 z-30 bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:right-10 sm:top-10 sm:text-2xl"
+		on:click={() => goto('/results')}>Results</button
+	>
 	{#if !checkIfActive(active)}
 		{#each TEST_NAMES as testName, index}
 			<div id="option-container" class="grid grid-cols-1 grid-rows-1">
