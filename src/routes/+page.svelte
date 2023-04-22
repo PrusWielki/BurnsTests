@@ -1,13 +1,18 @@
 <script>
 	import { TITLE } from '../cms/home/home';
 	import { goto } from '$app/navigation';
+	import { fly } from 'svelte/transition';
 </script>
 
 <div
 	id="homepage-wrapper"
 	class="flex h-screen w-screen items-center justify-center bg-[url(/background/wave.svg)] bg-cover"
 >
-	<div id="homepage-container" class="flex flex-col items-center justify-center gap-4">
+	<div
+		id="homepage-container"
+		class="flex flex-col items-center justify-center gap-4"
+		in:fly={{ y: -600 }}
+	>
 		<div id="Title" class="mb-28 text-center text-xl text-zinc-300 sm:text-4xl">{TITLE}</div>
 		<div id="Login-Register-Container" class="flex flex-row gap-4">
 			<button

@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { fly } from 'svelte/transition';
 </script>
 
 <div
 	id="register_main_container"
 	class="flex h-screen w-screen flex-col items-center justify-center"
+	in:fly={{ y: -600 }}
 >
 	<button
 		class="btn mb-8 text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
