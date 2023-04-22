@@ -20,7 +20,7 @@
 <div
 	id="test-wrapper"
 	class="absolute z-10 flex h-full w-screen items-center justify-center"
-	transition:fade={{ delay: 300, duration: 500 }}
+	in:fade={{ delay: 300, duration: 500 }}
 >
 	<div
 		id="test-container"
@@ -97,15 +97,18 @@
 			id="save-button"
 			class="btn w-1/4 font-semibold text-zinc-300 hover:-translate-y-0.5 hover:shadow-md"
 			on:click={async () => {
-				const { error } = await data.supabase.from('Tests').insert({
-					questions: answerSet,
-					user_id: data.session?.user.id,
-					type: title,
-					description: description,
-					created_at: new Date(),
-					questions_sum: answerSet.reduce((a, b) => a + b, 0)
-				});
-				if (error) console.log(error);
+				if (data.session) {
+					const { error } = await data.supabase.from('Tests').insert({
+						questions: answerSet,
+						user_id: data.session.user.id,
+						type: title,
+						description: description,
+						created_at: new Date(),
+						questions_sum: answerSet.reduce((a, b) => a + b, 0)
+					});
+					if (error) console.log(error);
+				}
+
 				active = !active;
 			}}>save</button
 		>
