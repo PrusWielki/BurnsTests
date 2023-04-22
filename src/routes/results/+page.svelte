@@ -21,10 +21,18 @@
 		class="btn fixed right-2 top-2 z-30 bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:right-10 sm:top-10 sm:text-2xl"
 		on:click={() => goto('/tests')}>Tests</button
 	>
-	<Option
-		testName="Results"
-		backgroundName={BACKGROUND_NAMES[0]}
-		on:click={() => console.log('click')}
-	/>
-	<Option testName="Statistics" backgroundName={BACKGROUND_NAMES[1]} />
+	<div
+		id="option-wrapper"
+		on:click={() => goto('/results/results')}
+		on:keypress={() => goto('/results/results')}
+	>
+		<Option testName="Results" backgroundName={BACKGROUND_NAMES[0]} />
+	</div>
+	<div
+		id="option-wrapper"
+		on:click={() => goto('/results/results')}
+		on:keypress={() => goto('/results/statistics')}
+	>
+		<Option testName="Statistics" backgroundName={BACKGROUND_NAMES[1]} />
+	</div>
 </div>
