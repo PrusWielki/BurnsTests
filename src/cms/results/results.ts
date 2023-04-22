@@ -1,5 +1,1 @@
-export const BACKGROUND_NAMES = [
-	'/background/mountains.jpg',
-	'/background/trees.jpg',
-	'/background/animals.jpg'
-];
+export const BACKGROUND_NAMES = ['/background/bridge.jpg', '/background/sarna.jpg'];
