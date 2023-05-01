@@ -1,8 +1,5 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import type { PageData } from '../../../../routes/$types';
-
-	export let data: PageData;
 
 	export let title: string = 'test';
 	export let questions: Array<string> = ['question 1'];
@@ -11,6 +8,7 @@
 	export let helpDescription: Array<string> = ['help'];
 	export let answerSet: Array<number> = Array(questions.length);
 	export let active: boolean = false;
+	export let onSave: Function;
 	let openTooltip: boolean = false;
 	let description: string = '';
 
@@ -96,19 +94,8 @@
 		<button
 			id="save-button"
 			class="btn w-1/4 font-semibold text-zinc-300 hover:-translate-y-0.5 hover:shadow-md"
-			on:click={async () => {
-				if (data.session) {
-					const { error } = await data.supabase.from('Tests').insert({
-						questions: answerSet,
-						user_id: data.session.user.id,
-						type: title,
-						description: description,
-						created_at: new Date(),
-						questions_sum: answerSet.reduce((a, b) => a + b, 0)
-					});
-					if (error) console.log(error);
-				}
-
+			on:click={() => {
+				onSave(answerSet, title, description);
 				active = !active;
 			}}>save</button
 		>

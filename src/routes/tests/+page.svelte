@@ -22,6 +22,21 @@
 		}
 		return false;
 	};
+	const onSave = (answerSet: Array<number>, title: string, description: string) => {
+		async () => {
+			if (data.session) {
+				const { error } = await data.supabase.from('Tests').insert({
+					questions: answerSet,
+					user_id: data.session.user.id,
+					type: title,
+					description: description,
+					created_at: new Date(),
+					questions_sum: answerSet.reduce((a, b) => a + b, 0)
+				});
+				if (error) console.log(error);
+			}
+		};
+	};
 </script>
 
 <div
@@ -65,7 +80,7 @@
 			maxRange={MAX_RANGES[activeIndex]}
 			minRange={MIN_RANGES[activeIndex]}
 			helpDescription={TEST_DESCRIPTION_HELP[activeIndex]}
-			{data}
+			{onSave}
 		/>
 	{/if}
 </div>
