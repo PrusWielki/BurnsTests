@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import type { PageData } from '../../../routes/$types';
+	import type { PageData } from '../../../../routes/$types';
 
 	export let data: PageData;
 
