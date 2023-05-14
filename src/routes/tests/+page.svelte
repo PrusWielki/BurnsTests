@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { TEST_NAMES, BACKGROUND_NAMES } from '../../cms/tests/tests';
-	import { QUESTION_SET } from '../../cms/tests/questions';
-	import { TITLES } from '../../cms/tests/titles';
-	import { MAX_RANGES, MIN_RANGES } from '../../cms/tests/ranges';
-	import { TEST_DESCRIPTION_HELP } from '../../cms/tests/description';
-	import Option from '../../components/home/option/option.svelte';
-	import TestComponent from '../../components/test/test_component/test_component.svelte';
+	import { TEST_NAMES, BACKGROUND_NAMES } from '$lib/cms/tests/tests';
+	import { QUESTION_SET } from '$lib/cms/tests/questions';
+	import { TITLES } from '$lib/cms/tests/titles';
+	import { MAX_RANGES, MIN_RANGES } from '$lib/cms/tests/ranges';
+	import { TEST_DESCRIPTION_HELP } from '$lib/cms/tests/description';
+	import Option from '$lib/components/home/option/option.svelte';
+	import TestComponent from '$lib/components/test/test_component/test_component.svelte';
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
@@ -21,6 +21,20 @@
 			}
 		}
 		return false;
+	};
+	const onSave = async (answerSet: Array<number>, title: string, description: string) => {
+		console.log(data.session);
+		if (data.session) {
+			const { error } = await data.supabase.from('Tests').insert({
+				questions: answerSet,
+				user_id: data.session.user.id,
+				type: title,
+				description: description,
+				created_at: new Date(),
+				questions_sum: answerSet.reduce((a, b) => a + b, 0)
+			});
+			if (error) console.log(error);
+		}
 	};
 </script>
 
@@ -65,7 +79,7 @@
 			maxRange={MAX_RANGES[activeIndex]}
 			minRange={MIN_RANGES[activeIndex]}
 			helpDescription={TEST_DESCRIPTION_HELP[activeIndex]}
-			{data}
+			{onSave}
 		/>
 	{/if}
 </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Option from '../../components/home/option/option.svelte';
-	import { BACKGROUND_NAMES } from '../../cms/results/results';
+	import Option from '$lib/components/home/option/option.svelte';
+	import { BACKGROUND_NAMES } from '$lib/cms/results/results';
 	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 </script>
