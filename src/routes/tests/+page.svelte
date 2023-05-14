@@ -22,20 +22,19 @@
 		}
 		return false;
 	};
-	const onSave = (answerSet: Array<number>, title: string, description: string) => {
-		async () => {
-			if (data.session) {
-				const { error } = await data.supabase.from('Tests').insert({
-					questions: answerSet,
-					user_id: data.session.user.id,
-					type: title,
-					description: description,
-					created_at: new Date(),
-					questions_sum: answerSet.reduce((a, b) => a + b, 0)
-				});
-				if (error) console.log(error);
-			}
-		};
+	const onSave = async (answerSet: Array<number>, title: string, description: string) => {
+		console.log(data.session);
+		if (data.session) {
+			const { error } = await data.supabase.from('Tests').insert({
+				questions: answerSet,
+				user_id: data.session.user.id,
+				type: title,
+				description: description,
+				created_at: new Date(),
+				questions_sum: answerSet.reduce((a, b) => a + b, 0)
+			});
+			if (error) console.log(error);
+		}
 	};
 </script>
 
