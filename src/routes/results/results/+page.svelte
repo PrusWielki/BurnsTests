@@ -26,8 +26,6 @@
 		}
 	};
 	$: updateTestsData(paginationResult.from, paginationResult.to);
-
-	$: console.log(page, paginationResult);
 </script>
 
 <div
