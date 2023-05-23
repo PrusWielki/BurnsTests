@@ -24,7 +24,7 @@
 	<a
 		id="navbar-results-button"
 		in:fly={{ y: -screen.height / 2, duration: 1000 }}
-		class="btn z-30 bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg active:bg-black sm:text-2xl"
+		class="btn z-30 bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
 		on:click={() => goto('/results')}
 		on:keydown={() => goto('/results')}>Results</a
 	>
