@@ -3,22 +3,28 @@
 	import { goto } from '$app/navigation';
 </script>
 
-<button
-	in:fly={{ y: -screen.height / 2, duration: 1000 }}
-	class="btn fixed right-2 top-2 z-30 bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:right-10 sm:top-10 sm:text-2xl"
-	on:click={() => goto('/results')}>Results</button
->
-<button
-	in:fly={{ y: -screen.height / 2, duration: 1000 }}
-	class="btn fixed right-2 top-2 z-30 bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:right-10 sm:top-10 sm:text-2xl"
-	on:click={() => goto('/tests')}>Tests</button
->
-<form action="/logout" method="GET" class="fixed left-2 top-2 z-30 sm:left-10 sm:top-10">
-	<button
+<div id="navbar-container" class="fixed right-0 z-30 flex flex-row gap-1 px-1 py-1">
+	<a
+		id="navbar-tests-button"
+		in:fly={{ y: -screen.height / 2, duration: 1000 }}
+		class="btn z-30 bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
+		on:click={() => goto('/tests')}
+		on:keydown={() => goto('/tests')}>Tests</a
+	>
+	<a
+		id="navbar-results-button"
+		in:fly={{ y: -screen.height / 2, duration: 1000 }}
+		class="btn z-30 bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg active:bg-black sm:text-2xl"
+		on:click={() => goto('/results')}
+		on:keydown={() => goto('/results')}>Results</a
+	>
+	<a
+		id="navbar-logout-button"
 		in:fly={{ y: -screen.height / 2, duration: 1000 }}
 		type="submit"
-		class="btn bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
-		>logout</button
+		class="btn z-30 bg-transparent text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
+		on:click={() => goto('/logout')}
+		on:keydown={() => goto('/logout')}>logout</a
 	>
-</form>
+</div>
 <slot />
