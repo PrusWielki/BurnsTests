@@ -2,7 +2,7 @@
 	import { getPagination } from '../../../../hooks/pagination';
 	import { fly } from 'svelte/transition';
 	import type { PageData } from './$types';
-
+	import { getTestsData } from '../../../../hooks/test_data';
 	export let data: PageData;
 
 	let { testData, supabase } = data;
@@ -11,27 +11,19 @@
 	let paginationResult: { from: number; to: number };
 	$: paginationResult = getPagination(page);
 
-	const getTestsData = async (from: number, to: number) => {
-		const { data } = await supabase
-			.from('Tests')
-			.select()
-			.order('created_at', { ascending: false })
-			.range(from, to);
-		return data;
-	};
 	type TestDataResponse = Awaited<ReturnType<typeof getTestsData>>;
-	// type MoviesResponseSuccess = TestDataResponse['data'];
-	let filteredTestData: TestDataResponse | undefined;
+	type TestDataResponseSuccess = TestDataResponse['data'];
+	let filteredTestData: TestDataResponseSuccess | undefined;
 	const updateTestsData = (from: number, to: number) => {
 		if (from !== 0) {
-			getTestsData(from, to).then((result) => {
-				if (testData !== null && result !== null) {
-					testData = testData.concat(result);
+			getTestsData(from, to, supabase).then((result) => {
+				if (testData !== null && result.data !== null) {
+					testData = testData.concat(result.data);
 				}
 			});
 		}
 	};
-	const filterTestData = (type: string, testData: TestDataResponse) => {
+	const filterTestData = (type: string, testData: TestDataResponseSuccess) => {
 		if (type !== 'All') filteredTestData = testData?.filter((test) => test.type === type && test);
 		else filteredTestData = testData;
 	};
