@@ -4,16 +4,15 @@
 	import type { PageData } from './$types';
 	import { getTestsData } from '../../../../hooks/test_data';
 	export let data: PageData;
+	type TestDataResponse = Awaited<ReturnType<typeof getTestsData>>;
+	type TestDataResponseSuccess = TestDataResponse['data'];
 
 	let { testData, supabase } = data;
 	let page: number = 0;
 	let type: string = 'All';
 	let paginationResult: { from: number; to: number };
-	$: paginationResult = getPagination(page);
-
-	type TestDataResponse = Awaited<ReturnType<typeof getTestsData>>;
-	type TestDataResponseSuccess = TestDataResponse['data'];
 	let filteredTestData: TestDataResponseSuccess | undefined;
+
 	const updateTestsData = (from: number, to: number) => {
 		if (from !== 0) {
 			getTestsData(from, to, supabase).then((result) => {
@@ -23,10 +22,13 @@
 			});
 		}
 	};
+
 	const filterTestData = (type: string, testData: TestDataResponseSuccess) => {
 		if (type !== 'All') filteredTestData = testData?.filter((test) => test.type === type && test);
 		else filteredTestData = testData;
 	};
+
+	$: paginationResult = getPagination(page);
 	$: updateTestsData(paginationResult.from, paginationResult.to);
 	$: filterTestData(type, testData);
 </script>
@@ -37,7 +39,7 @@
 	in:fly={{ y: -screen.height / 2, duration: 1000 }}
 >
 	<div id="filters-container" class="flex-col items-center justify-center py-2">
-		<p class="text-center text-xl text-zinc-300 sm:text-2xl">Filters</p>
+		<p class="mb-2 text-center text-xl text-zinc-300 sm:text-2xl">Filters</p>
 		<select bind:value={type} class="select-bordered select">
 			<option value="All">All</option>
 			<option value="Depression">Depression</option>
