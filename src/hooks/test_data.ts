@@ -26,3 +26,15 @@ export const getTestDataByType = async (
 		.order('created_at', { ascending: false })
 		.range(from, to);
 };
+export const getTestDataByDate = async (
+	supabase: SupabaseClient<Database>,
+	dateFrom: Date,
+	dateTo: Date
+) => {
+	return await supabase
+		.from('Tests')
+		.select()
+		.gt('created_at', dateFrom)
+		.lt('created_at', dateTo)
+		.order('created_at', { ascending: false });
+};
