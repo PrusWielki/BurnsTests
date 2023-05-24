@@ -8,12 +8,16 @@
 	type TestDataResponseSuccess = TestDataResponse['data'];
 
 	let testData: TestDataResponseSuccess;
-	let dateFrom: Date = new Date(1995, 11, 17);
+	let dateFrom: Date = new Date(2023, 4, 10);
 	let dateTo: Date = new Date();
 
-	$: getTestDataByDate(supabase, dateFrom, dateTo).then((response) => {
-		testData = response.data;
-	});
+	const getTestData = (dateFrom: Date, dateTo: Date) => {
+		getTestDataByDate(supabase, dateFrom, dateTo).then((response) => {
+			testData = response.data;
+			console.log(testData);
+		});
+	};
+	$: getTestData(dateFrom, dateTo);
 </script>
 
 <div
@@ -23,13 +27,18 @@
 />
 <svg width="300" height="100">
 	<!-- x axis -->
-	{#if testData !== null}
-		{#each testData as test}
+	{#if testData !== null && testData !== undefined}
+		{#each Array(testData.length - 1) as _, index}
 			<!-- need to somehow access the next element also here :) and then draw the lines :)-->
-			<line />
+			<line
+				x1={index * 5}
+				y1={testData[index].questions_sum * 5}
+				x2={(index + 1) * 5}
+				y2={testData[index + 1].questions_sum * 5}
+				style="stroke:rgb(255,255,255);stroke-width:2"
+			/>
 		{/each}
 	{/if}
-	<line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />
 	<g class="x" transform="translate(0,120)">
 		<text x="0">0</text>
 		<text x="60">2</text>
@@ -37,13 +46,5 @@
 		<text x="180">6</text>
 		<text x="240">8</text>
 		<text x="300">10</text>
-	</g>
-
-	<!-- y axis -->
-	<line x1="0" x2="0" y1="0" y2="100" />
-	<g class="y" transform="translate(-10,0)">
-		<text y="100">0</text>
-		<text y="50">50</text>
-		<text y="0">100</text>
 	</g>
 </svg>

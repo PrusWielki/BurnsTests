@@ -34,7 +34,7 @@ export const getTestDataByDate = async (
 	return await supabase
 		.from('Tests')
 		.select()
-		.gt('created_at', dateFrom)
-		.lt('created_at', dateTo)
+		.lt('created_at', dateTo.toISOString())
+		.gt('created_at', dateFrom.toISOString())
 		.order('created_at', { ascending: false });
 };
