@@ -4,6 +4,7 @@
 	import type { PageData } from './$types';
 	export let data: PageData;
 	let { supabase } = data;
+	let email: string;
 </script>
 
 <div
@@ -24,7 +25,13 @@
 	>
 		<div class="grid grid-cols-2">
 			<label for="" class="text-center text-slate-300 sm:text-2xl"> Email </label>
-			<input type="text" name="email" class="input-bordered input" placeholder="..." />
+			<input
+				type="text"
+				name="email"
+				class="input-bordered input"
+				bind:value={email}
+				placeholder="..."
+			/>
 		</div>
 		<div class="grid grid-cols-2">
 			<label for="" class="text-center text-slate-300 sm:text-2xl"> Password </label>
@@ -38,9 +45,13 @@
 	</form>
 	<button
 		on:click={async () => {
-			await supabase.auth.resetPasswordForEmail('hello@example.com', {
-				redirectTo: 'https://burns-tests.vercel.app/updatepassword'
-			});
+			if (!email) alert('Please enter email');
+			else {
+				await supabase.auth.resetPasswordForEmail(email, {
+					redirectTo: 'https://burns-tests.vercel.app/updatepassword'
+				});
+				alert('Check your email inbox');
+			}
 		}}
 		class="btn mt-6 text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
 		>Reset Password</button
