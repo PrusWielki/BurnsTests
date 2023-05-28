@@ -10,7 +10,7 @@
 
 <div
 	id="login_main_container"
-	class="flex h-screen w-screen flex-col items-center justify-center px-6"
+	class="flex h-screen w-screen flex-col items-center justify-center gap-2 px-6"
 	in:fly={{ y: -600 }}
 >
 	<div class="grid grid-cols-2">
@@ -26,7 +26,7 @@
 	<div class="grid grid-cols-2">
 		<label for="" class="text-center text-slate-300 sm:text-2xl"> Repeat Password </label>
 		<input
-			type="repeat-password"
+			type="password"
 			name="repeat-password"
 			class="input-bordered input"
 			placeholder="..."
@@ -36,8 +36,10 @@
 
 	<button
 		on:click={async () => {
-			if (password === repeatedPassword)
+			if (password === repeatedPassword) {
 				await supabase.auth.updateUser({ password: repeatedPassword });
+				goto('/login');
+			}
 		}}
 		class="btn mt-6 text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
 		>Reset Password</button
