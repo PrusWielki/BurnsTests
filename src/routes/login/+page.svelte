@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
+	import type { PageData } from './$types';
+	export let data: PageData;
+	let { supabase } = data;
 </script>
 
 <div
@@ -33,4 +36,13 @@
 			>Login</button
 		>
 	</form>
+	<button
+		on:click={async () => {
+			await supabase.auth.resetPasswordForEmail('hello@example.com', {
+				redirectTo: 'https://burns-tests.vercel.app/updatepassword'
+			});
+		}}
+		class="btn mt-6 text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
+		>Reset Password</button
+	>
 </div>
