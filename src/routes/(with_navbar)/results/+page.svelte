@@ -17,7 +17,7 @@
 	</div>
 	<div
 		id="option-wrapper"
-		on:click={() => goto('/results/results')}
+		on:click={() => goto('/results/statistics')}
 		on:keypress={() => goto('/results/statistics')}
 	>
 		<Option testName="Statistics" backgroundName={BACKGROUND_NAMES[1]} />
