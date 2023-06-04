@@ -13,14 +13,16 @@
 		class="flex flex-col items-center justify-center gap-4"
 		in:fly={{ y: -600 }}
 	>
-		<div id="Title" class="mb-28 text-center text-xl text-zinc-300 sm:text-4xl">{TITLE}</div>
+		<div id="Title" class="mb-28 text-center text-4xl font-bold text-zinc-300 sm:text-5xl">
+			{TITLE}
+		</div>
 		<div id="Login-Register-Container" class="flex flex-row gap-4">
 			<button
-				class="btn text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
+				class="btn text-2xl text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-3xl"
 				on:click={() => goto('/login')}>Login</button
 			>
 			<button
-				class="btn text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
+				class="btn text-2xl text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-3xl"
 				on:click={() => goto('/register')}>Register</button
 			>
 		</div>
