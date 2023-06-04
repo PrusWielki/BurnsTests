@@ -12,11 +12,9 @@
 	class="flex h-screen w-screen flex-col items-center justify-center px-6"
 	in:fly={{ y: -600 }}
 >
-	<button
+	<a
 		class="btn mb-8 text-2xl text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-3xl"
-		on:click={() => {
-			goto('/');
-		}}>Back</button
+		href="/">Back</a
 	>
 	<form
 		action="?/login"
