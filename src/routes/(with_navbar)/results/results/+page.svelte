@@ -31,6 +31,7 @@
 	$: paginationResult = getPagination(page);
 	$: updateTestsData(paginationResult.from, paginationResult.to);
 	$: filterTestData(type, testData);
+	$: console.log(testData);
 </script>
 
 <div
@@ -73,12 +74,14 @@
 				</div>
 			{/each}
 		</div>
-		<button
-			class="btn mt-2"
-			on:click={() => {
-				page++;
-			}}>show more</button
-		>
+		{#if testData && testData.length == paginationResult.to - paginationResult.from + 2}
+			<button
+				class="btn mt-2"
+				on:click={() => {
+					page++;
+				}}>show more</button
+			>
+		{/if}
 	{/if}
 </div>
 
