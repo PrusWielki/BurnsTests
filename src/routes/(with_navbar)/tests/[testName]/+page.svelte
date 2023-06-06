@@ -17,11 +17,7 @@
 	for (let i = 0; i < questions.length; ++i) answerSet[i] = 0;
 </script>
 
-<div
-	id="test-wrapper"
-	class=" flex h-screen w-screen items-center justify-center"
-	in:fade={{ delay: 300, duration: 500 }}
->
+<div id="test-wrapper" class=" flex h-screen w-screen items-center justify-center">
 	<img
 		class=" absolute -z-10 h-screen w-screen bg-opacity-50 bg-cover blur-sm"
 		src={backgroundName}
@@ -31,6 +27,7 @@
 	<div
 		id="test-container"
 		class="flex h-5/6 max-h-fit w-full flex-col items-center justify-between gap-4 rounded-md bg-zinc-600 py-4 sm:h-4/6 sm:w-3/6"
+		in:fade={{ delay: 300, duration: 300 }}
 	>
 		<div id="back-title-help-container" class="flex w-full justify-between px-2">
 			<a class="btn w-1/5 text-zinc-300" href="/tests"> back </a>
