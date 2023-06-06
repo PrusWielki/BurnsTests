@@ -31,7 +31,6 @@
 	$: paginationResult = getPagination(page);
 	$: updateTestsData(paginationResult.from, paginationResult.to);
 	$: filterTestData(type, testData);
-	$: console.log(testData);
 </script>
 
 <div

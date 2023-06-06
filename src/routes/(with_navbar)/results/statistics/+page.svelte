@@ -15,7 +15,6 @@
 		getTestDataByDate(supabase, dateFrom, dateTo).then((response) => {
 			testData = response.data;
 			testData = testData?.filter((test) => test.type === 'Anxiety');
-			console.log(testData);
 		});
 	};
 	$: getTestData(dateFrom, dateTo);
