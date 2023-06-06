@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { TEST_NAMES, BACKGROUND_NAMES } from '$lib/cms/tests/tests';
-	import { fly } from 'svelte/transition';
 	import Option from '$lib/components/option/option.svelte';
 </script>
 
