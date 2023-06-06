@@ -38,3 +38,19 @@ export const getTestDataByDate = async (
 		.gt('created_at', dateFrom.toISOString())
 		.order('created_at', { ascending: false });
 };
+export const insertTest = async (
+	supabase: SupabaseClient<Database>,
+	answerSet: Array<number>,
+	title: string,
+	description: string,
+	userId: string
+) => {
+	return await supabase.from('Tests').insert({
+		questions: answerSet,
+		user_id: userId,
+		type: title,
+		description: description,
+		created_at: new Date(),
+		questions_sum: answerSet.reduce((a, b) => a + b, 0)
+	});
+};
