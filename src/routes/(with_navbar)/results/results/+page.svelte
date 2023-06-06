@@ -12,11 +12,13 @@
 	let type: string = 'All';
 	let paginationResult: { from: number; to: number };
 	let filteredTestData: TestDataResponseSuccess | undefined;
+	let returnedTestData: TestDataResponseSuccess | undefined = testData;
 
 	const updateTestsData = (from: number, to: number) => {
 		if (from !== 0) {
 			getTestsData(from, to, supabase).then((result) => {
 				if (testData !== null && result.data !== null) {
+					returnedTestData = result.data;
 					testData = testData.concat(result.data);
 				}
 			});
@@ -73,7 +75,7 @@
 				</div>
 			{/each}
 		</div>
-		{#if testData && testData.length == paginationResult.to - paginationResult.from + 2}
+		{#if returnedTestData && returnedTestData.length >= paginationResult.to - paginationResult.from + 1}
 			<button
 				class="btn mt-2"
 				on:click={() => {
