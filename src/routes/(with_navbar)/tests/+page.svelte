@@ -1,72 +1,26 @@
 <script lang="ts">
 	import { TEST_NAMES, BACKGROUND_NAMES } from '$lib/cms/tests/tests';
-	import { QUESTION_SET } from '$lib/cms/tests/questions';
-	import { TITLES } from '$lib/cms/tests/titles';
-	import { MAX_RANGES, MIN_RANGES } from '$lib/cms/tests/ranges';
-	import { TEST_DESCRIPTION_HELP } from '$lib/cms/tests/description';
-	import Option from '$lib/components/home/option/option.svelte';
-	import TestComponent from '$lib/components/test/test_component/test_component.svelte';
-	import type { PageData } from './$types';
-	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
-	export let data: PageData;
-
-	let active: Array<boolean> = [false, false, false];
-	let activeIndex: number = 0;
-	const checkIfActive = (active: Array<boolean>) => {
-		for (let i = 0; i < active.length; i++) {
-			if (active[i] === true) {
-				activeIndex = i;
-				return true;
-			}
-		}
-		return false;
-	};
-	const onSave = async (answerSet: Array<number>, title: string, description: string) => {
-		console.log(data.session);
-		if (data.session) {
-			const { error } = await data.supabase.from('Tests').insert({
-				questions: answerSet,
-				user_id: data.session.user.id,
-				type: title,
-				description: description,
-				created_at: new Date(),
-				questions_sum: answerSet.reduce((a, b) => a + b, 0)
-			});
-			if (error) console.log(error);
-		}
-	};
 </script>
 
 <div
 	id="home-grid"
 	class="grid h-screen w-screen grid-rows-3 overflow-hidden sm:grid-cols-3 sm:grid-rows-none"
 >
-	{#if !checkIfActive(active)}
-		{#each TEST_NAMES as testName, index}
-			<div id="option-container" class="grid grid-cols-1 grid-rows-1">
-				<Option
-					bind:active={active[index]}
-					{testName}
-					backgroundName={BACKGROUND_NAMES[index]}
-					allowOnClick
-				/>
+	{#each TEST_NAMES as testName, index}
+		<a
+			id="option-wrapper"
+			style="background-image: url({BACKGROUND_NAMES[index]})"
+			class="group flex h-full w-full cursor-pointer items-center justify-center bg-opacity-80 bg-cover bg-center after:relative after:left-0 after:top-0 after:h-full after:w-full after:bg-black after:bg-opacity-30 after:transition-all after:duration-500 after:content-[''] hover:after:opacity-10 sm:h-screen"
+			href={`/tests/${testName.toLowerCase()}`}
+			in:fly={{ y: -screen.height / 2, duration: 1000 }}
+		>
+			<div
+				id="option"
+				class="absolute z-10 font-sans text-4xl font-bold text-white transition duration-300 group-hover:-translate-y-1 md:text-4xl xl:text-6xl"
+			>
+				{testName}
 			</div>
-		{/each}
-	{:else}
-		<Option
-			bind:active={active[activeIndex]}
-			testName={TEST_NAMES[activeIndex]}
-			backgroundName={BACKGROUND_NAMES[activeIndex]}
-		/>
-		<TestComponent
-			bind:active={active[activeIndex]}
-			questions={QUESTION_SET[activeIndex]}
-			title={TITLES[activeIndex]}
-			maxRange={MAX_RANGES[activeIndex]}
-			minRange={MIN_RANGES[activeIndex]}
-			helpDescription={TEST_DESCRIPTION_HELP[activeIndex]}
-			{onSave}
-		/>
-	{/if}
+		</a>
+	{/each}
 </div>

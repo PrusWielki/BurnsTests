@@ -1,14 +1,16 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
+	import type { PageData } from './$types';
+	import { insertTest } from '../../../../hooks/test_data';
 
-	export let title: string = 'test';
-	export let questions: Array<string> = ['question 1'];
-	export let minRange: number = 0;
-	export let maxRange: number = 4;
-	export let helpDescription: Array<string> = ['help'];
+	export let data: PageData;
+	export let title: string = data.title || 'test';
+	export let questions: Array<string> = data.questions || ['question 1'];
+	export let minRange: number = data.minRange || 0;
+	export let maxRange: number = data.maxRange || 4;
+	export let helpDescription: Array<string> = data.helpDescription || ['help'];
+	export let backgroundName: string = data.backgroundName || '';
 	export let answerSet: Array<number> = Array(questions.length);
-	export let active: boolean = false;
-	export let onSave: Function;
 	let openTooltip: boolean = false;
 	let description: string = '';
 
@@ -17,25 +19,21 @@
 
 <div
 	id="test-wrapper"
-	class="absolute z-10 flex h-full w-screen items-center justify-center"
+	class=" flex h-screen w-screen items-center justify-center"
 	in:fade={{ delay: 300, duration: 500 }}
 >
+	<img
+		class=" absolute -z-10 h-screen w-screen bg-opacity-50 bg-cover blur-sm"
+		src={backgroundName}
+		alt="Background"
+		in:fly={{ y: -screen.height / 2, duration: 1000 }}
+	/>
 	<div
 		id="test-container"
 		class="flex h-5/6 max-h-fit w-full flex-col items-center justify-between gap-4 rounded-md bg-zinc-600 py-4 sm:h-4/6 sm:w-3/6"
 	>
 		<div id="back-title-help-container" class="flex w-full justify-between px-2">
-			<div
-				class="btn w-1/5 text-zinc-300"
-				on:click={() => {
-					active = !active;
-				}}
-				on:keypress={() => {
-					active = !active;
-				}}
-			>
-				back
-			</div>
+			<a class="btn w-1/5 text-zinc-300" href="/tests"> back </a>
 			<div class="mx-auto text-center font-sans text-4xl font-bold capitalize text-zinc-300">
 				{title}
 			</div>
@@ -95,8 +93,8 @@
 			id="save-button"
 			class="btn w-1/4 font-semibold text-zinc-300 hover:-translate-y-0.5 hover:shadow-md"
 			on:click={() => {
-				onSave(answerSet, title, description);
-				active = !active;
+				if (data.session)
+					insertTest(data.supabase, answerSet, title, description, data.session.user.id);
 			}}>save</button
 		>
 	</div>

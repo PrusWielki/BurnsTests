@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { goto } from '$app/navigation';
 	// import { browser } from '$app/environment';
 </script>
 
-<div id="navbar-container" class="fixed right-0 z-30 flex flex-row gap-1 px-1 py-1">
+<div
+	id="navbar-container"
+	class="fixed right-0 z-30 flex flex-row gap-1 px-1 py-1"
+	in:fly={{ y: -screen.height / 2, duration: 1000 }}
+>
 	<!-- {#if browser && history.length > 2}
 		<a
 			id="navbar-tests-button"
