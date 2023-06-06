@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 	import type { PageData } from './$types';
 	export let data: PageData;
