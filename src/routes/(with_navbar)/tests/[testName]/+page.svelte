@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fade, fly } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import type { PageData } from './$types';
 	import { insertTest } from '../../../../hooks/test_data';
 	import { browser } from '$app/environment';
