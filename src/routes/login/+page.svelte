@@ -4,7 +4,6 @@
 	export let data: PageData;
 	let { supabase } = data;
 	let email: string;
-
 </script>
 
 <div
@@ -62,7 +61,6 @@
 			}
 		}}
 		class="btn mt-6 text-2xl text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-3xl"
-
 		>Reset Password</button
 	>
 </div>

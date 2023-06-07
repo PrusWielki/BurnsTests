@@ -14,6 +14,7 @@
 	let filteredTestData: TestDataResponseSuccess | undefined;
 	let returnedTestData: TestDataResponseSuccess | undefined = testData;
 
+
 	const updateTestsData = (from: number, to: number) => {
 		if (from !== 0) {
 			getTestsData(from, to, supabase).then((result) => {
