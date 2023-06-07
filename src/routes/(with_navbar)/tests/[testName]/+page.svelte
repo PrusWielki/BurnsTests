@@ -37,7 +37,7 @@
 >
 	<div
 		id="test-wrapper "
-		class={`flex h-screen place-items-center bg-zinc-600 px-1 py-14 transition-all duration-500 sm:px-4 ${
+		class={`flex h-screen items-center justify-center bg-zinc-600 px-1 py-14 transition-all duration-500 sm:px-4 ${
 			showResults ? '-order-1 sm:w-1/4' : 'sm:w-3/4'
 		}`}
 	>
@@ -92,7 +92,7 @@
 				disabled={showResults}
 				on:click={() => {
 					if (data.session) {
-						// insertTest(data.supabase, answerSet, title, description, data.session.user.id);
+						insertTest(data.supabase, answerSet, title, description, data.session.user.id);
 						showResults = true;
 					}
 				}}>save</button
