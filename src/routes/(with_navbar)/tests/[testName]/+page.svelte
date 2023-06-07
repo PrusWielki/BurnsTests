@@ -29,12 +29,14 @@
 <svelte:window bind:innerWidth={windowWidth} bind:scrollY />
 <div
 	id="test-page-wrapper"
-	class="grid w-screen grid-rows-2 items-center justify-center sm:flex sm:h-screen sm:grid-rows-none sm:flex-row sm:place-content-start"
+	class={`flex w-screen flex-col ${
+		showResults && 'flex-col-reverse'
+	} items-center justify-center sm:flex sm:h-screen sm:grid-rows-none sm:flex-row sm:place-content-start`}
 >
 	<div
 		id="test-wrapper "
 		class={`flex h-screen place-items-center bg-zinc-600 transition-all duration-500 ${
-			showResults ? 'sm:w-1/4' : 'sm:w-3/4'
+			showResults ? '-order-1 sm:w-1/4' : 'sm:w-3/4'
 		}`}
 	>
 		<div
@@ -63,6 +65,7 @@
 								bind:value={answerSet[index]}
 								class="range range-sm"
 								step={1}
+								disabled={showResults}
 							/>
 							<div class="flex w-full justify-between px-2 text-xs">
 								{#each Array(maxRange + 1) as _, i}
@@ -105,13 +108,13 @@
 	</div>
 	<div
 		id="prose-wrapper"
-		class={`leanscroll h-4/5 overflow-auto px-4 transition-all duration-500 ${
-			showResults ? 'sm:w-3/4' : 'sm:w-1/4'
+		class={`leanscroll flex h-screen items-center  overflow-auto px-4 transition-all duration-500 ${
+			showResults ? 'order-1 sm:w-3/4' : 'sm:w-1/4'
 		} `}
 	>
 		<article
 			class={`prose-lg text-center text-zinc-300 sm:prose-xl ${
-				showResults && 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
+				showResults && 'sm:absolute sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2'
 			}`}
 			in:fade={{ duration: 300 }}
 		>
