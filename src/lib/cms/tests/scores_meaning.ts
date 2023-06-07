@@ -1,12 +1,12 @@
 export const SCORES_MEANING_RANGES_DEPRESSION = ['0', '1-2', '3-5', '6-10', '11-15', '16-20'];
 export const SCORES_MEANING_RANGES_ANXIETY = ['0', '1-2', '3-5', '6-10', '11-15', '16-20'];
 export const SCORES_MEANING_RANGES_RELATIONSHIPS = [
-	'0-10',
-	'11-15',
-	'16-20',
-	'21-25',
-	'26-28',
-	'29-30'
+	'0-16',
+	'7-23',
+	'23-28',
+	'29-34',
+	'35-39',
+	'40-42'
 ];
 
 export const SCORE_MEANING_SHORT_DESCRIPTION_DEPRESSION = [
