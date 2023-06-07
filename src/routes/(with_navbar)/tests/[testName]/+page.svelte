@@ -12,6 +12,8 @@
 	export let helpDescription: Array<string> = data.helpDescription || ['help'];
 	export let generalHelpDescription = data.generalHelpDescription;
 	export let answerSet: Array<number> = Array(questions.length);
+	export let scoresMeaningRanges: Array<string> = data.scoresMeaningRanges;
+	export let scoresMeaningShortDescription: Array<string> = data.scoresMeaningShortDescription;
 	let showResults: boolean = false;
 	let description: string = '';
 	let scrolled: boolean = false;
@@ -123,8 +125,8 @@
 					<h1>Total Score</h1>
 					<h3>{answerSet.reduce((a, b) => a + b, 0)}</h3>
 					<h1>Meaning of the score</h1>
-					{#each helpDescription as description, index}
-						{index}. {description} <br />
+					{#each scoresMeaningRanges as scoreMeaningRange, index}
+						{scoreMeaningRange}. {scoresMeaningShortDescription[index]}<br />
 					{/each}
 				</div>
 			{:else}
