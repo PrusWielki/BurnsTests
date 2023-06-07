@@ -35,16 +35,16 @@
 >
 	<div
 		id="test-wrapper "
-		class={`flex h-screen place-items-center bg-zinc-600 transition-all duration-500 ${
+		class={`flex h-screen place-items-center bg-zinc-600 px-1 py-14 transition-all duration-500 sm:px-4 ${
 			showResults ? '-order-1 sm:w-1/4' : 'sm:w-3/4'
 		}`}
 	>
 		<div
 			id="test-container"
-			class="flex h-5/6 w-full flex-col items-center gap-4 rounded-md bg-zinc-600 px-1 py-14 sm:gap-12 sm:px-4"
+			class="flex h-5/6 w-fit flex-col items-center gap-4 rounded-md bg-zinc-600 sm:gap-12"
 			in:fade={{ duration: 300 }}
 		>
-			<h1 class="mx-auto text-center font-sans text-4xl font-bold capitalize text-zinc-300">
+			<h1 class=" text-center font-sans text-4xl font-bold capitalize text-zinc-300">
 				{title}
 			</h1>
 			<div
