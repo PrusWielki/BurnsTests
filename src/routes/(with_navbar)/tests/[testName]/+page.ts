@@ -3,8 +3,11 @@ import { TEST_NAMES_LOWER, BACKGROUND_NAMES } from '$lib/cms/tests/tests';
 import { QUESTION_SET } from '$lib/cms/tests/questions';
 import { TITLES } from '$lib/cms/tests/titles';
 import { MAX_RANGES, MIN_RANGES } from '$lib/cms/tests/ranges';
-import { TEST_DESCRIPTION_HELP } from '$lib/cms/tests/description';
-
+import { GENERAL_TEST_DESCRIPTION_HELP, TEST_DESCRIPTION_HELP } from '$lib/cms/tests/description';
+import {
+	SCORES_MEANING_RANGES,
+	SCORES_MEANING_SHORT_DESCRIPTION
+} from '$lib/cms/tests/scores_meaning.js';
 export function load({ params }) {
 	const index = TEST_NAMES_LOWER.indexOf(params.testName);
 	if (-1 === index) throw error(404, 'Not found');
@@ -15,6 +18,9 @@ export function load({ params }) {
 		minRange: MIN_RANGES[index],
 		maxRange: MAX_RANGES[index],
 		helpDescription: TEST_DESCRIPTION_HELP[index],
-		backgroundName: BACKGROUND_NAMES[index]
+		generalHelpDescription: GENERAL_TEST_DESCRIPTION_HELP[index],
+		backgroundName: BACKGROUND_NAMES[index],
+		scoresMeaningRanges: SCORES_MEANING_RANGES[index],
+		scoresMeaningShortDescription: SCORES_MEANING_SHORT_DESCRIPTION[index]
 	};
 }

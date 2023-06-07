@@ -14,7 +14,6 @@
 	let filteredTestData: TestDataResponseSuccess | undefined;
 	let returnedTestData: TestDataResponseSuccess | undefined = testData;
 
-
 	const updateTestsData = (from: number, to: number) => {
 		if (from !== 0) {
 			getTestsData(from, to, supabase).then((result) => {
@@ -93,7 +92,7 @@
 		margin-left: 10px;
 	}
 	.leanscroll::-webkit-scrollbar-thumb {
-		background: slateblue;
+		background: #d4d4d8;
 		border-radius: 2px;
 	}
 </style>
