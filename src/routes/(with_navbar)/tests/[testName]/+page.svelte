@@ -3,7 +3,6 @@
 	import type { PageData } from './$types';
 	import { insertTest } from '../../../../hooks/test_data';
 	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
 
 	export let data: PageData;
 	export let title: string = data.title || 'test';
@@ -12,9 +11,8 @@
 	export let maxRange: number = data.maxRange || 4;
 	export let helpDescription: Array<string> = data.helpDescription || ['help'];
 	export let generalHelpDescription = data.generalHelpDescription;
-	export let backgroundName: string = data.backgroundName || '';
 	export let answerSet: Array<number> = Array(questions.length);
-	let openTooltip: boolean = false;
+	let showResults: boolean = false;
 	let description: string = '';
 	let scrolled: boolean = false;
 	let windowWidth: number;
@@ -31,29 +29,35 @@
 <svelte:window bind:innerWidth={windowWidth} bind:scrollY />
 <div
 	id="test-page-wrapper"
-	class=" grid w-screen grid-rows-2 items-center justify-center sm:flex sm:h-screen sm:grid-rows-none sm:flex-row"
+	class="grid w-screen grid-rows-2 items-center justify-center sm:flex sm:h-screen sm:grid-rows-none sm:flex-row sm:place-content-start"
 >
-	<div id="test-wrapper " class="flex h-screen place-items-center bg-zinc-600 sm:w-3/4">
+	<div
+		id="test-wrapper "
+		class={`flex h-screen place-items-center bg-zinc-600 transition-all duration-500 ${
+			showResults ? 'sm:w-1/4' : 'sm:w-3/4'
+		}`}
+	>
 		<div
 			id="test-container"
-			class="flex h-5/6 w-full flex-col items-center gap-4 rounded-md bg-zinc-600 px-4 py-14 sm:gap-12"
-			in:fade={{ delay: 150, duration: 300 }}
+			class="flex h-5/6 w-full flex-col items-center gap-4 rounded-md bg-zinc-600 px-1 py-14 sm:gap-12 sm:px-4"
+			in:fade={{ duration: 300 }}
 		>
-			<div class="mx-auto text-center font-sans text-4xl font-bold capitalize text-zinc-300">
+			<h1 class="mx-auto text-center font-sans text-4xl font-bold capitalize text-zinc-300">
 				{title}
-			</div>
+			</h1>
 			<div
 				id="question-set-container"
 				class="leanscroll flex flex-col gap-8 overflow-auto px-4 py-4 sm:w-4/5 sm:gap-16"
 			>
 				{#each questions as question, index}
 					<div class="grid grid-cols-2 gap-4">
-						<div id={`question-${index}`} class="font-sans text-lg text-zinc-300">
+						<p id={`question-${index}`} class="font-sans text-lg text-zinc-300">
 							{index + 1 + '. ' + question}
-						</div>
+						</p>
 						<div>
 							<input
 								type="range"
+								id={`${index}`}
 								min={minRange}
 								max={maxRange}
 								bind:value={answerSet[index]}
@@ -69,7 +73,7 @@
 					</div>
 				{/each}
 				<div id="description-container" class="grid grid-cols-2 gap-4">
-					<div class="font-sans text-lg text-zinc-300">Description</div>
+					<p class="font-sans text-lg text-zinc-300">Description</p>
 					<textarea
 						bind:value={description}
 						class="textarea-bordered textarea bg-transparent"
@@ -80,16 +84,19 @@
 			<button
 				id="save-button"
 				class="btn w-3/4 font-semibold text-zinc-300 hover:-translate-y-0.5 hover:shadow-md sm:w-1/4"
+				disabled={showResults}
 				on:click={() => {
-					if (data.session)
-						insertTest(data.supabase, answerSet, title, description, data.session.user.id);
+					if (data.session) {
+						// insertTest(data.supabase, answerSet, title, description, data.session.user.id);
+						showResults = true;
+					}
 				}}>save</button
 			>
 			{#if scrollY < 200 && window.innerWidth < 640}
 				<p
-					class="absolute bottom-4 font-sans text-lg font-bold capitalize text-zinc-300"
-					out:fade={{ delay: 200, duration: 500 }}
-					in:fade={{ delay: 200, duration: 500 }}
+					class="absolute bottom-4 font-sans text-xl font-extrabold capitalize text-zinc-300"
+					out:fade={{ duration: 500 }}
+					in:fade={{ duration: 500 }}
 				>
 					Scroll for more
 				</p>
@@ -97,19 +104,41 @@
 		</div>
 	</div>
 	<div
-		class="prose-lg px-4 text-center text-zinc-300 sm:prose-xl sm:w-1/4"
-		in:fade={{ delay: 300, duration: 300 }}
+		id="prose-wrapper"
+		class={`leanscroll h-4/5 overflow-auto px-4 transition-all duration-500 ${
+			showResults ? 'sm:w-3/4' : 'sm:w-1/4'
+		} `}
 	>
-		<h1>Help</h1>
-		<p>
-			{generalHelpDescription}
-		</p>
-		<h3>Meaning of the scale:</h3>
-		<p>
-			{#each helpDescription as description, index}
-				{index}. {description} <br />
-			{/each}
-		</p>
+		<article
+			class={`prose-lg text-center text-zinc-300 sm:prose-xl ${
+				showResults && 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
+			}`}
+			in:fade={{ duration: 300 }}
+		>
+			{#if showResults}
+				<div id="results-prose-container" in:fade={{ duration: 300 }}>
+					<h1>Total Score</h1>
+					<h3>{answerSet.reduce((a, b) => a + b, 0)}</h3>
+					<h1>Meaning of the score</h1>
+					{#each helpDescription as description, index}
+						{index}. {description} <br />
+					{/each}
+				</div>
+			{:else}
+				<div id="results-prose-container">
+					<h1>Help</h1>
+					<p>
+						{generalHelpDescription}
+					</p>
+					<h3>Meaning of the scale:</h3>
+					<p>
+						{#each helpDescription as description, index}
+							{index}. {description} <br />
+						{/each}
+					</p>
+				</div>
+			{/if}
+		</article>
 	</div>
 </div>
 
