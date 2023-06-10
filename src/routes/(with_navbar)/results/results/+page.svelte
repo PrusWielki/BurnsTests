@@ -52,7 +52,7 @@
 	{#if filteredTestData != null}
 		<div
 			id="test-result-title-row"
-			class=" mb-12 grid w-full grid-cols-3 items-center justify-center gap-2 text-center md:w-1/2"
+			class=" mb-6 grid w-full grid-cols-3 items-center justify-center gap-2 border-b-[1px] text-center md:w-1/2"
 		>
 			<h1 class="text-xl sm:text-2xl">Type</h1>
 			<h1 class="text-xl sm:text-2xl">Questions Sum</h1>
@@ -60,7 +60,7 @@
 		</div>
 		<div
 			id="test-result-container"
-			class="leanscroll flex max-h-96 w-full flex-col overflow-auto md:w-1/2"
+			class="leanscroll flex max-h-96 w-full flex-col gap-3 divide-y-[1px] overflow-auto md:w-1/2"
 		>
 			{#each filteredTestData as test}
 				<div
