@@ -38,7 +38,7 @@
 	<div
 		id="test-wrapper "
 		class={`flex h-screen items-center justify-center bg-zinc-600 px-1 py-14 transition-all duration-500 sm:px-4 ${
-			showResults ? '-order-1 sm:w-1/4' : 'sm:w-3/4'
+			showResults ? '-order-1 sm:w-2/6' : 'sm:w-4/6'
 		}`}
 	>
 		<div
@@ -46,7 +46,7 @@
 			class="flex h-5/6 w-fit flex-col items-center gap-4 rounded-md bg-zinc-600 sm:gap-12"
 			in:fade={{ duration: 300 }}
 		>
-			<h1 class=" text-center font-sans text-4xl font-bold capitalize text-zinc-300">
+			<h1 class=" text-center font-sans text-4xl font-bold capitalize">
 				{title}
 			</h1>
 			<div
@@ -55,7 +55,7 @@
 			>
 				{#each questions as question, index}
 					<div class="grid grid-cols-2 gap-4">
-						<p id={`question-${index}`} class="font-sans text-lg text-zinc-300">
+						<p id={`question-${index}`} class="font-sans text-lg">
 							{index + 1 + '. ' + question}
 						</p>
 						<div>
@@ -71,14 +71,14 @@
 							/>
 							<div class="flex w-full justify-between px-2 text-xs">
 								{#each Array(maxRange + 1) as _, i}
-									<span class="text-zinc-300">{i}</span>
+									<span class="">{i}</span>
 								{/each}
 							</div>
 						</div>
 					</div>
 				{/each}
 				<div id="description-container" class="grid grid-cols-2 gap-4">
-					<p class="font-sans text-lg text-zinc-300">Description</p>
+					<p class="font-sans text-lg">Description</p>
 					<textarea
 						bind:value={description}
 						class="textarea-bordered textarea bg-transparent"
@@ -88,7 +88,7 @@
 			</div>
 			<button
 				id="save-button"
-				class="btn w-3/4 font-semibold text-zinc-300 hover:-translate-y-0.5 hover:shadow-md sm:w-1/4"
+				class="btn w-3/4 font-semibold hover:-translate-y-0.5 hover:shadow-md sm:w-1/4"
 				disabled={showResults}
 				on:click={() => {
 					if (data.session) {
@@ -99,7 +99,7 @@
 			>
 			{#if scrollY < 200 && window.innerWidth < 640}
 				<p
-					class="absolute bottom-4 font-sans text-xl font-extrabold capitalize text-zinc-300"
+					class="absolute bottom-4 font-sans text-xl font-extrabold capitalize"
 					out:fade={{ duration: 500 }}
 					in:fade={{ duration: 500 }}
 				>
@@ -110,27 +110,32 @@
 	</div>
 	<div
 		id="prose-wrapper"
-		class={`leanscroll flex h-screen items-center  overflow-auto px-4 transition-all duration-500 ${
-			showResults ? 'order-1 sm:w-3/4' : 'sm:w-1/4'
+		class={` flex h-screen items-center  px-1 transition-all duration-500 ${
+			showResults ? 'order-1 sm:w-4/6' : 'sm:w-2/6'
 		} `}
 	>
 		<article
-			class={`prose-lg text-center text-zinc-300 sm:prose-xl ${
-				showResults && 'sm:absolute sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2'
-			}`}
+			class={`h-full py-6 text-center sm:py-14 ${showResults && ''}`}
 			in:fade={{ duration: 300 }}
 		>
 			{#if showResults}
-				<div id="results-prose-container" in:fade={{ duration: 300 }}>
-					<h1>Total Score</h1>
+				<div
+					class="leanscroll prose-xl prose flex h-full flex-col place-content-center overflow-auto px-4 text-zinc-200"
+					id="results-prose-container "
+					in:fade={{ duration: 300 }}
+				>
+					<h2>Total Score</h2>
 					<h3>{answerSet.reduce((a, b) => a + b, 0)}</h3>
-					<h1>Meaning of the score</h1>
+					<h2>Meaning of the score</h2>
 					{#each scoresMeaningRanges as scoreMeaningRange, index}
 						{scoreMeaningRange}. {scoresMeaningShortDescription[index]}<br />
 					{/each}
 				</div>
 			{:else}
-				<div id="results-prose-container">
+				<div
+					class=" leanscroll prose-xl prose flex h-full flex-col place-content-center overflow-auto px-4 text-zinc-200 sm:block"
+					id="help-prose-container"
+				>
 					<h1>Help</h1>
 					<p>
 						{generalHelpDescription}
