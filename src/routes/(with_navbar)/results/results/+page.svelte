@@ -41,7 +41,7 @@
 	in:fly={{ y: -screen.height / 2, duration: 1000 }}
 >
 	<div id="filters-container" class="flex-col items-center justify-center py-2">
-		<p class="mb-2 text-center text-xl text-zinc-300 sm:text-2xl">Filters</p>
+		<p class="mb-2 text-center text-xl sm:text-2xl">Filters</p>
 		<select bind:value={type} class="select-bordered select">
 			<option value="All">All</option>
 			<option value="Depression">Depression</option>
@@ -54,9 +54,9 @@
 			id="test-result-title-row"
 			class=" mb-12 grid w-full grid-cols-3 items-center justify-center gap-2 text-center md:w-1/2"
 		>
-			<h1 class="text-xl text-zinc-300 sm:text-2xl">Type</h1>
-			<h1 class="text-xl text-zinc-300 sm:text-2xl">Questions Sum</h1>
-			<h1 class="text-xl text-zinc-300 sm:text-2xl">Date</h1>
+			<h1 class="text-xl sm:text-2xl">Type</h1>
+			<h1 class="text-xl sm:text-2xl">Questions Sum</h1>
+			<h1 class="text-xl sm:text-2xl">Date</h1>
 		</div>
 		<div
 			id="test-result-container"
@@ -67,9 +67,9 @@
 					id="test-result"
 					class="grid w-full grid-cols-3 items-center justify-center gap-2 text-center"
 				>
-					<p class="text-xl text-zinc-300 sm:text-2xl" id="test-name">{test.type}</p>
-					<p class="text-xl text-zinc-300 sm:text-2xl" id="test-sum">{test.questions_sum}</p>
-					<p class="text-xl text-zinc-300 sm:text-2xl" id="test-created">
+					<p class="text-xl sm:text-2xl" id="test-name">{test.type}</p>
+					<p class="text-xl sm:text-2xl" id="test-sum">{test.questions_sum}</p>
+					<p class="text-xl sm:text-2xl" id="test-created">
 						{test.created_at.substring(0, 10)}
 					</p>
 				</div>
