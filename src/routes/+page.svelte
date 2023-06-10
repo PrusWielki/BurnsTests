@@ -12,7 +12,6 @@
 		id="homepage-container"
 		class="flex flex-col items-center justify-center gap-4"
 		in:fly={{ y: -600 }}
-	>
 		<div id="Title" class="mb-28 text-center text-4xl font-bold sm:text-5xl">
 			{TITLE}
 		</div>
