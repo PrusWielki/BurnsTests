@@ -3,7 +3,7 @@
 	import type { PageData } from './$types';
 	import { getTestDataByDate } from '../../../../hooks/test_data';
 	import { Line } from 'svelte-chartjs';
-	import { lineData } from './data.js';
+	import { lineData } from '$lib/cms/results/statistics';
 
 	import {
 		Chart as ChartJS,
