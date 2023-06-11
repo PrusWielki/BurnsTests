@@ -13,10 +13,20 @@
 		LineElement,
 		LinearScale,
 		PointElement,
-		CategoryScale
+		CategoryScale,
+		Filler
 	} from 'chart.js';
 
-	ChartJS.register(Title, Tooltip, Legend, LineElement, LinearScale, PointElement, CategoryScale);
+	ChartJS.register(
+		Title,
+		Tooltip,
+		Legend,
+		LineElement,
+		LinearScale,
+		PointElement,
+		CategoryScale,
+		Filler
+	);
 	export let data: PageData;
 	let { supabase } = data;
 	type TestDataResponse = Awaited<ReturnType<typeof getTestDataByDate>>;
@@ -64,5 +74,25 @@
 			<option value="Relationships">Relationships</option>
 		</select>
 	</div>
-	<Line data={lineData} options={{ responsive: true }} />
+	<div
+		class="flex w-screen items-center justify-center rounded-md fill-zinc-100 px-1 sm:h-5/6 sm:w-5/6"
+		id="line-container"
+	>
+		<Line
+			class="fill-zinc-50"
+			data={lineData}
+			options={{
+				responsive: true,
+				color: '#E4E4E7',
+				scales: {
+					y: {
+						ticks: { color: '#E4E4E7' }
+					},
+					x: {
+						ticks: { color: '#E4E4E7' }
+					}
+				}
+			}}
+		/>
+	</div>
 </div>
