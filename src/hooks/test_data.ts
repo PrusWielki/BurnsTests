@@ -36,7 +36,7 @@ export const getTestDataByDate = async (
 		.select()
 		.lt('created_at', dateTo.toISOString())
 		.gt('created_at', dateFrom.toISOString())
-		.order('created_at', { ascending: false });
+		.order('created_at', { ascending: true });
 };
 export const insertTest = async (
 	supabase: SupabaseClient<Database>,
