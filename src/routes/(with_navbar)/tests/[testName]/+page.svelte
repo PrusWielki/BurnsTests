@@ -115,7 +115,7 @@
 		} `}
 	>
 		<article
-			class={`h-full py-6 text-center sm:py-14 ${showResults && ''}`}
+			class={`h-full pb-6 pt-14 text-center sm:py-14 ${showResults && ''}`}
 			in:fade={{ duration: 300 }}
 		>
 			{#if showResults}
