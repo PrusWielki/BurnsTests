@@ -25,3 +25,4 @@ export const actions: Actions = {
 		throw redirect(303, '/tests');
 	}
 };
+export const prerender = false;
