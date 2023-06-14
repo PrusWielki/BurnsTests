@@ -1,7 +1,15 @@
-<script>
+<script lang="ts">
 	import { TITLE } from '$lib/cms/home/home';
 	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
+	import { Geolocation } from '@capacitor/geolocation';
+	import type { Position } from '@capacitor/geolocation';
+
+	let loc: Position;
+	async function getCurrentPosition() {
+		const res = await Geolocation.getCurrentPosition();
+		loc = res;
+	}
 </script>
 
 <div
@@ -28,5 +36,13 @@
 				>Register</a
 			>
 		</div>
+	</div>
+	<div>
+		<h1>Geolocation</h1>
+		<p>Your location is:</p>
+		<p>Latitude: {loc?.coords.latitude}</p>
+		<p>Longitude: {loc?.coords.longitude}</p>
+
+		<button on:click={getCurrentPosition}> Get Current Location </button>
 	</div>
 </div>
