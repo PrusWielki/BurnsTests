@@ -29,7 +29,7 @@
 	for (let i = 0; i < questions.length; ++i) answerSet[i] = 0;
 
 	function scrollIntoView(id: number) {
-		const el = questionsContainer.querySelector('#question-' + id.toString());
+		const el = questionsContainer.querySelector('#question-' + (id + 1).toString());
 		if (!el) return;
 		el.scrollIntoView({
 			behavior: 'smooth',
