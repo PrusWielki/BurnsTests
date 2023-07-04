@@ -133,7 +133,7 @@
 				</div>
 			{:else}
 				<div
-					class=" leanscroll prose-xl prose flex h-full flex-col place-content-center overflow-auto px-4 text-zinc-200 sm:block"
+					class=" leanscroll prose-xl prose flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:block"
 					id="help-prose-container"
 				>
 					<h1>Help</h1>
