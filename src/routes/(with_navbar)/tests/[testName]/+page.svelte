@@ -19,6 +19,7 @@
 	let scrolled: boolean = false;
 	let windowWidth: number;
 	let scrollY: number;
+	let questionsContainer: HTMLElement;
 
 	if (browser) {
 		window.onscroll = function (e) {
@@ -26,6 +27,15 @@
 		};
 	}
 	for (let i = 0; i < questions.length; ++i) answerSet[i] = 0;
+
+	function scrollIntoView(id: number) {
+		const el = questionsContainer.querySelector('#question-' + (id + 1).toString());
+		if (!el) return;
+		el.scrollIntoView({
+			behavior: 'smooth',
+			block: 'center'
+		});
+	}
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} bind:scrollY />
@@ -51,6 +61,7 @@
 			</h1>
 			<div
 				id="question-set-container"
+				bind:this={questionsContainer}
 				class="leanscroll flex flex-col gap-8 overflow-auto px-4 py-4 sm:w-4/5 sm:gap-16"
 			>
 				{#each questions as question, index}
@@ -68,6 +79,7 @@
 								class="range range-sm"
 								step={1}
 								disabled={showResults}
+								on:change={() => scrollIntoView(index)}
 							/>
 							<div class="flex w-full justify-between px-2 text-xs">
 								{#each Array(maxRange + 1) as _, i}
@@ -115,12 +127,12 @@
 		} `}
 	>
 		<article
-			class={`h-full pb-6 pt-14 text-center sm:py-14 ${showResults && ''}`}
+			class={`flex h-full items-center pb-6 pt-14 text-center sm:py-14`}
 			in:fade={{ duration: 300 }}
 		>
 			{#if showResults}
 				<div
-					class="leanscroll prose-xl prose flex h-full flex-col place-content-center overflow-auto px-4 text-zinc-200"
+					class="leanscroll prose-xl prose flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:h-fit"
 					id="results-prose-container "
 					in:fade={{ duration: 300 }}
 				>
@@ -133,7 +145,7 @@
 				</div>
 			{:else}
 				<div
-					class=" leanscroll prose-xl prose flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:block"
+					class=" leanscroll prose-xl prose flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:block sm:h-fit"
 					id="help-prose-container"
 				>
 					<h1>Help</h1>
