@@ -1,5 +1,5 @@
 export const SCORES_MEANING_RANGES_DEPRESSION = ['0', '1-2', '3-5', '6-10', '11-15', '16-20'];
-export const SCORES_MEANING_RANGES_ANXIETY = ['0', '1-2', '3-5', '6-10', '11-15', '16-20'];
+export const SCORES_MEANING_RANGES_ANXIETY = ['0', '1-10', '11-25', '26-50', '51-75', '76-99'];
 export const SCORES_MEANING_RANGES_RELATIONSHIPS = [
 	'0-16',
 	'7-23',

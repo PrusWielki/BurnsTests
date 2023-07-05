@@ -3,7 +3,7 @@ export const AXNIETY_QUESTIONS = [
 	'Feeling that things around you are strange or unreal',
 	'Feeling detached from all or a part of your body',
 	'Sudden unexpected panic spells',
-	'Apprehension or a sens of impending doom',
+	'Apprehension or a sense of impending doom',
 	'Feeling tense, stressed, "uptight", or on edge',
 	'Difficulty concentrating',
 	'Racing thoughts',
@@ -48,7 +48,7 @@ export const DEPRESSION_QUESTIONS = [
 	'Sleep changes. Is it hard to get a good nights sleep? Are you excessively tired and sleeping too much?',
 	'Loss of sex drive. Have you lost your interest in sex?',
 	'Concerns about health. Do you worry excessively about your health?',
-	'Suicidal impulses. Do you have thoughts that life is not worth living or think youd be better of dead?'
+	"Suicidal impulses. Do you have thoughts that life is not worth living or think you'd be better of dead?"
 ];
 
 export const RELATIONSHIPS_QUESTIONS = [
@@ -57,7 +57,7 @@ export const RELATIONSHIPS_QUESTIONS = [
 	'Degree of affection and caring',
 	'Intimacy and closeness',
 	'Satisfaction with your role in the relationship',
-	'Satisfaction with the other persons role',
+	"Satisfaction with the other person's role",
 	'Overall satisfaction with your relationship'
 ];
 
