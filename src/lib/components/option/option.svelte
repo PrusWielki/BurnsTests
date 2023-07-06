@@ -8,7 +8,7 @@
 <a
 	id="option-wrapper"
 	style="background-image: url({backgroundName})"
-	class="group relative flex h-0 w-full shrink-0 basis-1/3 cursor-pointer items-center justify-center overflow-hidden bg-opacity-80 bg-cover bg-center after:relative after:left-0 after:top-0 after:h-full after:w-full after:bg-black after:bg-opacity-30 after:transition-all after:duration-500 after:content-[''] hover:after:opacity-10 sm:h-screen sm:w-0"
+	class=" group relative flex h-0 w-full shrink-0 grow basis-1/3 cursor-pointer items-center justify-center overflow-hidden bg-opacity-80 bg-cover bg-center after:relative after:left-0 after:top-0 after:h-full after:w-full after:bg-black after:bg-opacity-30 after:transition-all after:duration-500 after:content-[''] hover:after:opacity-10 sm:h-1/2 sm:w-full"
 	href={navigateTo}
 	in:fly={{ y: -screen.height / 2, duration: 1000 }}
 >

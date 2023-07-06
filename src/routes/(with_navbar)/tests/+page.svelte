@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { TEST_NAMES, BACKGROUND_NAMES } from '$lib/cms/tests/tests';
 	import Option from '$lib/components/option/option.svelte';
+	import ChevronRight from '$lib/components/option/svg/chevron-right.svelte';
 </script>
 
-<div id="home-grid" class="flex h-screen w-screen flex-col sm:flex-row sm:overflow-hidden">
+<div id="home-grid" class=" flex h-screen w-screen flex-col sm:flex-row sm:flex-wrap">
 	{#each TEST_NAMES as testName, index}
 		<Option
 			{testName}
