@@ -3,12 +3,20 @@
 	import Option from '$lib/components/option/option.svelte';
 </script>
 
-<div id="home-grid" class=" flex h-screen w-screen flex-col sm:flex-row sm:flex-wrap">
+<div
+	id="home-grid"
+	class="carousel-center carousel h-screen w-screen snap-y flex-col items-center justify-center px-48 sm:absolute sm:snap-x sm:flex-row sm:gap-5"
+>
 	{#each TEST_NAMES as testName, index}
-		<Option
-			{testName}
-			backgroundName={BACKGROUND_NAMES[index]}
-			navigateTo={`/tests/${testName.toLowerCase()}`}
-		/>
+		<div class="">
+			<Option
+				{testName}
+				backgroundName={BACKGROUND_NAMES[index]}
+				navigateTo={`/tests/${testName.toLowerCase()}`}
+			/>
+		</div>
 	{/each}
 </div>
+
+<style>
+</style>
