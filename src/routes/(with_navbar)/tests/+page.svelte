@@ -12,7 +12,7 @@
 <div id="home-grid-wrapper" class="flex h-screen w-screen justify-center overflow-hidden">
 	<div
 		id="home-grid"
-		class=" carousel-center carousel h-full w-full snap-y flex-col items-center sm:absolute sm:flex-row sm:gap-5"
+		class=" carousel-center carousel h-full w-full snap-y flex-col items-center sm:absolute sm:flex-row"
 		on:scroll={(event) => {
 			scrollX = event.currentTarget.scrollLeft;
 			scrollY = event.currentTarget.scrollTop;
@@ -27,7 +27,7 @@
 		}}
 	>
 		{#each TEST_NAMES as testName, index}
-			<div id="option-home-wrapper" class="h-1/3 w-full shrink-0 grow sm:h-5/6 sm:basis-1/3">
+			<div id="option-home-wrapper" class="h-1/3 w-full shrink-0 grow sm:h-full sm:basis-1/3">
 				<Option
 					{testName}
 					backgroundName={BACKGROUND_NAMES[index]}
