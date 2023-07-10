@@ -34,7 +34,7 @@
 		id="home-grid"
 		class=" carousel-center carousel h-full w-full snap-y flex-col items-center sm:absolute sm:flex-row"
 		on:scroll={onScroll}
-		on:wheel={onWheel}
+		on:wheel|passive={onWheel}
 	>
 		{#each TEST_NAMES as testName, index}
 			<div
