@@ -3,6 +3,7 @@
 	import { fly } from 'svelte/transition';
 	import type { PageData } from './$types';
 	import { getTestsData } from '../../../../hooks/test_data';
+	import { TITLES } from '$lib/cms/tests/titles';
 	export let data: PageData;
 	type TestDataResponse = Awaited<ReturnType<typeof getTestsData>>;
 	type TestDataResponseSuccess = TestDataResponse['data'];
@@ -38,15 +39,15 @@
 <div
 	id="main-results-wrapper"
 	class="flex h-screen w-screen flex-col items-center justify-center px-4 py-12"
-	in:fly={{ y: -screen.height / 2, duration: 1000 }}
+	in:fly={{ y: -screen.height / 2, duration: 500 }}
 >
 	<div id="filters-container" class="flex-col items-center justify-center py-2">
 		<p class="mb-2 text-center text-xl sm:text-2xl">Filters</p>
 		<select bind:value={type} class="select-bordered select">
 			<option value="All">All</option>
-			<option value="Depression">Depression</option>
-			<option value="Anxiety">Anxiety</option>
-			<option value="Relationships">Relationships</option>
+			{#each TITLES as title}
+				<option value={title}>{title}</option>
+			{/each}
 		</select>
 	</div>
 	{#if filteredTestData != null}

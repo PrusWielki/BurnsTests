@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { TEST_NAMES, BACKGROUND_NAMES } from '$lib/cms/tests/tests';
 	import Option from '$lib/components/option/option.svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 
 	let windowWidth: number;
 	let currentOption: number = 2;
@@ -35,6 +35,7 @@
 		class=" carousel-center carousel h-full w-full snap-y flex-col items-center sm:absolute sm:flex-row"
 		on:scroll={onScroll}
 		on:wheel|passive={onWheel}
+		in:fly={{ y: -screen.height / 2, duration: 500 }}
 	>
 		{#each TEST_NAMES as testName, index}
 			<div
