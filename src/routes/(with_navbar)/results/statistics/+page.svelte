@@ -69,7 +69,7 @@
 >
 	<div id="filters-container" class="flex-col items-center justify-center py-2">
 		<p class="mb-2 text-center text-xl sm:text-2xl">Filters</p>
-		<select bind:value={type} class="select-bordered select text-xl">
+		<select bind:value={type} class="select-bordered select text-lg sm:text-xl">
 			{#each TITLES as title}
 				<option value={title}>{title}</option>
 			{/each}
