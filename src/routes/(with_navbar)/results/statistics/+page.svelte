@@ -16,6 +16,7 @@
 		CategoryScale,
 		Filler
 	} from 'chart.js';
+	import { TITLES } from '$lib/cms/tests/titles';
 
 	ChartJS.register(
 		Title,
@@ -64,14 +65,14 @@
 <div
 	id="statistics-main-wrapper"
 	class="flex h-screen w-screen flex-col items-center justify-center px-4 py-12"
-	in:fly={{ y: -screen.height / 2, duration: 1000 }}
+	in:fly={{ y: -screen.height / 2, duration: 500 }}
 >
 	<div id="filters-container" class="flex-col items-center justify-center py-2">
 		<p class="mb-2 text-center text-xl sm:text-2xl">Filters</p>
-		<select bind:value={type} class="select-bordered select">
-			<option value="Depression">Depression</option>
-			<option value="Anxiety">Anxiety</option>
-			<option value="Relationships">Relationships</option>
+		<select bind:value={type} class="select-bordered select text-lg sm:text-xl">
+			{#each TITLES as title}
+				<option value={title}>{title}</option>
+			{/each}
 		</select>
 	</div>
 	<div

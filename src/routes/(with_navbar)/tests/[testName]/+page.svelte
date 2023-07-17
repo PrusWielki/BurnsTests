@@ -53,7 +53,7 @@
 	>
 		<div
 			id="test-container"
-			class="flex h-5/6 w-fit flex-col items-center gap-4 rounded-md bg-zinc-600 sm:gap-12"
+			class="flex h-5/6 w-fit flex-col items-center gap-4 rounded-md bg-zinc-600 sm:w-full sm:gap-12"
 			in:fade={{ duration: 300 }}
 		>
 			<h1 class=" text-center font-sans text-4xl font-bold capitalize">
@@ -106,6 +106,7 @@
 					if (data.session) {
 						insertTest(data.supabase, answerSet, title, description, data.session.user.id);
 						showResults = true;
+						scrollY = 0;
 					}
 				}}>save</button
 			>
