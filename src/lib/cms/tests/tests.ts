@@ -10,5 +10,6 @@ export const BACKGROUND_NAMES = [
 	'/background/goodenough/mountains.jpg',
 	'/background/goodenough/trees.jpg',
 	'/background/goodenough/animals.jpg',
-	'/background/goodenough/happy-animals.jpg'
+	'/background/goodenough/happy-animals.jpg',
+	'/background/goodenough/horse-addictions.jpg'
 ];

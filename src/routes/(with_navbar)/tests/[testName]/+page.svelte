@@ -106,6 +106,7 @@
 					if (data.session) {
 						insertTest(data.supabase, answerSet, title, description, data.session.user.id);
 						showResults = true;
+						scrollY = 0;
 					}
 				}}>save</button
 			>
