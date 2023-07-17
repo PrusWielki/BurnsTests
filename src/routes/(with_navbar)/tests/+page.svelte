@@ -5,8 +5,8 @@
 
 	let windowWidth: number;
 	let currentOption: number = 2;
-	let scrollX: number;
-	let scrollY: number;
+	let scrollX: number = 0;
+	let scrollY: number = 0;
 
 	const onWheel = (event: WheelEvent) => {
 		if (windowWidth > 640 && event.deltaY != 0) {
@@ -52,7 +52,6 @@
 	{#if (windowWidth > 640 && scrollX < 200) || (windowWidth < 640 && scrollY < 100)}
 		<p
 			class="absolute bottom-4 font-sans text-xl font-extrabold capitalize sm:text-3xl"
-			out:fade={{ duration: 200 }}
 			in:fade={{ duration: 200 }}
 		>
 			Scroll for more
