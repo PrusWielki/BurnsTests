@@ -10,7 +10,7 @@ export const AXNIETY_QUESTIONS = [
 	'Frightening fantasies or daydreams',
 	'Feeling that you are on the verge of losing control',
 	'Fears of cracking up or going crazy',
-	'Fears of faining or passing out',
+	'Fears of fainting or passing out',
 	'Fears of physcial illnesses or heart attacks or dying',
 	'Concerns about looking foolish or inadequate',
 	'Fears of being alone, isolated, or abandoned',
@@ -61,4 +61,24 @@ export const RELATIONSHIPS_QUESTIONS = [
 	'Overall satisfaction with your relationship'
 ];
 
-export const QUESTION_SET = [AXNIETY_QUESTIONS, DEPRESSION_QUESTIONS, RELATIONSHIPS_QUESTIONS];
+export const HAPPINESS_QUESTIONS = [
+	'Happy and joyful',
+	'Hopeful and optimistic',
+	'Worthwhile, high self-esteem',
+	'Motivated, productive',
+	'Pleasure and satisfaction in life'
+];
+export const ADDICTIONS_QUESTIONS = [
+	'Sometimes I crave drugs or alcohol',
+	'Sometimes I have the urge to use drugs or alcohol',
+	'Sometimes I really want to use drugs or alcohol',
+	"Sometimes it's hard to resist the urge to use drugs or alcohol",
+	'Sometimes I struggle with the temptation to use drugs or alcohol'
+];
+export const QUESTION_SET = [
+	AXNIETY_QUESTIONS,
+	DEPRESSION_QUESTIONS,
+	RELATIONSHIPS_QUESTIONS,
+	HAPPINESS_QUESTIONS,
+	ADDICTIONS_QUESTIONS
+];
