@@ -1,4 +1,5 @@
 export const lineData = {
+	// dummy data
 	labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 	datasets: [
 		{
@@ -17,6 +18,7 @@ export const lineData = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 1,
 			pointHitRadius: 10,
+			// dummy data
 			data: [65, 59, 80, 81, 56, 55, 40]
 		}
 	]

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
 	export let backgroundName: string = '/background/animals.jpg';
 	export let testName: string = '';
 	export let navigateTo: string = '/tests';

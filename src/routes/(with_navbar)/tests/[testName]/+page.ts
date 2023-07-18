@@ -8,7 +8,7 @@ import {
 	SCORES_MEANING_RANGES,
 	SCORES_MEANING_SHORT_DESCRIPTION
 } from '$lib/cms/tests/scores_meaning.js';
-export function load({ params }) {
+export function load({ params }: { params: { testName: string } }) {
 	const index = TEST_NAMES_LOWER.indexOf(params.testName);
 	if (-1 === index) throw error(404, 'Not found');
 
