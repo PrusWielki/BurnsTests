@@ -1,6 +1,5 @@
 <script>
 	import { TITLE } from '$lib/cms/home/home';
-	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 </script>
 
