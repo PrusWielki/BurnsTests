@@ -7,18 +7,34 @@
 	let currentOption: number = 2;
 	let scrollX: number = 0;
 	let scrollY: number = 0;
+	let homeGrid: HTMLElement;
+	let scrolling: boolean = false;
+
+	$: if (homeGrid) {
+		homeGrid.addEventListener('scrollend', (event) => {
+			scrolling = false;
+		});
+	}
 
 	const onWheel = (event: WheelEvent) => {
-		if (windowWidth > 640 && event.deltaY != 0) {
-			if (event.deltaY > 0 && currentOption < TEST_NAMES.length - 1) {
-				if (currentOption === 0) currentOption = 3;
-				else currentOption += 1;
-				let element = document.getElementById(`option-home-wrapper-${currentOption}`);
-				if (element) element.scrollIntoView();
-			} else if (event.deltaY < 0 && currentOption > 0) {
-				currentOption = Math.floor(currentOption / 3);
-				let element = document.getElementById(`option-home-wrapper-${currentOption}`);
-				if (element) element.scrollIntoView();
+		if (!scrolling) {
+			if (windowWidth > 640 && event.deltaY != 0) {
+				if (event.deltaY > 0 && currentOption < TEST_NAMES.length - 1) {
+					if (currentOption === 0) currentOption = 3;
+					else currentOption += 1;
+					let element = document.getElementById(`option-home-wrapper-${currentOption}`);
+					if (element) {
+						element.scrollIntoView({ behavior: 'smooth' });
+						scrolling = true;
+					}
+				} else if (event.deltaY < 0 && currentOption > 0) {
+					currentOption = Math.floor(currentOption / 3);
+					let element = document.getElementById(`option-home-wrapper-${currentOption}`);
+					if (element) {
+						element.scrollIntoView({ behavior: 'smooth' });
+						scrolling = true;
+					}
+				}
 			}
 		}
 	};
@@ -35,6 +51,7 @@
 		class=" carousel-center carousel h-full w-full snap-y flex-col items-center sm:absolute sm:flex-row"
 		on:scroll={onScroll}
 		on:wheel|passive={onWheel}
+		bind:this={homeGrid}
 		in:fly={{ y: -screen.height / 2, duration: 500 }}
 	>
 		{#each TEST_NAMES as testName, index}

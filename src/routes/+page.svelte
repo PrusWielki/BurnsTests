@@ -22,16 +22,20 @@
 		if (!scrolling) {
 			scrollY += event.deltaY;
 			if (windowWidth > 640 && event.deltaY != 0) {
-				if (event.deltaY > 0 && currentOption < 4) {
+				if (event.deltaY > 0 && currentOption < 3) {
 					currentOption += 1;
 					let element = document.getElementById(`section-${currentOption}`);
-					if (element) element.scrollIntoView({ behavior: 'smooth' });
-					scrolling = true;
+					if (element) {
+						element.scrollIntoView({ behavior: 'smooth' });
+						scrolling = true;
+					}
 				} else if (event.deltaY < 0 && currentOption > 0) {
 					currentOption -= 1;
 					let element = document.getElementById(`section-${currentOption}`);
-					if (element) element.scrollIntoView({ behavior: 'smooth' });
-					scrolling = true;
+					if (element) {
+						element.scrollIntoView({ behavior: 'smooth' });
+						scrolling = true;
+					}
 				}
 			}
 		}
