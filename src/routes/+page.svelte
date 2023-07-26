@@ -51,34 +51,37 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 <div id="homepage-wrapper" class="max-h-screen sm:overflow-hidden" bind:this={homepageWrapper}>
+	<div id="title-container" class="absolute left-4 top-4 font-sans font-semibold text-slate-100">
+		{TITLE}
+	</div>
 	<div id="homepage-container" class="flex min-h-screen w-full flex-col" on:wheel|passive={onWheel}>
 		<div id="section-0" class="flex h-screen w-full flex-row">
 			<div
 				id="homepage-hero-title-button-container"
-				class="flex h-full w-full flex-col items-center justify-center bg-zinc-900 text-center sm:w-1/2"
+				class="flex h-full w-full flex-col items-center justify-center bg-zinc-950 text-center sm:w-full"
 			>
-				<div id="hero-title" class="max-w-xs font-sans text-2xl font-bold text-slate-300">
-					Here comes the text, mroe text more text moreorm eo
+				<div id="hero-title" class=" font-sans text-2xl font-semibold text-slate-100 sm:text-3xl">
+					How are you feeling today?
 				</div>
 				<div id="buttons-container" class=" mt-12 flex flex-col">
 					<a
 						href="/login"
-						class="btn text-xl text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-xl"
+						class="btn text-xl text-slate-100 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-xl"
 						>Login</a
 					>
 					<a
 						href="/register"
-						class="btn text-xl text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-xl"
+						class="btn text-xl text-slate-100 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-xl"
 						>Register</a
 					>
 				</div>
 			</div>
-			{#if windowWidth > 640}
+			{#if windowWidth > 6400}
 				<div id="image-container" class="h-full w-1/2">
 					<img
-						src="/background/animals.jpg"
+						src="/background/goodenough/leaves.jpg"
 						alt="animals"
-						class="h-full w-full bg-cover opacity-90 brightness-90"
+						class="h-full w-full opacity-75 brightness-90"
 					/>
 				</div>
 			{/if}
