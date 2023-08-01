@@ -1,20 +1,29 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
 	import type { PageData } from './$types';
+	import { TITLE } from '$lib/cms/home/home';
 	export let data: PageData;
 	let { supabase } = data;
 	let email: string;
 </script>
 
+<a
+	id="title-container"
+	href="/"
+	class="absolute left-12 top-4 cursor-pointer font-sans font-semibold text-slate-100 decoration-wavy hover:text-cyan-300 hover:underline"
+>
+	{TITLE}
+</a>
+<a
+	id="github-link"
+	class="absolute right-12 top-4 cursor-pointer font-extrabold decoration-wavy hover:text-cyan-300 hover:underline"
+	href="https://github.com/PrusWielki/BurnsTests"
+>
+	GitHub
+</a>
 <div
 	id="login_main_container"
-	class="flex h-screen w-screen flex-col items-center justify-center px-6"
-	in:fly={{ y: -600 }}
+	class="flex h-screen w-screen flex-col items-center justify-center bg-zinc-950 px-6"
 >
-	<a
-		class="btn mb-8 text-2xl text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-3xl"
-		href="/">Back</a
-	>
 	<form
 		id="login-form"
 		action="?/login"
@@ -46,7 +55,7 @@
 		<button
 			id="submit-button"
 			type="submit"
-			class="btn text-2xl text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-3xl"
+			class=" text-2xl text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline sm:text-3xl"
 			>Login</button
 		>
 	</form>
@@ -60,7 +69,7 @@
 				alert('Check your email inbox');
 			}
 		}}
-		class="btn mt-6 text-2xl text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-3xl"
+		class="mt-6 text-2xl text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline sm:text-3xl"
 		>Reset Password</button
 	>
 </div>

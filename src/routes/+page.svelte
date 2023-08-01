@@ -51,9 +51,13 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 <div id="homepage-wrapper" class="max-h-screen sm:overflow-hidden" bind:this={homepageWrapper}>
-	<div id="title-container" class="absolute left-12 top-4 font-sans font-semibold text-slate-100">
+	<a
+		id="title-container"
+		href="/"
+		class="absolute left-12 top-4 cursor-pointer font-sans font-semibold text-slate-100 decoration-wavy hover:text-cyan-300 hover:underline"
+	>
 		{TITLE}
-	</div>
+	</a>
 	<a
 		id="github-link"
 		class="absolute right-12 top-4 cursor-pointer font-extrabold decoration-wavy hover:text-cyan-300 hover:underline"

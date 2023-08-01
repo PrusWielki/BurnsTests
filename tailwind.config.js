@@ -12,6 +12,7 @@ export default {
 		themes: [
 			{
 				dark: {
+					// eslint-disable-next-line @typescript-eslint/no-var-requires
 					...require('daisyui/src/colors/themes')['[data-theme=dark]'],
 					'base-content': '#e4e4e7',
 					'neutral-content': '#e4e4e7'
