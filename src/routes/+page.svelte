@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { TITLE } from '$lib/cms/home/home';
-
+	import { fade } from 'svelte/transition';
 	let scrollY: number = 0;
 	let homepageWrapper: HTMLElement;
 	let slidesContainer: HTMLElement;
@@ -43,7 +43,6 @@
 	};
 
 	/*2 sections:
-	1. Hero with CTA to login/register, short text, image on the right
 	2. Horizontal scroll section, something dark, elegant, transitions, description of the system
 	3. If I want to animate the transitions between slides then it cant be handled via scroll into view, 
 	unless I use gsap or that svelte slides library*/
@@ -63,27 +62,52 @@
 				<div id="hero-title" class=" font-sans text-2xl font-semibold text-slate-100 sm:text-3xl">
 					How are you feeling today?
 				</div>
-				<div id="buttons-container" class=" mt-12 flex flex-col">
-					<a
-						href="/login"
-						class="btn text-xl text-slate-100 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-xl"
-						>Login</a
-					>
-					<a
-						href="/register"
-						class="btn text-xl text-slate-100 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-xl"
-						>Register</a
-					>
+				<div id="buttons-container" class="relative mt-12 flex flex-row items-center">
+					<div id="login-button-container" class="group relative">
+						<div
+							id="button-glow"
+							class="absolute -inset-1/3 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-200 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
+						/>
+						<a
+							href="/login"
+							class="relative text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-200 hover:underline hover:shadow-lg sm:text-xl"
+						>
+							Login</a
+						>
+					</div>
+					<div id="slash-container" class="px-2 text-3xl text-slate-100">/</div>
+					<div id="login-button-container" class="group relative">
+						<div
+							id="button-glow"
+							class="absolute -inset-1/3 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-200 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
+						/>
+						<a
+							href="/register"
+							class="relative text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-200 hover:underline hover:shadow-lg sm:text-xl"
+						>
+							Register</a
+						>
+					</div>
 				</div>
-			</div>
-			{#if windowWidth > 6400}
-				<div id="image-container" class="h-full w-1/2">
+
+				<div id="gif-container" class="group relative mt-24">
+					<div
+						class="absolute -bottom-1/4 -top-1/4 left-0 right-0 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-100 opacity-20 blur-xl transition-all duration-1000 group-hover:-inset-1/3 group-hover:opacity-25 group-hover:duration-500 sm:-left-1/4 sm:-right-1/4"
+					/>
 					<img
-						src="/background/goodenough/leaves.jpg"
-						alt="animals"
-						class="h-full w-full opacity-75 brightness-90"
+						src="homepage_gif.gif"
+						alt="gif showing main functionalities"
+						class="relative h-full w-full"
 					/>
 				</div>
+			</div>
+			{#if (windowWidth > 640 && currentSlide === 0) || (windowWidth <= 640 && scrollY < 10)}
+				<p
+					class="absolute bottom-4 left-1/2 -translate-x-1/2 font-sans text-xl font-extrabold capitalize"
+					in:fade={{ duration: 200 }}
+				>
+					Scroll for more
+				</p>
 			{/if}
 		</div>
 		<div
