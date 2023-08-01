@@ -70,6 +70,12 @@
 				<div id="hero-title" class=" font-sans text-2xl font-semibold text-slate-100 sm:text-5xl">
 					How are you feeling today?
 				</div>
+				<div
+					id="hero-description"
+					class="mt-6 max-w-lg font-sans text-2xl text-slate-300 sm:text-3xl"
+				>
+					Explore how modern science can help you to feel better today
+				</div>
 				<div id="buttons-container" class="relative mt-8 flex flex-row items-center">
 					<div id="login-button-container" class="group relative">
 						<div
