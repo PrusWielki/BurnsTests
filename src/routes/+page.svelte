@@ -56,10 +56,10 @@
 	</div>
 	<a
 		id="github-link"
-		class="absolute right-12 top-4 cursor-pointer"
+		class="absolute right-12 top-4 cursor-pointer font-extrabold decoration-wavy hover:text-cyan-300 hover:underline"
 		href="https://github.com/PrusWielki/BurnsTests"
 	>
-		<img src="GitHub_Logo_White.png" alt="GitHub" class="h-6 w-16" />
+		GitHub
 	</a>
 	<div id="homepage-container" class="flex min-h-screen w-full flex-col" on:wheel|passive={onWheel}>
 		<div id="section-0" class="flex h-screen w-full flex-row">
@@ -80,11 +80,11 @@
 					<div id="login-button-container" class="group relative">
 						<div
 							id="button-glow"
-							class="absolute -inset-1/3 rounded-full bg-gradient-radial from-cyan-500 to-cyan-200 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
+							class="absolute -inset-1/3 rounded-full bg-gradient-radial from-cyan-500 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
 						/>
 						<a
 							href="/login"
-							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-200 hover:underline hover:shadow-lg sm:text-xl"
+							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-xl"
 						>
 							Login</a
 						>
@@ -93,11 +93,11 @@
 					<div id="register-button-container" class="group relative">
 						<div
 							id="button-glow"
-							class="absolute -inset-1/3 rounded-full bg-gradient-radial from-cyan-500 to-cyan-200 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
+							class="absolute -inset-1/3 rounded-full bg-gradient-radial from-cyan-500 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
 						/>
 						<a
 							href="/register"
-							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-200 hover:underline hover:shadow-lg sm:text-xl"
+							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-xl"
 						>
 							Register</a
 						>
