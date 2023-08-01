@@ -50,19 +50,26 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 <div id="homepage-wrapper" class="max-h-screen sm:overflow-hidden" bind:this={homepageWrapper}>
-	<div id="title-container" class="absolute left-4 top-4 font-sans font-semibold text-slate-100">
+	<div id="title-container" class="absolute left-12 top-4 font-sans font-semibold text-slate-100">
 		{TITLE}
 	</div>
+	<a
+		id="github-link"
+		class="absolute right-12 top-4 cursor-pointer"
+		href="https://github.com/PrusWielki/BurnsTests"
+	>
+		<img src="GitHub_Logo_White.png" alt="GitHub" class="h-6 w-16" />
+	</a>
 	<div id="homepage-container" class="flex min-h-screen w-full flex-col" on:wheel|passive={onWheel}>
 		<div id="section-0" class="flex h-screen w-full flex-row">
 			<div
 				id="homepage-hero-title-button-container"
 				class="flex h-full w-full flex-col items-center justify-center bg-zinc-950 text-center sm:w-full"
 			>
-				<div id="hero-title" class=" font-sans text-2xl font-semibold text-slate-100 sm:text-3xl">
+				<div id="hero-title" class=" font-sans text-2xl font-semibold text-slate-100 sm:text-5xl">
 					How are you feeling today?
 				</div>
-				<div id="buttons-container" class="relative mt-12 flex flex-row items-center">
+				<div id="buttons-container" class="relative mt-8 flex flex-row items-center">
 					<div id="login-button-container" class="group relative">
 						<div
 							id="button-glow"
