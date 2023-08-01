@@ -65,7 +65,7 @@
 		<div id="section-0" class="flex h-screen w-full flex-row">
 			<div
 				id="homepage-hero-title-button-container"
-				class="flex h-full w-full flex-col items-center justify-center bg-zinc-950 py-8 text-center sm:w-full"
+				class="flex h-full w-full flex-col items-center justify-center bg-zinc-950 pb-8 pt-12 text-center sm:w-full"
 			>
 				<div
 					id="hero-title"
@@ -87,7 +87,7 @@
 						/>
 						<a
 							href="/login"
-							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-xl"
+							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-2xl"
 						>
 							Login</a
 						>
@@ -100,7 +100,7 @@
 						/>
 						<a
 							href="/register"
-							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-xl"
+							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-2xl"
 						>
 							Register</a
 						>
