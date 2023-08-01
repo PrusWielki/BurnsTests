@@ -107,10 +107,10 @@
 					</div>
 				</div>
 
-				<div id="gif-container" class="group relative mt-24 sm:mt-12 sm:w-1/2">
+				<div id="gif-container" class="group relative mt-12 px-4 sm:mt-12 sm:w-1/2 sm:px-0">
 					<div
 						id="gif-glow"
-						class="absolute -bottom-full -top-full left-0 right-0 rounded-full bg-gradient-radial from-cyan-500 opacity-25 blur-lg transition-all duration-1000 group-hover:opacity-30 group-hover:duration-500 sm:-left-full sm:-right-full"
+						class="absolute -bottom-1/3 -left-px -right-px -top-1/3 rounded-sm bg-gradient-radial from-cyan-500 opacity-25 blur-lg transition-all duration-1000 group-hover:opacity-30 group-hover:duration-500 sm:-inset-full sm:rounded-full"
 					/>
 					<img
 						src="homepage_gif.gif"
@@ -119,7 +119,7 @@
 					/>
 				</div>
 			</div>
-			{#if (slidesReady && windowWidth > 640 && currentSlide === 0) || (windowWidth <= 640 && scrollY < 10)}
+			{#if slidesReady && ((windowWidth > 640 && currentSlide === 0) || (windowWidth <= 640 && scrollY < 10))}
 				<p
 					class="absolute bottom-4 left-1/2 -translate-x-1/2 font-sans text-xl font-extrabold capitalize"
 					in:fade={{ duration: 200 }}
