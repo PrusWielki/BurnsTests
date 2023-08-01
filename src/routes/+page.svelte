@@ -5,6 +5,7 @@
 	let homepageWrapper: HTMLElement;
 	let slidesContainer: HTMLElement;
 	let upperSectionIndex = 3;
+	let slidesReady = false;
 
 	let windowWidth: number;
 	let currentSlide: number = 0;
@@ -73,24 +74,24 @@
 					<div id="login-button-container" class="group relative">
 						<div
 							id="button-glow"
-							class="absolute -inset-1/3 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-200 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
+							class="absolute -inset-1/3 rounded-full bg-gradient-radial from-cyan-500 to-cyan-200 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
 						/>
 						<a
 							href="/login"
-							class="relative text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-200 hover:underline hover:shadow-lg sm:text-xl"
+							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-200 hover:underline hover:shadow-lg sm:text-xl"
 						>
 							Login</a
 						>
 					</div>
 					<div id="slash-container" class="px-2 text-3xl text-slate-100">/</div>
-					<div id="login-button-container" class="group relative">
+					<div id="register-button-container" class="group relative">
 						<div
 							id="button-glow"
-							class="absolute -inset-1/3 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-200 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
+							class="absolute -inset-1/3 rounded-full bg-gradient-radial from-cyan-500 to-cyan-200 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
 						/>
 						<a
 							href="/register"
-							class="relative text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-200 hover:underline hover:shadow-lg sm:text-xl"
+							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-200 hover:underline hover:shadow-lg sm:text-xl"
 						>
 							Register</a
 						>
@@ -99,16 +100,16 @@
 
 				<div id="gif-container" class="group relative mt-24">
 					<div
-						class="absolute -bottom-1/4 -top-1/4 left-0 right-0 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-100 opacity-20 blur-xl transition-all duration-1000 group-hover:-inset-1/3 group-hover:opacity-25 group-hover:duration-500 sm:-left-1/4 sm:-right-1/4"
+						class="absolute -bottom-full -top-full left-0 right-0 rounded-full bg-gradient-radial from-cyan-500 opacity-20 blur-xl transition-all duration-1000 group-hover:opacity-30 group-hover:duration-500 sm:-left-full sm:-right-full"
 					/>
 					<img
 						src="homepage_gif.gif"
 						alt="gif showing main functionalities"
-						class="relative h-full w-full"
+						class="relative z-10 h-full w-full blur-none"
 					/>
 				</div>
 			</div>
-			{#if (windowWidth > 640 && currentSlide === 0) || (windowWidth <= 640 && scrollY < 10)}
+			{#if (slidesReady && windowWidth > 640 && currentSlide === 0) || (windowWidth <= 640 && scrollY < 10)}
 				<p
 					class="absolute bottom-4 left-1/2 -translate-x-1/2 font-sans text-xl font-extrabold capitalize"
 					in:fade={{ duration: 200 }}
@@ -117,20 +118,22 @@
 				</p>
 			{/if}
 		</div>
-		<div
-			id="slides-container"
-			bind:this={slidesContainer}
-			class="no-scrollbar flex h-screen w-full snap-y flex-col overflow-x-auto sm:flex-row"
-		>
-			<div id="section-1" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
-				Slide 1 content
+		{#if slidesReady}
+			<div
+				id="slides-container"
+				bind:this={slidesContainer}
+				class="no-scrollbar flex h-screen w-full snap-y flex-col overflow-x-auto sm:flex-row"
+			>
+				<div id="section-1" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
+					Slide 1 content
+				</div>
+				<div id="section-2" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
+					Slide 2 content
+				</div>
+				<div id="section-3" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
+					Slide 3 content
+				</div>
 			</div>
-			<div id="section-2" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
-				Slide 2 content
-			</div>
-			<div id="section-3" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
-				Slide 3 content
-			</div>
-		</div>
+		{/if}
 	</div>
 </div>
