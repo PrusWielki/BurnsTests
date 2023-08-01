@@ -65,14 +65,17 @@
 		<div id="section-0" class="flex h-screen w-full flex-row">
 			<div
 				id="homepage-hero-title-button-container"
-				class="flex h-full w-full flex-col items-center justify-center bg-zinc-950 text-center sm:w-full"
+				class="flex h-full w-full flex-col items-center justify-center bg-zinc-950 py-8 text-center sm:w-full"
 			>
-				<div id="hero-title" class=" font-sans text-2xl font-semibold text-slate-100 sm:text-5xl">
+				<div
+					id="hero-title"
+					class="z-10 px-2 font-sans text-3xl font-semibold text-slate-100 sm:text-5xl"
+				>
 					How are you feeling today?
 				</div>
 				<div
 					id="hero-description"
-					class="mt-6 max-w-lg font-sans text-2xl text-slate-300 sm:text-3xl"
+					class="z-10 mt-6 max-w-lg px-2 font-sans text-2xl text-slate-300 sm:text-3xl"
 				>
 					Explore how modern science can help you to feel better today
 				</div>
@@ -80,7 +83,7 @@
 					<div id="login-button-container" class="group relative">
 						<div
 							id="button-glow"
-							class="absolute -inset-1/3 rounded-full bg-gradient-radial from-cyan-500 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
+							class="absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-30 blur-2xl transition-all duration-1000 group-hover:-inset-full group-hover:opacity-40 group-hover:duration-500"
 						/>
 						<a
 							href="/login"
@@ -93,7 +96,7 @@
 					<div id="register-button-container" class="group relative">
 						<div
 							id="button-glow"
-							class="absolute -inset-1/3 rounded-full bg-gradient-radial from-cyan-500 opacity-25 blur-2xl transition-all duration-1000 group-hover:-inset-2/3 group-hover:opacity-30 group-hover:duration-500"
+							class="absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-30 blur-2xl transition-all duration-1000 group-hover:-inset-full group-hover:opacity-40 group-hover:duration-500"
 						/>
 						<a
 							href="/register"
@@ -106,6 +109,7 @@
 
 				<div id="gif-container" class="group relative mt-24">
 					<div
+						id="gif-glow"
 						class="absolute -bottom-full -top-full left-0 right-0 rounded-full bg-gradient-radial from-cyan-500 opacity-20 blur-xl transition-all duration-1000 group-hover:opacity-30 group-hover:duration-500 sm:-left-full sm:-right-full"
 					/>
 					<img
