@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { TITLE } from '$lib/cms/home/home';
+	import { fade } from 'svelte/transition';
 	export let data: PageData;
 	let { supabase } = data;
 	let email: string;
@@ -29,6 +30,7 @@
 		action="?/login"
 		method="POST"
 		class="auth-form flex w-full flex-col items-center justify-center gap-4"
+		in:fade={{ duration: 200 }}
 	>
 		<div id="login-email-grid" class="grid grid-cols-2">
 			<label id="email-label" for="email" class="text-center text-2xl text-slate-100 sm:text-3xl">

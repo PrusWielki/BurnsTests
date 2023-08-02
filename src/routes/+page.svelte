@@ -74,16 +74,22 @@
 				<div
 					id="hero-title"
 					class="z-10 px-2 font-sans text-3xl font-semibold text-slate-100 sm:text-5xl"
+					in:fade={{ duration: 200 }}
 				>
 					How are you feeling today?
 				</div>
 				<div
 					id="hero-description"
 					class="z-10 mt-6 max-w-lg px-2 font-sans text-2xl text-slate-300 sm:text-3xl"
+					in:fade={{ duration: 200 }}
 				>
 					Explore how modern science can serve You to feel good and be more productive
 				</div>
-				<div id="buttons-container" class="relative mt-8 flex flex-row items-center">
+				<div
+					id="buttons-container"
+					class="relative mt-8 flex flex-row items-center"
+					in:fade={{ duration: 200 }}
+				>
 					<div id="login-button-container" class="group relative">
 						<div
 							id="button-glow"
@@ -121,6 +127,7 @@
 						src="homepage_gif.gif"
 						alt="gif showing main functionalities"
 						class="relative z-10 h-full w-full blur-none"
+						in:fade={{ duration: 200 }}
 					/>
 				</div>
 			</div>

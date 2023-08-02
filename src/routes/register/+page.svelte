@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { TITLE } from '$lib/cms/home/home';
+	import { fade } from 'svelte/transition';
 </script>
 
 <a
@@ -25,6 +26,7 @@
 		action="?/register"
 		method="POST"
 		class="auth-form flex w-full flex-col items-center justify-center gap-4"
+		in:fade={{ duration: 200 }}
 	>
 		<div class="grid grid-cols-2" id="register-email-grid">
 			<label
