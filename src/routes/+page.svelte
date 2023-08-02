@@ -87,7 +87,7 @@
 					<div id="login-button-container" class="group relative">
 						<div
 							id="button-glow"
-							class="group-hover:opacity-15 absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-5 blur-xl transition-all duration-1000 group-hover:-inset-full group-hover:duration-500"
+							class="absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-5 blur-xl transition-all duration-1000 group-hover:-inset-full group-hover:opacity-20 group-hover:duration-500"
 						/>
 						<a
 							href="/login"
@@ -96,11 +96,11 @@
 							Login</a
 						>
 					</div>
-					<div id="slash-container" class="px-2 text-3xl text-slate-100">/</div>
+					<div id="slash-container" class="z-10 px-2 text-3xl text-slate-100">/</div>
 					<div id="register-button-container" class="group relative">
 						<div
 							id="button-glow"
-							class="group-hover:opacity-15 absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-5 blur-xl transition-all duration-1000 group-hover:-inset-full group-hover:duration-500"
+							class="absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-5 blur-xl transition-all duration-1000 group-hover:-inset-full group-hover:opacity-20 group-hover:duration-500"
 						/>
 						<a
 							href="/register"

@@ -31,13 +31,13 @@
 		class="auth-form flex w-full flex-col items-center justify-center gap-4"
 	>
 		<div id="login-email-grid" class="grid grid-cols-2">
-			<label id="email-label" for="email" class="text-center text-2xl text-slate-300 sm:text-3xl">
+			<label id="email-label" for="email" class="text-center text-2xl text-slate-100 sm:text-3xl">
 				Email
 			</label>
 			<input
 				type="text"
 				name="email"
-				class="input-bordered input"
+				class="input-bordered input rounded-sm bg-transparent"
 				bind:value={email}
 				placeholder="..."
 			/>
@@ -46,17 +46,26 @@
 			<label
 				id="password-label"
 				for="password"
-				class="text-center text-2xl text-slate-300 sm:text-3xl"
+				class="text-center text-2xl text-slate-100 sm:text-3xl"
 			>
 				Password
 			</label>
-			<input type="password" name="password" class="input-bordered input" placeholder="..." />
+			<input
+				type="password"
+				name="password"
+				class="input-bordered input rounded-sm bg-transparent"
+				placeholder="..."
+			/>
 		</div>
 		<button
 			id="submit-button"
 			type="submit"
-			class=" text-2xl text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline sm:text-3xl"
-			>Login</button
+			class=" group relative z-10 mt-8 text-2xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline sm:text-3xl"
+			><div
+				id="button-glow"
+				class="absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-5 blur-xl transition-all duration-1000 group-hover:-inset-full group-hover:opacity-20 group-hover:duration-500"
+			/>
+			Login</button
 		>
 	</form>
 	<button
@@ -69,7 +78,7 @@
 				alert('Check your email inbox');
 			}
 		}}
-		class="mt-6 text-2xl text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline sm:text-3xl"
+		class="mt-6 text-lg italic text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline"
 		>Reset Password</button
 	>
 </div>
