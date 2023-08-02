@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { TITLE } from '$lib/cms/home/home';
 	import { fade } from 'svelte/transition';
+	import { MEDIA_SM } from '$lib/constants/media_query';
 	let scrollY: number = 0;
 	let homepageWrapper: HTMLElement;
 	let slidesContainer: HTMLElement;
@@ -23,7 +24,7 @@
 	const onWheel = (event: WheelEvent) => {
 		if (!scrolling) {
 			scrollY += event.deltaY;
-			if (windowWidth > 640 && event.deltaY != 0) {
+			if (windowWidth > MEDIA_SM && event.deltaY != 0) {
 				if (event.deltaY > 0 && currentSlide < upperSectionIndex) {
 					currentSlide += 1;
 					let element = document.getElementById(`section-${currentSlide}`);
@@ -134,7 +135,7 @@
 					/>
 				</div>
 			</div>
-			{#if slidesReady && ((windowWidth > 640 && currentSlide === 0) || (windowWidth <= 640 && scrollY < 10))}
+			{#if slidesReady && ((windowWidth > MEDIA_SM && currentSlide === 0) || (windowWidth <= MEDIA_SM && scrollY < 10))}
 				<p
 					class="absolute bottom-4 left-1/2 -translate-x-1/2 font-sans text-xl font-extrabold capitalize"
 					in:fade={{ duration: 200 }}
