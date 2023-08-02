@@ -73,7 +73,7 @@
 			>
 				<div
 					id="hero-title"
-					class="z-10 px-2 font-sans text-3xl font-semibold text-slate-100 sm:text-5xl"
+					class="z-10 px-2 font-sans text-4xl font-semibold text-slate-100 sm:text-5xl"
 					in:fade={{ duration: 200 }}
 				>
 					How are you feeling today?
@@ -117,7 +117,10 @@
 					</div>
 				</div>
 
-				<div id="gif-container" class="group relative mt-12 px-4 sm:mt-12 sm:w-2/5 sm:px-0">
+				<div
+					id="gif-container"
+					class="group relative mt-12 px-4 sm:mt-12 sm:w-1/2 sm:px-0 xl:w-2/5"
+				>
 					<div
 						id="gif-glow"
 						class="absolute -bottom-1/3 -left-px -right-px -top-1/3 rounded-sm bg-gradient-radial from-cyan-500 to-zinc-950 opacity-25 blur-2xl sm:-inset-full sm:rounded-full"
