@@ -87,7 +87,7 @@
 					<div id="login-button-container" class="group relative">
 						<div
 							id="button-glow"
-							class="absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-30 blur-2xl transition-all duration-1000 group-hover:-inset-full group-hover:opacity-40 group-hover:duration-500"
+							class="group-hover:opacity-15 absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-5 blur-xl transition-all duration-1000 group-hover:-inset-full group-hover:duration-500"
 						/>
 						<a
 							href="/login"
@@ -100,7 +100,7 @@
 					<div id="register-button-container" class="group relative">
 						<div
 							id="button-glow"
-							class="absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-30 blur-2xl transition-all duration-1000 group-hover:-inset-full group-hover:opacity-40 group-hover:duration-500"
+							class="group-hover:opacity-15 absolute -inset-2/3 rounded-full bg-gradient-radial from-cyan-500 opacity-5 blur-xl transition-all duration-1000 group-hover:-inset-full group-hover:duration-500"
 						/>
 						<a
 							href="/register"
@@ -114,7 +114,7 @@
 				<div id="gif-container" class="group relative mt-12 px-4 sm:mt-12 sm:w-1/2 sm:px-0">
 					<div
 						id="gif-glow"
-						class="absolute -bottom-1/3 -left-px -right-px -top-1/3 rounded-sm bg-gradient-radial from-cyan-500 opacity-25 blur-lg transition-all duration-1000 group-hover:opacity-30 group-hover:duration-500 sm:-inset-full sm:rounded-full"
+						class="absolute -bottom-1/3 -left-px -right-px -top-1/3 rounded-sm bg-gradient-radial from-cyan-500 opacity-20 transition-all duration-1000 group-hover:duration-500 sm:-inset-full sm:rounded-full"
 					/>
 					<img
 						src="homepage_gif.gif"
