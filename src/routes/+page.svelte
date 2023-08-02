@@ -81,7 +81,7 @@
 					id="hero-description"
 					class="z-10 mt-6 max-w-lg px-2 font-sans text-2xl text-slate-300 sm:text-3xl"
 				>
-					Explore how modern science can help you to feel better today
+					Explore how modern science can serve You to feel good and be more productive
 				</div>
 				<div id="buttons-container" class="relative mt-8 flex flex-row items-center">
 					<div id="login-button-container" class="group relative">
@@ -91,7 +91,7 @@
 						/>
 						<a
 							href="/login"
-							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-2xl"
+							class="relative z-10 font-sans text-xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-2xl"
 						>
 							Login</a
 						>
@@ -104,18 +104,19 @@
 						/>
 						<a
 							href="/register"
-							class="relative z-10 text-xl text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-2xl"
+							class="relative z-10 text-xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-2xl"
 						>
 							Register</a
 						>
 					</div>
 				</div>
 
-				<div id="gif-container" class="group relative mt-12 px-4 sm:mt-12 sm:w-1/2 sm:px-0">
+				<div id="gif-container" class="group relative mt-12 px-4 sm:mt-12 sm:w-2/5 sm:px-0">
 					<div
 						id="gif-glow"
-						class="absolute -bottom-1/3 -left-px -right-px -top-1/3 rounded-sm bg-gradient-radial from-cyan-500 opacity-20 transition-all duration-1000 group-hover:duration-500 sm:-inset-full sm:rounded-full"
+						class="absolute -bottom-1/3 -left-px -right-px -top-1/3 rounded-sm bg-gradient-radial from-cyan-500 to-zinc-950 opacity-25 blur-2xl sm:-inset-full sm:rounded-full"
 					/>
+
 					<img
 						src="homepage_gif.gif"
 						alt="gif showing main functionalities"
