@@ -3,6 +3,7 @@
 	import type { PageData } from './$types';
 	import { insertTest } from '../../../../hooks/test_data';
 	import { browser } from '$app/environment';
+	import { MEDIA_SM } from '$lib/constants/media_query';
 
 	export let data: PageData;
 	export let title: string = data.title || 'test';
@@ -110,7 +111,7 @@
 					}
 				}}>save</button
 			>
-			{#if scrollY < 200 && window.innerWidth < 640}
+			{#if scrollY < 200 && window.innerWidth < MEDIA_SM}
 				<p
 					class="absolute bottom-4 font-sans text-xl font-extrabold capitalize"
 					out:fade={{ duration: 500 }}
