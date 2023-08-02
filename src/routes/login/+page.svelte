@@ -15,6 +15,8 @@
 	{TITLE}
 </a>
 <a
+	target="_blank"
+	rel="noopener noreferrer"
 	id="github-link"
 	class="absolute right-12 top-4 cursor-pointer font-extrabold decoration-wavy hover:text-cyan-300 hover:underline"
 	href="https://github.com/PrusWielki/BurnsTests"
