@@ -6,6 +6,13 @@
 	let email: string;
 </script>
 
+<a
+	id="github-link"
+	class="absolute right-12 top-4 cursor-pointer font-extrabold decoration-wavy hover:text-cyan-300 hover:underline"
+	href="https://github.com/PrusWielki/BurnsTests"
+>
+	GitHub
+</a>
 <div
 	id="login_main_container"
 	class="flex h-screen w-screen flex-col items-center justify-center bg-zinc-950 px-6"
