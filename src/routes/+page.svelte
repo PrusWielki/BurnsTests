@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TITLE } from '$lib/cms/home/home';
+	import HomepageNavbar from '$lib/components/navbar/homepage_navbar.svelte';
 	import { fade } from 'svelte/transition';
 	import { MEDIA_SM } from '$lib/constants/media_query';
 	let scrollY: number = 0;
@@ -51,23 +51,8 @@
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
+<HomepageNavbar />
 <div id="homepage-wrapper" class="max-h-screen sm:overflow-hidden" bind:this={homepageWrapper}>
-	<a
-		id="title-container"
-		href="/"
-		class="absolute left-12 top-4 cursor-pointer font-sans font-semibold text-slate-100 decoration-wavy hover:text-cyan-300 hover:underline"
-	>
-		{TITLE}
-	</a>
-	<a
-		target="_blank"
-		rel="noopener noreferrer"
-		id="github-link"
-		class="absolute right-12 top-4 cursor-pointer font-extrabold decoration-wavy hover:text-cyan-300 hover:underline"
-		href="https://github.com/PrusWielki/BurnsTests"
-	>
-		GitHub
-	</a>
 	<div id="homepage-container" class="flex min-h-screen w-full flex-col" on:wheel|passive={onWheel}>
 		<div id="section-0" class="flex h-screen w-full flex-row">
 			<div
