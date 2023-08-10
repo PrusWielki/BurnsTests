@@ -1,22 +1,7 @@
 <script lang="ts">
-	import { TITLE } from '$lib/cms/home/home';
 	import { fade } from 'svelte/transition';
 </script>
 
-<a
-	id="title-container"
-	href="/"
-	class="absolute left-12 top-4 cursor-pointer font-sans font-semibold text-slate-100 decoration-wavy hover:text-cyan-300 hover:underline"
->
-	{TITLE}
-</a>
-<a
-	id="github-link"
-	class="absolute right-12 top-4 cursor-pointer font-extrabold decoration-wavy hover:text-cyan-300 hover:underline"
-	href="https://github.com/PrusWielki/BurnsTests"
->
-	GitHub
-</a>
 <div
 	id="register_main_container"
 	class="flex h-screen w-screen flex-col items-center justify-center bg-zinc-950 px-6"

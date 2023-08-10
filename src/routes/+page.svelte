@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { TITLE } from '$lib/cms/home/home';
+	import HomepageNavbar from '$lib/components/navbar/homepage_navbar.svelte';
 	import { fade } from 'svelte/transition';
 	import { MEDIA_SM } from '$lib/constants/media_query';
+	import HomepageMethods from '$lib/components/homepage_methods/homepage_methods.svelte';
 	let scrollY: number = 0;
 	let homepageWrapper: HTMLElement;
 	let slidesContainer: HTMLElement;
 	let upperSectionIndex = 3;
-	let slidesReady = false;
 
 	let windowWidth: number;
 	let currentSlide: number = 0;
@@ -51,21 +51,8 @@
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
+<HomepageNavbar />
 <div id="homepage-wrapper" class="max-h-screen sm:overflow-hidden" bind:this={homepageWrapper}>
-	<a
-		id="title-container"
-		href="/"
-		class="absolute left-12 top-4 cursor-pointer font-sans font-semibold text-slate-100 decoration-wavy hover:text-cyan-300 hover:underline"
-	>
-		{TITLE}
-	</a>
-	<a
-		id="github-link"
-		class="absolute right-12 top-4 cursor-pointer font-extrabold decoration-wavy hover:text-cyan-300 hover:underline"
-		href="https://github.com/PrusWielki/BurnsTests"
-	>
-		GitHub
-	</a>
 	<div id="homepage-container" class="flex min-h-screen w-full flex-col" on:wheel|passive={onWheel}>
 		<div id="section-0" class="flex h-screen w-full flex-row">
 			<div
@@ -74,14 +61,14 @@
 			>
 				<div
 					id="hero-title"
-					class="z-10 px-2 font-sans text-4xl font-semibold text-slate-100 sm:text-5xl"
+					class="z-10 px-2 font-sans text-4xl font-semibold text-slate-100 xl:text-5xl"
 					in:fade={{ duration: 200 }}
 				>
 					How are you feeling today?
 				</div>
 				<div
 					id="hero-description"
-					class="z-10 mt-6 max-w-lg px-2 font-sans text-2xl text-slate-300 sm:text-3xl"
+					class="z-10 mt-6 max-w-lg px-2 font-sans text-2xl text-slate-300 xl:text-3xl"
 					in:fade={{ duration: 200 }}
 				>
 					Explore how modern science can serve You to feel good and be more productive
@@ -98,12 +85,12 @@
 						/>
 						<a
 							href="/login"
-							class="relative z-10 font-sans text-xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-2xl"
+							class="relative z-10 font-sans text-xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg xl:text-2xl"
 						>
 							Login</a
 						>
 					</div>
-					<div id="slash-container" class="z-10 px-2 text-3xl text-slate-100">/</div>
+					<div id="slash-container" class="z-10 px-2 text-2xl text-slate-100 xl:text-3xl">/</div>
 					<div id="register-button-container" class="group relative">
 						<div
 							id="button-glow"
@@ -111,7 +98,7 @@
 						/>
 						<a
 							href="/register"
-							class="relative z-10 text-xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-2xl"
+							class="relative z-10 text-xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg xl:text-2xl"
 						>
 							Register</a
 						>
@@ -120,7 +107,7 @@
 
 				<div
 					id="gif-container"
-					class="group relative mt-12 px-4 sm:mt-12 sm:w-1/2 sm:px-0 xl:w-2/5"
+					class="group relative mt-6 px-4 sm:w-5/12 sm:px-0 xl:mt-12 xl:w-2/5"
 				>
 					<div
 						id="gif-glow"
@@ -135,7 +122,7 @@
 					/>
 				</div>
 			</div>
-			{#if slidesReady && ((windowWidth > MEDIA_SM && currentSlide === 0) || (windowWidth <= MEDIA_SM && scrollY < 10))}
+			{#if windowWidth > MEDIA_SM && currentSlide === 0}
 				<p
 					class="absolute bottom-4 left-1/2 -translate-x-1/2 font-sans text-xl font-extrabold capitalize"
 					in:fade={{ duration: 200 }}
@@ -144,22 +131,16 @@
 				</p>
 			{/if}
 		</div>
-		{#if slidesReady}
+		{#if windowWidth > MEDIA_SM}
 			<div
-				id="slides-container"
+				id="slides-desktop-container"
 				bind:this={slidesContainer}
-				class="no-scrollbar flex h-screen w-full snap-y flex-col overflow-x-auto sm:flex-row"
+				class="no-scrollbar flex h-screen w-full snap-y flex-row overflow-x-auto"
 			>
-				<div id="section-1" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
-					Slide 1 content
-				</div>
-				<div id="section-2" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
-					Slide 2 content
-				</div>
-				<div id="section-3" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
-					Slide 3 content
-				</div>
+				<HomepageMethods />
 			</div>
+		{:else}
+			<HomepageMethods />
 		{/if}
 	</div>
 </div>
