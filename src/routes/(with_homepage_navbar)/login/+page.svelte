@@ -1,13 +1,11 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import HomepageNavbar from '$lib/components/navbar/homepage_navbar.svelte';
 	import { fade } from 'svelte/transition';
 	export let data: PageData;
 	let { supabase } = data;
 	let email: string;
 </script>
 
-<HomepageNavbar />
 <div
 	id="login_main_container"
 	class="flex h-screen w-screen flex-col items-center justify-center bg-zinc-950 px-6"

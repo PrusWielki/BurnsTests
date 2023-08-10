@@ -1,9 +1,7 @@
 <script lang="ts">
-	import HomepageNavbar from '$lib/components/navbar/homepage_navbar.svelte';
 	import { fade } from 'svelte/transition';
 </script>
 
-<HomepageNavbar />
 <div
 	id="register_main_container"
 	class="flex h-screen w-screen flex-col items-center justify-center bg-zinc-950 px-6"
