@@ -61,14 +61,14 @@
 			>
 				<div
 					id="hero-title"
-					class="z-10 px-2 font-sans text-4xl font-semibold text-slate-100 sm:text-5xl"
+					class="z-10 px-2 font-sans text-4xl font-semibold text-slate-100 xl:text-5xl"
 					in:fade={{ duration: 200 }}
 				>
 					How are you feeling today?
 				</div>
 				<div
 					id="hero-description"
-					class="z-10 mt-6 max-w-lg px-2 font-sans text-2xl text-slate-300 sm:text-3xl"
+					class="z-10 mt-6 max-w-lg px-2 font-sans text-2xl text-slate-300 xl:text-3xl"
 					in:fade={{ duration: 200 }}
 				>
 					Explore how modern science can serve You to feel good and be more productive
@@ -85,12 +85,12 @@
 						/>
 						<a
 							href="/login"
-							class="relative z-10 font-sans text-xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-2xl"
+							class="relative z-10 font-sans text-xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg xl:text-2xl"
 						>
 							Login</a
 						>
 					</div>
-					<div id="slash-container" class="z-10 px-2 text-3xl text-slate-100">/</div>
+					<div id="slash-container" class="z-10 px-2 text-2xl text-slate-100 xl:text-3xl">/</div>
 					<div id="register-button-container" class="group relative">
 						<div
 							id="button-glow"
@@ -98,7 +98,7 @@
 						/>
 						<a
 							href="/register"
-							class="relative z-10 text-xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg sm:text-2xl"
+							class="relative z-10 text-xl font-semibold text-slate-100 decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-cyan-300 hover:underline hover:shadow-lg xl:text-2xl"
 						>
 							Register</a
 						>
@@ -107,7 +107,7 @@
 
 				<div
 					id="gif-container"
-					class="group relative mt-12 px-4 sm:mt-12 sm:w-1/2 sm:px-0 xl:w-2/5"
+					class="group relative mt-6 px-4 sm:w-5/12 sm:px-0 xl:mt-12 xl:w-2/5"
 				>
 					<div
 						id="gif-glow"
