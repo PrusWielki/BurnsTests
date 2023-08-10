@@ -7,7 +7,6 @@
 	let homepageWrapper: HTMLElement;
 	let slidesContainer: HTMLElement;
 	let upperSectionIndex = 3;
-	let slidesReady = true;
 
 	let windowWidth: number;
 	let currentSlide: number = 0;
