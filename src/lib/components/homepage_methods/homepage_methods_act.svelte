@@ -3,7 +3,7 @@
 
 <div
 	id="act-method-main-container"
-	class="z-10 flex h-full w-full items-center justify-center px-4"
+	class="z-20 flex h-full w-full items-center justify-center px-4"
 >
 	<div id="act-article-container" class="prose text-center sm:prose-2xl">
 		<h1>ACT</h1>
