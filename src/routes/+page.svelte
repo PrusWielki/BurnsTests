@@ -2,11 +2,12 @@
 	import HomepageNavbar from '$lib/components/navbar/homepage_navbar.svelte';
 	import { fade } from 'svelte/transition';
 	import { MEDIA_SM } from '$lib/constants/media_query';
+	import HomepageMethods from '$lib/components/homepage_methods/homepage_methods.svelte';
 	let scrollY: number = 0;
 	let homepageWrapper: HTMLElement;
 	let slidesContainer: HTMLElement;
 	let upperSectionIndex = 3;
-	let slidesReady = false;
+	let slidesReady = true;
 
 	let windowWidth: number;
 	let currentSlide: number = 0;
@@ -122,7 +123,7 @@
 					/>
 				</div>
 			</div>
-			{#if slidesReady && ((windowWidth > MEDIA_SM && currentSlide === 0) || (windowWidth <= MEDIA_SM && scrollY < 10))}
+			{#if windowWidth > MEDIA_SM && currentSlide === 0}
 				<p
 					class="absolute bottom-4 left-1/2 -translate-x-1/2 font-sans text-xl font-extrabold capitalize"
 					in:fade={{ duration: 200 }}
@@ -131,22 +132,16 @@
 				</p>
 			{/if}
 		</div>
-		{#if slidesReady}
+		{#if windowWidth > MEDIA_SM}
 			<div
-				id="slides-container"
+				id="slides-desktop-container"
 				bind:this={slidesContainer}
-				class="no-scrollbar flex h-screen w-full snap-y flex-col overflow-x-auto sm:flex-row"
+				class="no-scrollbar flex h-screen w-full snap-y flex-row overflow-x-auto"
 			>
-				<div id="section-1" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
-					Slide 1 content
-				</div>
-				<div id="section-2" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
-					Slide 2 content
-				</div>
-				<div id="section-3" class="h-screen shrink-0 snap-start sm:h-full sm:basis-full">
-					Slide 3 content
-				</div>
+				<HomepageMethods />
 			</div>
+		{:else}
+			<HomepageMethods />
 		{/if}
 	</div>
 </div>
