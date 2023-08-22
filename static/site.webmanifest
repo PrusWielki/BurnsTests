@@ -11,16 +11,23 @@
 		{
 			"src": "/android-chrome-512x512.png",
 			"sizes": "512x512",
-			"type": "image/png"
+			"type": "image/png",
+			"purpose": "any"
 		},
 		{
 			"src": "/maskable_icon.png",
 			"sizes": "256x256",
 			"type": "image/png",
-			"purpose": "any maskable"
+			"purpose": "maskable"
 		}
 	],
 	"theme_color": "#000000",
 	"background_color": "#000000",
-	"display": "standalone"
+	"display": "fullscreen",
+	"display_override": ["fullscreen", "window-controls-overlay"],
+	"description": "Explore how modern science can serve You to feel good and be more productive",
+	"dir": "ltr",
+	"lang": "en",
+	"orientation": "any",
+	"categories": ["education", "fitness", "health", "lifestyle", "productivity", "social"]
 }
