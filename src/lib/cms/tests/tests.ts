@@ -7,9 +7,9 @@ export const TEST_NAMES_LOWER = [
 	'addictions'
 ];
 export const BACKGROUND_NAMES = [
-	'/background/hd/mountains.jpg',
+	'/background/webp/mountains.jpg',
 	'/background/hd/trees.jpg',
-	'/background/hd/animals.jpg',
-	'/background/hd/happy-animals.jpg',
-	'/background/hd/horse-addictions.jpg'
+	'/background/webp/animals.jpg',
+	'/background/webp/happy-animals.jpg',
+	'/background/webp/horse-addictions.jpg'
 ];
