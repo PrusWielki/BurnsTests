@@ -23,7 +23,7 @@
 	],
 	"theme_color": "#000000",
 	"background_color": "#000000",
-	"display": "minimal-ui",
+	"display": "standalone",
 	"description": "Explore how modern science can serve You to feel good and be more productive",
 	"dir": "ltr",
 	"lang": "en",
