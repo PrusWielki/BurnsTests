@@ -64,6 +64,7 @@
 					{testName}
 					backgroundName={BACKGROUND_NAMES[index]}
 					navigateTo={`/tests/${testName.toLowerCase()}`}
+					id={index}
 				/>
 			</div>
 		{/each}
