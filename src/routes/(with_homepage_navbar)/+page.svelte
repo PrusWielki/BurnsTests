@@ -51,7 +51,6 @@
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
-<HomepageNavbar />
 <div id="homepage-wrapper" class="max-h-screen sm:overflow-hidden" bind:this={homepageWrapper}>
 	<div id="homepage-container" class="flex min-h-screen w-full flex-col" on:wheel|passive={onWheel}>
 		<div id="section-0" class="flex h-screen w-full flex-row">
