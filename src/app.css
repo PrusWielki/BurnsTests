@@ -16,16 +16,16 @@
 
 	.dynamic-full-screen {
 		height: 100vh;
-		height: 100dvh;
+		height: 100svh;
 	}
 
 	.min-dynamic-full-screen {
 		min-height: 100vh;
-		min-height: 100dvh;
+		min-height: 100svh;
 	}
 
 	.max-dynamic-full-screen {
 		max-height: 100vh;
-		max-height: 100dvh;
+		max-height: 100svh;
 	}
 }
