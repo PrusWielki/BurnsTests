@@ -21,9 +21,7 @@
 	}
 
 	const onWheel = (event: WheelEvent) => {
-		console.log('mouse event')
 		if (!scrolling) {
-			console.log(currentOption)
 			if (windowWidth > MEDIA_SM && event.deltaY != 0) {
 				if (event.deltaY > 0 && currentOption < TEST_NAMES.length - 1) {
 					if (currentOption === 0) currentOption = 3;
