@@ -17,16 +17,10 @@
 	export let scoresMeaningShortDescription: Array<string> = data.scoresMeaningShortDescription;
 	let showResults: boolean = false;
 	let description: string = '';
-	let scrolled: boolean = false;
 	let windowWidth: number;
-	let scrollY: number;
+	let scrollY: number=0;
 	let questionsContainer: HTMLElement;
 
-	if (browser) {
-		window.onscroll = function (e) {
-			scrolled = true;
-		};
-	}
 	for (let i = 0; i < questions.length; ++i) answerSet[i] = 0;
 
 	function scrollIntoView(id: number) {
@@ -37,18 +31,23 @@
 			block: 'center'
 		});
 	}
+
+	const onScroll = (event: any) => {
+		scrollY = event.currentTarget.scrollTop;
+	};
 </script>
 
-<svelte:window bind:innerWidth={windowWidth} bind:scrollY />
+<svelte:window bind:innerWidth={windowWidth} />
 <div
 	id="test-page-wrapper"
 	class={`flex w-screen flex-col ${
 		showResults && 'flex-col-reverse'
-	} items-center justify-center sm:flex sm:dynamic-full-screen sm:grid-rows-none sm:flex-row sm:place-content-start`}
+	}   sm:flex dynamic-full-screen overflow-auto sm:grid-rows-none sm:flex-row sm:place-content-start snap-y snap-mandatory`}
+	on:scroll={onScroll}
 >
 	<div
 		id="test-wrapper "
-		class={`flex dynamic-full-screen items-center justify-center bg-zinc-600 px-1 py-14 transition-all duration-500 sm:px-4 ${
+		class={`flex dynamic-full-screen items-center justify-center bg-zinc-600 px-1 py-14 transition-all duration-500 sm:px-4 snap-start ${
 			showResults ? '-order-1 sm:w-2/6' : 'sm:w-4/6'
 		}`}
 	>
@@ -111,10 +110,9 @@
 					}
 				}}>save</button
 			>
-			{#if scrollY < 200 && window.innerWidth < MEDIA_SM}
+			{#if scrollY < 1 && window.innerWidth < MEDIA_SM}
 				<p
 					class="absolute bottom-4 font-sans text-xl font-extrabold capitalize"
-					out:fade={{ duration: 500 }}
 					in:fade={{ duration: 500 }}
 				>
 					Scroll for more
@@ -124,7 +122,7 @@
 	</div>
 	<div
 		id="prose-wrapper"
-		class={` flex dynamic-full-screen items-center  px-1 transition-all duration-500 ${
+		class={` flex dynamic-full-screen items-center  px-1 transition-all duration-500 snap-start py-6 ${
 			showResults ? 'order-1 sm:w-4/6' : 'sm:w-2/6'
 		} `}
 	>

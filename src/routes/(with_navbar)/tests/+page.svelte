@@ -15,25 +15,32 @@
 		homeGrid.addEventListener('scrollend', (event) => {
 			scrolling = false;
 		});
+		homeGrid.addEventListener('scrollstart', (event) => {
+			scrolling = true;
+		});
 	}
 
 	const onWheel = (event: WheelEvent) => {
+		console.log('mouse event')
 		if (!scrolling) {
+			console.log(currentOption)
 			if (windowWidth > MEDIA_SM && event.deltaY != 0) {
 				if (event.deltaY > 0 && currentOption < TEST_NAMES.length - 1) {
 					if (currentOption === 0) currentOption = 3;
 					else currentOption += 1;
 					let element = document.getElementById(`option-home-wrapper-${currentOption}`);
 					if (element) {
+				
 						element.scrollIntoView({ behavior: 'smooth' });
-						scrolling = true;
+						
 					}
 				} else if (event.deltaY < 0 && currentOption > 0) {
 					currentOption = Math.floor(currentOption / 3);
 					let element = document.getElementById(`option-home-wrapper-${currentOption}`);
 					if (element) {
+			
 						element.scrollIntoView({ behavior: 'smooth' });
-						scrolling = true;
+						
 					}
 				}
 			}
