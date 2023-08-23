@@ -51,7 +51,7 @@
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
-<div id="homepage-wrapper" class="dynamic-full-screen sm:overflow-hidden" bind:this={homepageWrapper}>
+<div id="homepage-wrapper" class="max-dynamic-full-screen sm:overflow-hidden" bind:this={homepageWrapper}>
 	<div id="homepage-container" class="flex h-full w-full flex-col" on:wheel|passive={onWheel}>
 		<div id="section-0" class="flex dynamic-full-screen w-full flex-row">
 			<div
