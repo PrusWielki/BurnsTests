@@ -13,4 +13,9 @@
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
 	}
+
+	.dynamic-full-screen {
+		height: 100vh;
+		height: 100dvh;
+	}
 }

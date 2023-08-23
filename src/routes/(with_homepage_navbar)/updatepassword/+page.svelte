@@ -10,7 +10,7 @@
 
 <div
 	id="login_main_container"
-	class="flex h-screen w-screen flex-col items-center justify-center gap-2 px-6"
+	class="flex dynamic-full-screen w-screen flex-col items-center justify-center gap-2 px-6"
 	in:fly={{ y: -600 }}
 >
 	<div class="grid grid-cols-2">

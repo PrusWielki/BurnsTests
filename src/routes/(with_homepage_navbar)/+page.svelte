@@ -51,9 +51,9 @@
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
-<div id="homepage-wrapper" class="max-h-screen sm:overflow-hidden" bind:this={homepageWrapper}>
-	<div id="homepage-container" class="flex min-h-screen w-full flex-col" on:wheel|passive={onWheel}>
-		<div id="section-0" class="flex h-screen w-full flex-row">
+<div id="homepage-wrapper" class="dynamic-full-screen sm:overflow-hidden" bind:this={homepageWrapper}>
+	<div id="homepage-container" class="flex h-full w-full flex-col" on:wheel|passive={onWheel}>
+		<div id="section-0" class="flex dynamic-full-screen w-full flex-row">
 			<div
 				id="homepage-hero-title-button-container"
 				class="flex h-full w-full flex-col items-center justify-center bg-zinc-950 pb-8 pt-12 text-center sm:w-full"
@@ -134,7 +134,7 @@
 			<div
 				id="slides-desktop-container"
 				bind:this={slidesContainer}
-				class="no-scrollbar flex h-screen w-full snap-y flex-row overflow-x-auto"
+				class="no-scrollbar flex dynamic-full-screen w-full snap-y flex-row overflow-x-auto"
 			>
 				<HomepageMethods />
 			</div>

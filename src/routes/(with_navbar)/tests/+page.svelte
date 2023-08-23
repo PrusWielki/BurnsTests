@@ -46,7 +46,7 @@
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
-<div id="home-grid-wrapper" class="flex h-screen w-screen justify-center overflow-hidden">
+<div id="home-grid-wrapper" class=" flex dynamic-full-screen w-screen justify-center overflow-hidden">
 	<div
 		id="home-grid"
 		class=" carousel-center carousel h-full w-full snap-y flex-col items-center sm:absolute sm:flex-row"

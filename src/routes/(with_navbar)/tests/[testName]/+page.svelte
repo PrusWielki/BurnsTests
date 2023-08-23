@@ -44,11 +44,11 @@
 	id="test-page-wrapper"
 	class={`flex w-screen flex-col ${
 		showResults && 'flex-col-reverse'
-	} items-center justify-center sm:flex sm:h-screen sm:grid-rows-none sm:flex-row sm:place-content-start`}
+	} items-center justify-center sm:flex sm:dynamic-full-screen sm:grid-rows-none sm:flex-row sm:place-content-start`}
 >
 	<div
 		id="test-wrapper "
-		class={`flex h-screen items-center justify-center bg-zinc-600 px-1 py-14 transition-all duration-500 sm:px-4 ${
+		class={`flex dynamic-full-screen items-center justify-center bg-zinc-600 px-1 py-14 transition-all duration-500 sm:px-4 ${
 			showResults ? '-order-1 sm:w-2/6' : 'sm:w-4/6'
 		}`}
 	>
@@ -124,7 +124,7 @@
 	</div>
 	<div
 		id="prose-wrapper"
-		class={` flex h-screen items-center  px-1 transition-all duration-500 ${
+		class={` flex dynamic-full-screen items-center  px-1 transition-all duration-500 ${
 			showResults ? 'order-1 sm:w-4/6' : 'sm:w-2/6'
 		} `}
 	>

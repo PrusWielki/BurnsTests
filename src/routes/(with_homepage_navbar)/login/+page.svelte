@@ -8,7 +8,7 @@
 
 <div
 	id="login_main_container"
-	class="flex h-screen w-screen flex-col items-center justify-center bg-zinc-950 px-6"
+	class="flex dynamic-full-screen w-screen flex-col items-center justify-center bg-zinc-950 px-6"
 >
 	<form
 		id="login-form"
