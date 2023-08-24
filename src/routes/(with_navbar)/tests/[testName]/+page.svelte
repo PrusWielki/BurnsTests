@@ -18,7 +18,7 @@
 	let showResults: boolean = false;
 	let description: string = '';
 	let windowWidth: number;
-	let scrollY: number=0;
+	let scrollY: number = 0;
 	let questionsContainer: HTMLElement;
 
 	for (let i = 0; i < questions.length; ++i) answerSet[i] = 0;
@@ -42,12 +42,12 @@
 	id="test-page-wrapper"
 	class={`flex w-screen flex-col ${
 		showResults && 'flex-col-reverse'
-	}   sm:flex dynamic-full-screen overflow-auto sm:grid-rows-none sm:flex-row sm:place-content-start snap-y snap-mandatory`}
+	}   dynamic-full-screen snap-y snap-mandatory overflow-auto sm:flex sm:grid-rows-none sm:flex-row sm:place-content-start`}
 	on:scroll={onScroll}
 >
 	<div
 		id="test-wrapper "
-		class={`flex dynamic-full-screen items-center justify-center bg-zinc-600 px-1 py-14 transition-all duration-500 sm:px-4 snap-start ${
+		class={`dynamic-full-screen flex snap-start items-center justify-center bg-zinc-600 px-1 py-14 transition-all duration-500 sm:px-4 ${
 			showResults ? '-order-1 sm:w-2/6' : 'sm:w-4/6'
 		}`}
 	>
@@ -106,7 +106,7 @@
 					if (data.session) {
 						insertTest(data.supabase, answerSet, title, description, data.session.user.id);
 						showResults = true;
-						scrollY = 0;
+						document.body.scrollIntoView();
 					}
 				}}>save</button
 			>
@@ -122,7 +122,7 @@
 	</div>
 	<div
 		id="prose-wrapper"
-		class={` flex dynamic-full-screen items-center  px-1 transition-all duration-500 snap-start py-6 ${
+		class={` dynamic-full-screen flex snap-start  items-center px-1 py-6 transition-all duration-500 ${
 			showResults ? 'order-1 sm:w-4/6' : 'sm:w-2/6'
 		} `}
 	>
