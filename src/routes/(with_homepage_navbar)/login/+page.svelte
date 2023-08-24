@@ -72,21 +72,4 @@
 		class="mt-6 text-lg italic text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline"
 		>Reset Password</button
 	>
-	<button
-		on:click={async () => {
-			const { data, error } = await supabase.auth.signInWithOAuth({
-				provider: 'google',
-				options: {
-					queryParams: {
-						access_type: 'offline',
-						prompt: 'consent'
-					},
-					redirectTo: 'https://burns-tests.vercel.app/tests/'
-				}
-			});
-		}}
-		class="mt-6 text-lg italic text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline"
-	>
-		Log in with Google
-	</button>
 </div>
