@@ -8,7 +8,7 @@
 
 <div
 	id="login_main_container"
-	class="flex dynamic-full-screen w-screen flex-col items-center justify-center bg-zinc-950 px-6"
+	class="dynamic-full-screen flex w-screen flex-col items-center justify-center bg-zinc-950 px-6"
 >
 	<form
 		id="login-form"
@@ -68,4 +68,20 @@
 		class="mt-6 text-lg italic text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline"
 		>Reset Password</button
 	>
+	<button
+		on:click={async () => {
+			const { data, error } = await supabase.auth.signInWithOAuth({
+				provider: 'google',
+				options: {
+					queryParams: {
+						access_type: 'offline',
+						prompt: 'consent'
+					}
+				}
+			});
+		}}
+		class="mt-6 text-lg italic text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline"
+	>
+		Log in with Google
+	</button>
 </div>
