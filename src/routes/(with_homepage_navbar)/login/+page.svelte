@@ -76,7 +76,8 @@
 					queryParams: {
 						access_type: 'offline',
 						prompt: 'consent'
-					}
+					},
+					redirectTo: '/tests'
 				}
 			});
 		}}
