@@ -110,7 +110,7 @@
 					}
 				}}>save</button
 			>
-			{#if scrollY < 1 && window.innerWidth < MEDIA_SM}
+			{#if scrollY < 1 && windowWidth < MEDIA_SM}
 				<p
 					class="absolute bottom-4 font-sans text-xl font-extrabold capitalize"
 					in:fade={{ duration: 500 }}
