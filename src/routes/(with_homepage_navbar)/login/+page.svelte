@@ -77,7 +77,7 @@
 						access_type: 'offline',
 						prompt: 'consent'
 					},
-					redirectTo: '/tests'
+					redirectTo: 'https://burns-tests.vercel.app/tests'
 				}
 			});
 		}}
