@@ -18,7 +18,11 @@
 		in:fade={{ duration: 200 }}
 	>
 		<div id="login-email-grid" class="grid grid-cols-2">
-			<label id="email-label" for="email" class="text-center text-2xl text-slate-100 sm:text-3xl">
+			<label
+				id="email-label"
+				for="email-label"
+				class="text-center text-2xl text-slate-100 sm:text-3xl"
+			>
 				Email
 			</label>
 			<input
@@ -32,7 +36,7 @@
 		<div id="login-password-grid" class="grid grid-cols-2">
 			<label
 				id="password-label"
-				for="password"
+				for="password-label"
 				class="text-center text-2xl text-slate-100 sm:text-3xl"
 			>
 				Password
