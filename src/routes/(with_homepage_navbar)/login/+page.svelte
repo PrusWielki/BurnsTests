@@ -10,44 +10,29 @@
 	id="login_main_container"
 	class="dynamic-full-screen flex w-screen flex-col items-center justify-center bg-zinc-950 px-6"
 >
+	<div class="">Welcome Back</div>
 	<form
 		id="login-form"
 		action="?/login"
 		method="POST"
-		class="auth-form flex w-full flex-col items-center justify-center gap-4"
+		class="auth-form flex w-full flex-col items-center justify-center gap-4 sm:gap-8"
 		in:fade={{ duration: 200 }}
 	>
-		<div id="login-email-grid" class="grid grid-cols-2">
-			<label
-				id="email-label"
-				for="email-label"
-				class="text-center text-2xl text-slate-100 sm:text-3xl"
-			>
-				Email
-			</label>
-			<input
-				type="text"
-				name="email"
-				class="input-bordered input rounded-sm bg-transparent"
-				bind:value={email}
-				placeholder="..."
-			/>
-		</div>
-		<div id="login-password-grid" class="grid grid-cols-2">
-			<label
-				id="password-label"
-				for="password-label"
-				class="text-center text-2xl text-slate-100 sm:text-3xl"
-			>
-				Password
-			</label>
-			<input
-				type="password"
-				name="password"
-				class="input-bordered input rounded-sm bg-transparent"
-				placeholder="..."
-			/>
-		</div>
+		<input
+			type="text"
+			name="email"
+			class="rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-2xl text-slate-100 sm:text-3xl"
+			bind:value={email}
+			placeholder="Email"
+		/>
+
+		<input
+			type="password"
+			name="password"
+			class="rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-2xl text-slate-100 sm:text-3xl"
+			placeholder="Password"
+		/>
+
 		<button
 			id="submit-button"
 			type="submit"
@@ -70,6 +55,6 @@
 			}
 		}}
 		class="mt-6 text-lg italic text-slate-100 decoration-wavy transition duration-75 hover:text-cyan-300 hover:underline"
-		>Reset Password</button
+		>Forgot Password?</button
 	>
 </div>

@@ -13,7 +13,7 @@
 		>
 			<div
 				id="cbt-article-container"
-				class="prose text-center sm:prose-2xl"
+				class="prose prose-slate text-center sm:prose-2xl prose-h1:text-slate-100 prose-h3:text-slate-100"
 				contenteditable="false"
 				bind:innerHTML={method}
 			/>
