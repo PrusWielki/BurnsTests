@@ -10,29 +10,24 @@
 
 <div
 	id="login_main_container"
-	class="flex dynamic-full-screen w-screen flex-col items-center justify-center gap-2 px-6"
+	class="dynamic-full-screen flex w-screen flex-col items-center justify-center gap-2 px-6"
 	in:fly={{ y: -600 }}
 >
-	<div class="grid grid-cols-2">
-		<label for="" class="text-center text-slate-300 sm:text-2xl"> Password </label>
-		<input
-			type="password"
-			name="password"
-			class="input-bordered input"
-			placeholder="..."
-			bind:value={password}
-		/>
-	</div>
-	<div class="grid grid-cols-2">
-		<label for="" class="text-center text-slate-300 sm:text-2xl"> Repeat Password </label>
-		<input
-			type="password"
-			name="repeat-password"
-			class="input-bordered input"
-			placeholder="..."
-			bind:value={repeatedPassword}
-		/>
-	</div>
+	<input
+		type="password"
+		name="password"
+		class="w-3/4 rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-2xl text-slate-100 sm:w-1/4 sm:text-3xl"
+		placeholder="Password"
+		bind:value={password}
+	/>
+
+	<input
+		type="password"
+		name="repeat-password"
+		class="w-3/4 rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-2xl text-slate-100 sm:w-1/4 sm:text-3xl"
+		placeholder="Repeat Password"
+		bind:value={repeatedPassword}
+	/>
 
 	<button
 		on:click={async () => {
@@ -41,7 +36,7 @@
 				goto('/login');
 			}
 		}}
-		class="btn mt-6 text-slate-300 transition duration-75 hover:-translate-y-0.5 hover:shadow-lg sm:text-2xl"
+		class="relative z-10 mt-8 w-3/4 rounded-md bg-slate-500 px-4 py-2 text-2xl font-semibold text-slate-100 transition-transform duration-200 ease-linear hover:-translate-y-1 sm:w-1/4 sm:text-3xl"
 		>Reset Password</button
 	>
 </div>
