@@ -65,7 +65,7 @@
 				class="leanscroll flex flex-col gap-8 overflow-auto px-4 py-4 sm:w-4/5 sm:gap-16"
 			>
 				{#each questions as question, index}
-					<div class="grid grid-cols-2 gap-4">
+					<div class=" grid grid-cols-2 gap-4">
 						<p id={`question-${index}`} class="font-sans text-lg text-slate-100">
 							{index + 1 + '. ' + question}
 						</p>
@@ -76,7 +76,7 @@
 								min={minRange}
 								max={maxRange}
 								bind:value={answerSet[index]}
-								class=""
+								class="bg-indigo-950 range"
 								step={1}
 								disabled={showResults}
 								on:change={() => scrollIntoView(index)}
@@ -100,7 +100,7 @@
 			</div>
 			<button
 				id="save-button"
-				class="btn w-3/4 font-semibold hover:-translate-y-0.5 hover:shadow-md sm:w-1/4"
+				class="relative z-10 mt-8 w-3/4 rounded-md bg-zinc-950 px-4 py-2 text-center align-middle text-xl font-semibold uppercase text-slate-100 transition-transform duration-200 ease-linear hover:-translate-y-1 sm:w-1/4"
 				disabled={showResults}
 				on:click={() => {
 					if (data.session) {
