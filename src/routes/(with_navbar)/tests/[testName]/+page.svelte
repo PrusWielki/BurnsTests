@@ -56,7 +56,7 @@
 			class="flex h-5/6 w-fit flex-col items-center gap-4 rounded-md bg-zinc-600 sm:w-full sm:gap-12"
 			in:fade={{ duration: 300 }}
 		>
-			<h1 class=" text-center font-sans text-4xl font-bold capitalize">
+			<h1 class=" text-center font-sans text-4xl font-bold capitalize text-slate-100">
 				{title}
 			</h1>
 			<div
@@ -66,7 +66,7 @@
 			>
 				{#each questions as question, index}
 					<div class="grid grid-cols-2 gap-4">
-						<p id={`question-${index}`} class="font-sans text-lg">
+						<p id={`question-${index}`} class="font-sans text-lg text-slate-100">
 							{index + 1 + '. ' + question}
 						</p>
 						<div>
@@ -76,14 +76,14 @@
 								min={minRange}
 								max={maxRange}
 								bind:value={answerSet[index]}
-								class="range range-sm"
+								class=""
 								step={1}
 								disabled={showResults}
 								on:change={() => scrollIntoView(index)}
 							/>
 							<div class="flex w-full justify-between px-2 text-xs">
 								{#each Array(maxRange + 1) as _, i}
-									<span class="">{i}</span>
+									<span class="text-slate-100">{i}</span>
 								{/each}
 							</div>
 						</div>
