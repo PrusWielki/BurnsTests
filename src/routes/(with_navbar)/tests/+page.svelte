@@ -49,11 +49,11 @@
 <svelte:window bind:innerWidth={windowWidth} />
 <div
 	id="home-grid-wrapper"
-	class=" dynamic-full-screen flex w-screen justify-center overflow-hidden"
+	class=" dynamic-full-screen flex w-screen justify-center overflow-hidden bg-zinc-950"
 >
 	<div
 		id="home-grid"
-		class="  no-scrollbar scroll flex h-full w-full snap-y flex-col items-center overflow-x-scroll sm:absolute sm:flex-row"
+		class="no-scrollbar scroll flex h-full w-full snap-y flex-col items-center overflow-x-scroll sm:absolute sm:flex-row"
 		on:scroll={onScroll}
 		on:wheel|passive={onWheel}
 		bind:this={homeGrid}
@@ -75,7 +75,7 @@
 	</div>
 	{#if (windowWidth > MEDIA_SM && scrollX < 200) || (windowWidth < MEDIA_SM && scrollY < 100)}
 		<p
-			class="absolute bottom-4 font-sans text-xl font-extrabold capitalize sm:text-3xl"
+			class="absolute bottom-4 font-sans text-xl font-extrabold capitalize sm:text-3xl text-slate-100"
 			in:fade={{ duration: 200 }}
 		>
 			Scroll for more
