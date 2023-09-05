@@ -38,7 +38,7 @@
 
 <div
 	id="main-results-wrapper"
-	class="flex dynamic-full-screen w-screen flex-col items-center justify-center px-4 py-12"
+	class="dynamic-full-screen flex w-screen flex-col items-center justify-center px-4 py-12"
 	in:fly={{ y: -screen.height / 2, duration: 500 }}
 >
 	<div id="filters-container" class="flex-col items-center justify-center py-2">
@@ -86,14 +86,3 @@
 		{/if}
 	{/if}
 </div>
-
-<style>
-	.leanscroll::-webkit-scrollbar {
-		width: 4px;
-		margin-left: 10px;
-	}
-	.leanscroll::-webkit-scrollbar-thumb {
-		background: #d4d4d8;
-		border-radius: 2px;
-	}
-</style>

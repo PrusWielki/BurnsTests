@@ -132,7 +132,7 @@
 		>
 			{#if showResults}
 				<div
-					class="leanscroll prose-xl prose flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:h-fit"
+					class="leanscroll prose prose-xl flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:h-fit"
 					id="results-prose-container "
 					in:fade={{ duration: 300 }}
 				>
@@ -145,7 +145,7 @@
 				</div>
 			{:else}
 				<div
-					class=" leanscroll prose-xl prose flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:block sm:h-fit"
+					class=" leanscroll prose prose-xl flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:block sm:h-fit"
 					id="help-prose-container"
 				>
 					<h1>Help</h1>
@@ -163,14 +163,3 @@
 		</article>
 	</div>
 </div>
-
-<style>
-	.leanscroll::-webkit-scrollbar {
-		width: 4px;
-		margin-left: 10px;
-	}
-	.leanscroll::-webkit-scrollbar-thumb {
-		background: #d4d4d8;
-		border-radius: 2px;
-	}
-</style>

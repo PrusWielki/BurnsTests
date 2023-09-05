@@ -28,4 +28,13 @@
 		max-height: 100vh;
 		max-height: 100svh;
 	}
+
+	.leanscroll::-webkit-scrollbar {
+		width: 4px;
+		margin-left: 10px;
+	}
+	.leanscroll::-webkit-scrollbar-thumb {
+		background: #d4d4d8;
+		border-radius: 2px;
+	}
 }
