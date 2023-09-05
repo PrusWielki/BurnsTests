@@ -24,7 +24,7 @@
 		<input
 			type="text"
 			name="email"
-			class="w-3/4 rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-2xl text-slate-100 sm:w-1/4 sm:text-3xl"
+			class="w-3/4 rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-xl text-slate-100 sm:w-1/4 sm:text-2xl"
 			bind:value={email}
 			placeholder="Email"
 		/>
@@ -32,7 +32,7 @@
 		<input
 			type="password"
 			name="password"
-			class="w-3/4 rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-2xl text-slate-100 sm:w-1/4 sm:text-3xl"
+			class="w-3/4 rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-xl text-slate-100 sm:w-1/4 sm:text-2xl"
 			placeholder="Password"
 		/>
 
