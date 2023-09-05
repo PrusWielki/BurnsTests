@@ -76,7 +76,7 @@
 								min={minRange}
 								max={maxRange}
 								bind:value={answerSet[index]}
-								class="bg-indigo-950 range"
+								class=" w-full accent-slate-950"
 								step={1}
 								disabled={showResults}
 								on:change={() => scrollIntoView(index)}
@@ -122,7 +122,7 @@
 	</div>
 	<div
 		id="prose-wrapper"
-		class={` dynamic-full-screen flex snap-start  items-center px-1 py-6 transition-all duration-500 ${
+		class={`dynamic-full-screen flex snap-start items-center  bg-gray-800 px-1 py-6 transition-all duration-500 ${
 			showResults ? 'order-1 sm:w-4/6' : 'sm:w-2/6'
 		} `}
 	>
@@ -145,14 +145,14 @@
 				</div>
 			{:else}
 				<div
-					class=" leanscroll prose prose-xl flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:block sm:h-fit"
+					class="leanscroll prose prose-xl flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:block sm:h-fit"
 					id="help-prose-container"
 				>
-					<h1>Help</h1>
+					<h1 class="text-zinc-200">Help</h1>
 					<p>
 						{generalHelpDescription}
 					</p>
-					<h3>Meaning of the scale:</h3>
+					<h3 class="text-zinc-200">Meaning of the scale:</h3>
 					<p>
 						{#each helpDescription as description, index}
 							{index}. {description} <br />
