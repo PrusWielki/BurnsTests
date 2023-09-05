@@ -8,7 +8,7 @@
 <a
 	id={`option-wrapper-${id}`}
 	style="background-image: url({backgroundName})"
-	class="group carousel-item relative h-full w-full cursor-pointer items-center justify-center overflow-hidden bg-opacity-80 bg-cover bg-center transition duration-200 after:relative after:left-0 after:top-0 after:h-full after:w-full after:bg-black after:bg-opacity-30 after:transition-all after:duration-500 after:content-[''] hover:after:opacity-10"
+	class="group relative box-content flex h-full w-full cursor-pointer items-center justify-center overflow-hidden bg-opacity-80 bg-cover bg-center transition duration-200 after:relative after:left-0 after:top-0 after:h-full after:w-full after:bg-black after:bg-opacity-30 after:transition-all after:duration-500 after:content-[''] hover:after:opacity-10"
 	href={navigateTo}
 >
 	<div
