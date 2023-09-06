@@ -78,7 +78,7 @@
 		</div>
 		{#if returnedTestData && returnedTestData.length >= paginationResult.to - paginationResult.from + 1}
 			<button
-				class="btn mt-2"
+				class="mt-2"
 				on:click={() => {
 					page++;
 				}}>show more</button
