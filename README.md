@@ -1,3 +1,9 @@
+# Avoid premature abstraction
+
+1. If a file is longer than 150 lines - refactor
+2. If a pattern is used at least 3 times turn it into a component/hook.
+3. Classes 95% stay inside className, very rarely abstract them to a global css.
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
