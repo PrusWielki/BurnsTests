@@ -4,16 +4,24 @@
 	import { fly } from 'svelte/transition';
 </script>
 
-<div
-	id="results-main-container"
-	class="grid dynamic-full-screen w-screen grid-rows-2 overflow-hidden sm:grid-cols-2 sm:grid-rows-none"
-	in:fly={{ y: -screen.height / 2, duration: 500 }}
->
-	<Option testName="Results" backgroundName={BACKGROUND_NAMES[0]} navigateTo="/results/results" />
+<div class="bg-zinc-950">
+	<div
+		id="results-main-container"
+		class="dynamic-full-screen grid w-screen grid-rows-2 overflow-hidden bg-zinc-950 sm:grid-cols-2 sm:grid-rows-none"
+		in:fly={{ y: -screen.height / 2, duration: 500 }}
+	>
+		<Option
+			id={0}
+			testName="Results"
+			backgroundName={BACKGROUND_NAMES[0]}
+			navigateTo="/results/results"
+		/>
 
-	<Option
-		testName="Statistics"
-		backgroundName={BACKGROUND_NAMES[1]}
-		navigateTo="/results/statistics"
-	/>
+		<Option
+			id={1}
+			testName="Statistics"
+			backgroundName={BACKGROUND_NAMES[1]}
+			navigateTo="/results/statistics"
+		/>
+	</div>
 </div>

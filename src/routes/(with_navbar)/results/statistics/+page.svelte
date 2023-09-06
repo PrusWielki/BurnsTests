@@ -62,38 +62,43 @@
 	$: extractDataPoints(testData);
 </script>
 
-<div
-	id="statistics-main-wrapper"
-	class="flex dynamic-full-screen w-screen flex-col items-center justify-center px-4 py-12"
-	in:fly={{ y: -screen.height / 2, duration: 500 }}
->
-	<div id="filters-container" class="flex-col items-center justify-center py-2">
-		<p class="mb-2 text-center text-xl sm:text-2xl">Filters</p>
-		<select bind:value={type} class="select-bordered select text-lg sm:text-xl">
-			{#each TITLES as title}
-				<option value={title}>{title}</option>
-			{/each}
-		</select>
-	</div>
+<div class="bg-slate-700">
 	<div
-		class="flex w-screen items-center justify-center rounded-md fill-zinc-100 px-1 sm:h-5/6 sm:w-5/6"
-		id="line-container"
+		id="statistics-main-wrapper"
+		class="flex dynamic-full-screen w-screen flex-col items-center justify-center px-4 py-12"
+		in:fly={{ y: -screen.height / 2, duration: 500 }}
 	>
-		<Line
-			class="fill-zinc-50"
-			data={lineData}
-			options={{
-				responsive: true,
-				color: '#E4E4E7',
-				scales: {
-					y: {
-						ticks: { color: '#E4E4E7' }
-					},
-					x: {
-						ticks: { color: '#E4E4E7' }
+		<div id="filters-container" class="flex-col items-center justify-center py-2">
+			<p class="mb-2 text-center text-xl sm:text-2xl text-slate-100">Filters</p>
+			<select
+				bind:value={type}
+				class=" bg-gray-700 text-slate-100 border border-slate-100 rounded-md px-2 py-2 text-lg sm:text-xl"
+			>
+				{#each TITLES as title}
+					<option value={title}>{title}</option>
+				{/each}
+			</select>
+		</div>
+		<div
+			class="flex w-screen items-center justify-center rounded-md fill-zinc-100 px-1 sm:h-5/6 sm:w-5/6"
+			id="line-container"
+		>
+			<Line
+				class="fill-zinc-50"
+				data={lineData}
+				options={{
+					responsive: true,
+					color: '#E4E4E7',
+					scales: {
+						y: {
+							ticks: { color: '#E4E4E7' }
+						},
+						x: {
+							ticks: { color: '#E4E4E7' }
+						}
 					}
-				}
-			}}
-		/>
+				}}
+			/>
+		</div>
 	</div>
 </div>

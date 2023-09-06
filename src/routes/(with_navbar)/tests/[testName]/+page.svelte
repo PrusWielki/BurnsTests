@@ -56,7 +56,7 @@
 			class="flex h-5/6 w-fit flex-col items-center gap-4 rounded-md bg-zinc-600 sm:w-full sm:gap-12"
 			in:fade={{ duration: 300 }}
 		>
-			<h1 class=" text-center font-sans text-4xl font-bold capitalize">
+			<h1 class=" text-center font-sans text-4xl font-bold capitalize text-slate-100">
 				{title}
 			</h1>
 			<div
@@ -65,8 +65,8 @@
 				class="leanscroll flex flex-col gap-8 overflow-auto px-4 py-4 sm:w-4/5 sm:gap-16"
 			>
 				{#each questions as question, index}
-					<div class="grid grid-cols-2 gap-4">
-						<p id={`question-${index}`} class="font-sans text-lg">
+					<div class=" grid grid-cols-2 gap-4">
+						<p id={`question-${index}`} class="font-sans text-lg text-slate-100">
 							{index + 1 + '. ' + question}
 						</p>
 						<div>
@@ -76,31 +76,31 @@
 								min={minRange}
 								max={maxRange}
 								bind:value={answerSet[index]}
-								class="range range-sm"
+								class=" w-full accent-slate-950"
 								step={1}
 								disabled={showResults}
 								on:change={() => scrollIntoView(index)}
 							/>
 							<div class="flex w-full justify-between px-2 text-xs">
 								{#each Array(maxRange + 1) as _, i}
-									<span class="">{i}</span>
+									<span class="text-slate-100">{i}</span>
 								{/each}
 							</div>
 						</div>
 					</div>
 				{/each}
 				<div id="description-container" class="grid grid-cols-2 gap-4">
-					<p class="font-sans text-lg">Description</p>
+					<p class="font-sans text-lg text-slate-100">Description</p>
 					<textarea
 						bind:value={description}
-						class="textarea-bordered textarea bg-transparent"
+						class="rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-slate-100"
 						placeholder="..."
 					/>
 				</div>
 			</div>
 			<button
 				id="save-button"
-				class="btn w-3/4 font-semibold hover:-translate-y-0.5 hover:shadow-md sm:w-1/4"
+				class="relative z-10 mt-8 w-3/4 rounded-md bg-zinc-950 px-4 py-2 text-center align-middle text-xl font-semibold uppercase text-slate-100 transition-transform duration-200 ease-linear hover:-translate-y-1 sm:w-1/4"
 				disabled={showResults}
 				on:click={() => {
 					if (data.session) {
@@ -122,7 +122,7 @@
 	</div>
 	<div
 		id="prose-wrapper"
-		class={` dynamic-full-screen flex snap-start  items-center px-1 py-6 transition-all duration-500 ${
+		class={`dynamic-full-screen flex snap-start items-center  bg-gray-800 px-1 py-6 transition-all duration-500 ${
 			showResults ? 'order-1 sm:w-4/6' : 'sm:w-2/6'
 		} `}
 	>
@@ -132,7 +132,7 @@
 		>
 			{#if showResults}
 				<div
-					class="leanscroll prose-xl prose flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:h-fit"
+					class="leanscroll prose prose-xl flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:h-fit"
 					id="results-prose-container "
 					in:fade={{ duration: 300 }}
 				>
@@ -145,14 +145,14 @@
 				</div>
 			{:else}
 				<div
-					class=" leanscroll prose-xl prose flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:block sm:h-fit"
+					class="leanscroll prose prose-xl flex h-full flex-col overflow-auto px-4 text-zinc-200 sm:block sm:h-fit"
 					id="help-prose-container"
 				>
-					<h1>Help</h1>
+					<h1 class="text-zinc-200">Help</h1>
 					<p>
 						{generalHelpDescription}
 					</p>
-					<h3>Meaning of the scale:</h3>
+					<h3 class="text-zinc-200">Meaning of the scale:</h3>
 					<p>
 						{#each helpDescription as description, index}
 							{index}. {description} <br />
@@ -163,14 +163,3 @@
 		</article>
 	</div>
 </div>
-
-<style>
-	.leanscroll::-webkit-scrollbar {
-		width: 4px;
-		margin-left: 10px;
-	}
-	.leanscroll::-webkit-scrollbar-thumb {
-		background: #d4d4d8;
-		border-radius: 2px;
-	}
-</style>

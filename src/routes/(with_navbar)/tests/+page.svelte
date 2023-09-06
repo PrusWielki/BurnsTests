@@ -28,17 +28,13 @@
 					else currentOption += 1;
 					let element = document.getElementById(`option-home-wrapper-${currentOption}`);
 					if (element) {
-				
 						element.scrollIntoView({ behavior: 'smooth' });
-						
 					}
 				} else if (event.deltaY < 0 && currentOption > 0) {
 					currentOption = Math.floor(currentOption / 3);
 					let element = document.getElementById(`option-home-wrapper-${currentOption}`);
 					if (element) {
-			
 						element.scrollIntoView({ behavior: 'smooth' });
-						
 					}
 				}
 			}
@@ -51,10 +47,13 @@
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
-<div id="home-grid-wrapper" class=" flex dynamic-full-screen w-screen justify-center overflow-hidden">
+<div
+	id="home-grid-wrapper"
+	class=" dynamic-full-screen flex w-screen justify-center overflow-hidden bg-zinc-950"
+>
 	<div
 		id="home-grid"
-		class=" carousel-center carousel h-full w-full snap-y flex-col items-center sm:absolute sm:flex-row"
+		class="no-scrollbar scroll flex h-full w-full snap-y flex-col items-center overflow-x-scroll sm:absolute sm:flex-row"
 		on:scroll={onScroll}
 		on:wheel|passive={onWheel}
 		bind:this={homeGrid}
@@ -76,7 +75,7 @@
 	</div>
 	{#if (windowWidth > MEDIA_SM && scrollX < 200) || (windowWidth < MEDIA_SM && scrollY < 100)}
 		<p
-			class="absolute bottom-4 font-sans text-xl font-extrabold capitalize sm:text-3xl"
+			class="absolute bottom-4 font-sans text-xl font-extrabold capitalize sm:text-3xl text-slate-100"
 			in:fade={{ duration: 200 }}
 		>
 			Scroll for more

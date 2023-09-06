@@ -123,7 +123,7 @@
 			</div>
 			{#if windowWidth > MEDIA_SM && currentSlide === 0}
 				<p
-					class="absolute bottom-4 left-1/2 -translate-x-1/2 font-sans text-xl font-extrabold capitalize"
+					class="absolute bottom-4 left-1/2 -translate-x-1/2 font-sans text-xl font-extrabold capitalize text-slate-100"
 					in:fade={{ duration: 200 }}
 				>
 					Scroll for more
