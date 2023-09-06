@@ -90,10 +90,10 @@
 					</div>
 				{/each}
 				<div id="description-container" class="grid grid-cols-2 gap-4">
-					<p class="font-sans text-lg">Description</p>
+					<p class="font-sans text-lg text-slate-100">Description</p>
 					<textarea
 						bind:value={description}
-						class="textarea-bordered textarea bg-transparent"
+						class="rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-slate-100"
 						placeholder="..."
 					/>
 				</div>
