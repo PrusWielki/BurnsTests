@@ -1,0 +1,28 @@
+<script lang="ts">
+	import { browser } from '$app/environment';
+	let className: string;
+
+	export { className as class };
+	let theme: string | null;
+	if (browser) {
+		theme = localStorage.getItem('theme');
+	}
+	const onThemeSelect = (selected: string) => {
+		theme = selected;
+		localStorage.setItem('theme', theme);
+	};
+	$: if (browser && theme) {
+		let documentHtml = document.querySelector('html');
+		if (documentHtml) documentHtml.setAttribute('data-theme', theme);
+	}
+	const themes = ['light', 'dark', 'cupcake', 'business'];
+</script>
+
+<div class={`dropdown ${className}`}>
+	<button class="btn btn-primary btn-xs btn-outline">{theme ? theme : 'Theme'}</button>
+	<ul class="dropdown-content z-30 menu p-2 shadow bg-base-100 rounded-box w-fit">
+		{#each themes as themeName}
+			<li><button on:click={() => onThemeSelect(themeName)}>{themeName}</button></li>
+		{/each}
+	</ul>
+</div>

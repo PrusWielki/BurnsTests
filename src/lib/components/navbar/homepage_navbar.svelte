@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ThemePicker from '../theme_picker/theme_picker.svelte';
 	import { TITLE } from '$lib/cms/home/home';
 </script>
 
@@ -9,6 +10,7 @@
 >
 	{TITLE}
 </a>
+<ThemePicker class="absolute top-4 right-40" />
 <a
 	target="_blank"
 	rel="noopener noreferrer"
