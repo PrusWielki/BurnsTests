@@ -38,13 +38,11 @@
 		border-radius: 2px;
 	}
 }
-html {
-	&::-webkit-scrollbar {
-		width: 8px;
-		margin-left: 10px;
-	}
-	&::-webkit-scrollbar-thumb {
-		background: #d4d4d8;
-		border-radius: 2px;
-	}
+html::-webkit-scrollbar {
+	width: 8px;
+	margin-left: 10px;
+}
+html::-webkit-scrollbar-thumb {
+	background: #d4d4d8;
+	border-radius: 2px;
 }
