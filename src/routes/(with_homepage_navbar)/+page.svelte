@@ -17,7 +17,7 @@
 			>
 				<h1
 					id="hero-title"
-					class="z-10 px-2 font-sans text-4xl font-bold lg:text-6xl"
+					class="z-10 px-2 font-sans text-4xl font-bold 2xl:text-6xl"
 					in:fade={{ duration: 200 }}
 				>
 					How are you feeling today?
@@ -41,7 +41,7 @@
 						/>
 						<a
 							href="/login"
-							class="relative z-10 font-sans text-xl font-semibold decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-accent hover:underline hover:shadow-lg xl:text-2xl"
+							class="relative z-10 font-sans text-xl font-semibold decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-accent hover:underline xl:text-2xl"
 						>
 							Login</a
 						>
@@ -54,7 +54,7 @@
 						/>
 						<a
 							href="/register"
-							class="relative z-10 text-xl font-semibold decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-accent hover:underline hover:shadow-lg xl:text-2xl"
+							class="relative z-10 text-xl font-semibold decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-accent hover:underline xl:text-2xl"
 						>
 							Register</a
 						>
@@ -80,7 +80,7 @@
 			</div>
 			{#if windowWidth > MEDIA_SM && scrollY < 100}
 				<p
-					class="absolute bottom-4 left-1/2 -translate-x-1/2 font-sans text-xl font-extrabold capitalize"
+					class="absolute bottom-2 left-1/2 -translate-x-1/2 font-sans text-xl font-extrabold capitalize"
 					in:fade={{ duration: 200 }}
 				>
 					Scroll for more
