@@ -10,13 +10,13 @@
 
 <div
 	id="login_main_container"
-	class="dynamic-full-screen flex w-screen flex-col items-center justify-center gap-2 px-6"
+	class="dynamic-full-screen flex w-full flex-col items-center justify-center gap-8 bg-base-100 px-6 sm:gap-12"
 	in:fly={{ y: -600 }}
 >
 	<input
 		type="password"
 		name="password"
-		class="w-3/4 rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-2xl text-slate-100 sm:w-1/4 sm:text-3xl"
+		class="w-3/4 input input-bordered sm:w-1/4"
 		placeholder="Password"
 		bind:value={password}
 	/>
@@ -24,7 +24,7 @@
 	<input
 		type="password"
 		name="repeat-password"
-		class="w-3/4 rounded-sm border border-slate-100 bg-transparent px-2 py-2 text-2xl text-slate-100 sm:w-1/4 sm:text-3xl"
+		class="w-3/4 input input-bordered sm:w-1/4"
 		placeholder="Repeat Password"
 		bind:value={repeatedPassword}
 	/>
@@ -36,7 +36,6 @@
 				goto('/login');
 			}
 		}}
-		class="relative z-10 mt-8 w-3/4 rounded-md bg-slate-500 px-4 py-2 text-2xl font-semibold text-slate-100 transition-transform duration-200 ease-linear hover:-translate-y-1 sm:w-1/4 sm:text-3xl"
-		>Reset Password</button
+		class="w-3/4 sm:w-1/4 btn btn-neutral">Reset Password</button
 	>
 </div>
