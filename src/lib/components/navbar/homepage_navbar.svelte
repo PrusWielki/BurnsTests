@@ -3,7 +3,7 @@
 	import { TITLE } from '$lib/cms/home/home';
 </script>
 
-<div class="w-full fixed z-10 top-0">
+<div class="w-full fixed z-50 top-0 backdrop-blur-md">
 	<div class="container mx-auto px-4 py-4 flex flex-row justify-between">
 		<a
 			id="title-container"
