@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { TITLE } from '$lib/cms/home/home';
+	import { fly } from 'svelte/transition';
 </script>
 
-<div class="navbar fixed top-0 backdrop-blur-sm z-50 bg-base-100 bg-opacity-90">
+<div
+	in:fly={{ y: -screen.height / 2, duration: 500 }}
+	class="navbar fixed top-0 backdrop-blur-sm z-50 bg-base-100 bg-opacity-90"
+>
 	<div class="navbar-start">
 		<div class="dropdown">
 			<label tabindex="0" class="btn btn-ghost lg:hidden">
