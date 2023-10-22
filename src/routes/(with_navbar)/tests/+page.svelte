@@ -8,6 +8,9 @@
 		if (testName) testData = _getTestData(testName.toLowerCase());
 	};
 	$: updateTestData(testName);
+
+	// 1. Write an server action to save tests
+	// 2. Add some help modal
 </script>
 
 <section id="test-wrapper" class="w-full h-full bg-base-100">
