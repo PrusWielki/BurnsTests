@@ -6,7 +6,9 @@
 <div class="w-full fixed top-0 backdrop-blur-sm z-50 bg-base-100 bg-opacity-90">
 	<div in:fly={{ y: -screen.height / 2, duration: 500 }} class="navbar container mx-auto">
 		<div class="navbar-start">
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<div class="dropdown">
+				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 				<label tabindex="0" class="btn btn-ghost lg:hidden">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +24,7 @@
 						/></svg
 					>
 				</label>
+				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 				<ul
 					tabindex="0"
 					class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
@@ -42,6 +45,7 @@
 		<div class="navbar-center hidden lg:flex">
 			<ul class="menu menu-horizontal px-1 py-0">
 				<li><a href="/tests" class="text-lg">Tests</a></li>
+				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 				<li tabindex="0">
 					<details>
 						<summary class="text-lg">Results</summary>
