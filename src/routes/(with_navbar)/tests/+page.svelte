@@ -3,7 +3,7 @@
 	import { _getTestData } from './+page';
 
 	let testData: ReturnType<typeof _getTestData>;
-	let testName: string | null = 'Anxiety';
+	let testName: string | null = 'Choose a test';
 	const updateTestData = (testName: string | null) => {
 		if (testName) testData = _getTestData(testName.toLowerCase());
 	};
@@ -11,6 +11,7 @@
 
 	// 1. Write an server action to save tests
 	// 2. Add some help modal
+	// 3. Auto scroll on select click
 </script>
 
 <section id="test-wrapper" class="w-full h-full bg-base-100">
