@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import type { PageData } from './$types';
-	import { insertTest } from '../../../../hooks/test_data';
+	import { insertTest } from '../../../../lib/hooks/test_data';
 	import { browser } from '$app/environment';
 	import { MEDIA_SM } from '$lib/constants/media_query';
 

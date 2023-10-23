@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import type { Database } from '../types/supabase';
+import type { Database } from '../../types/supabase';
 
 export const getTestsData = async (
 	from: number,
@@ -42,12 +42,10 @@ export const insertTest = async (
 	supabase: SupabaseClient<Database>,
 	answerSet: Array<number>,
 	title: string,
-	description: string,
-	userId: string
+	description: string
 ) => {
 	return await supabase.from('Tests').insert({
 		questions: answerSet,
-		user_id: userId,
 		type: title,
 		description: description,
 		created_at: new Date(),

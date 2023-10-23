@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { getPagination } from '../../../../hooks/pagination';
+	import { getPagination } from '../../../../lib/hooks/pagination';
 	import { fly } from 'svelte/transition';
 	import type { PageData } from './$types';
-	import { getTestsData } from '../../../../hooks/test_data';
+	import { getTestsData } from '../../../../lib/hooks/test_data';
 	import { TITLES } from '$lib/cms/tests/titles';
 	export let data: PageData;
 	type TestDataResponse = Awaited<ReturnType<typeof getTestsData>>;

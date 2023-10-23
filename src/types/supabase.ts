@@ -20,7 +20,7 @@ export interface Database {
 					questions: number[];
 					questions_sum: number;
 					type?: string;
-					user_id: string;
+					user_id?: string;
 				};
 				Update: {
 					created_at?: string | Date;

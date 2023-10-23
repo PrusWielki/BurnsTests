@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import type { PageData } from './$types';
-	import { getTestDataByDate } from '../../../../hooks/test_data';
+	import { getTestDataByDate } from '../../../../lib/hooks/test_data';
 	import { Line } from 'svelte-chartjs';
 	import { lineData } from '$lib/cms/results/statistics';
 
