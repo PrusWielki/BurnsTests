@@ -15,7 +15,7 @@
 </script>
 
 <section id="test-wrapper" class="w-full h-full bg-base-100">
-	<div class="container px-6 py-20 mx-auto flex flex-col items-center gap-5">
+	<div class="container px-6 py-20 mx-auto flex flex-col items-center gap-8 w-full">
 		<select
 			bind:value={testName}
 			class="select select-bordered !px-4 select-accent sm:text-2xl w-full max-w-xs"
@@ -26,10 +26,12 @@
 			{/each}
 		</select>
 		{#if testData}
-			<form class="flex flex-col items-center prose prose-xl sm:prose-2xl w-full max-w-xl">
+			<form class="flex flex-col items-center w-full max-w-4xl">
 				{#each testData.questions as question, index}
 					<div class="flex flex-col sm:flex-row items-center justify-center sm:gap-2 w-full">
-						<p class="sm:w-1/2 w-full sm:justify-start text-center sm:text-start">
+						<p
+							class="sm:w-1/2 py-4 w-full sm:justify-start text-center sm:text-start text-xl sm:text-2xl"
+						>
 							{index + 1}.{' '}{question}
 						</p>
 						<div class="sm:w-1/2 w-full sm:justify-end">
