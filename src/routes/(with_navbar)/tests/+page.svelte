@@ -10,6 +10,8 @@
 	};
 	$: updateTestData(testName);
 
+	// 1. Make the endpoint actually throw an error
+	// 2. Forms resets incorrectly
 	// 2. Add some help modal
 	// 3. Auto scroll on select click
 </script>
