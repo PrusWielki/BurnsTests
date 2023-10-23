@@ -10,7 +10,6 @@
 	};
 	$: updateTestData(testName);
 
-	// 1. Write an server action to save tests
 	// 2. Add some help modal
 	// 3. Auto scroll on select click
 </script>
@@ -54,7 +53,7 @@
 							/>
 							<div class="w-full flex justify-between text-xs px-2">
 								{#each Array(testData.maxRange - testData.minRange + 1) as _, number}
-									<span>{number + 1}</span>
+									<span>{number}</span>
 								{/each}
 							</div>
 						</div>

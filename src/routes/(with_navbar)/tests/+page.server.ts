@@ -13,14 +13,23 @@ export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 export const actions: Actions = {
 	saveTest: async ({ request, locals: { supabase } }) => {
 		const body = Object.fromEntries(await request.formData());
-		console.log(body);
-		if (!body.testName) return;
-		const { data, error: err } = await supabase.from('Tests').insert({
-			questions: answerSet,
-			type: body.testName,
-			description: description,
-			created_at: new Date(),
-			questions_sum: answerSet.reduce((a, b) => a + b, 0)
+		const bodyValues = Object.values(body);
+		const questionsResults = bodyValues
+			.slice(1, bodyValues.length - 1)
+			.map((value) => parseInt(value as string));
+
+		if (
+			!questionsResults ||
+			!bodyValues[0] ||
+			body['description'] === null ||
+			body['description'] === undefined
+		)
+			return fail(400);
+		const { error: err } = await supabase.from('Tests').insert({
+			questions: questionsResults,
+			type: body['testName'],
+			description: body['description'],
+			questions_sum: questionsResults.reduce((a, b) => a + b, 0)
 		});
 		if (err) {
 			return fail(400, {

@@ -14,7 +14,7 @@ export interface Database {
 					user_id: string;
 				};
 				Insert: {
-					created_at: string | Date;
+					created_at?: string | Date;
 					description?: string | null;
 					id?: number;
 					questions: number[];
