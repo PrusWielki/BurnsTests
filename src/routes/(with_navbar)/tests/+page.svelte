@@ -10,8 +10,7 @@
 	};
 	$: updateTestData(testName);
 
-	// 1. Make the endpoint actually throw an error
-	// 2. Forms resets incorrectly
+	// 2. Give some feedback on success
 	// 2. Add some help modal
 	// 3. Auto scroll on select click
 </script>
@@ -22,7 +21,11 @@
 			class="flex flex-col items-center w-full max-w-4xl"
 			method="post"
 			action="?/saveTest"
-			use:enhance
+			use:enhance={() => {
+				return async ({ update }) => {
+					update({ reset: false });
+				};
+			}}
 		>
 			<select
 				name="testName"
@@ -35,39 +38,41 @@
 				{/each}
 			</select>
 			{#if testData}
-				{#each testData.questions as question, index}
-					<div class="flex flex-col sm:flex-row items-center justify-center sm:gap-2 w-full">
-						<p
-							class="sm:w-1/2 py-4 w-full sm:justify-start text-center sm:text-start text-xl sm:text-2xl"
-						>
-							{index + 1}.{' '}{question}
-						</p>
-						<div class="sm:w-1/2 w-full sm:justify-end">
-							<input
-								required
-								type="range"
-								name={`question-${index}`}
-								min={testData.minRange}
-								max={testData.maxRange}
-								value={0}
-								class="range range-accent range-sm sm:range-md"
-								step={1}
-							/>
-							<div class="w-full flex justify-between text-xs px-2">
-								{#each Array(testData.maxRange - testData.minRange + 1) as _, number}
-									<span>{number}</span>
-								{/each}
+				<div class="mt-6 w-full">
+					{#each testData.questions as question, index}
+						<div class="flex flex-col sm:flex-row items-center justify-center sm:gap-2 w-full">
+							<p
+								class="sm:w-1/2 py-4 w-full sm:justify-start text-center sm:text-start text-xl sm:text-2xl"
+							>
+								{index + 1}.{' '}{question}
+							</p>
+							<div class="sm:w-1/2 w-full sm:justify-end">
+								<input
+									required
+									type="range"
+									name={`question-${index}`}
+									min={testData.minRange}
+									max={testData.maxRange}
+									value={0}
+									class="range range-accent range-sm sm:range-md"
+									step={1}
+								/>
+								<div class="w-full flex justify-between text-xs px-2">
+									{#each Array(testData.maxRange - testData.minRange + 1) as _, number}
+										<span>{number}</span>
+									{/each}
+								</div>
 							</div>
 						</div>
-					</div>
+						<div class="divider"></div>
+					{/each}
+					<textarea
+						class="textarea textarea-bordered w-full"
+						name="description"
+						placeholder="additional information"
+					></textarea>
 					<div class="divider"></div>
-				{/each}
-				<textarea
-					class="textarea textarea-bordered w-full"
-					name="description"
-					placeholder="additional information"
-				></textarea>
-				<div class="divider"></div>
+				</div>
 				<button class="btn btn-primary w-full" type="submit">Save answers</button>
 			{/if}
 		</form>
