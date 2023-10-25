@@ -36,5 +36,6 @@ export const actions: Actions = {
 				err
 			});
 		}
+		return { success: true };
 	}
 };

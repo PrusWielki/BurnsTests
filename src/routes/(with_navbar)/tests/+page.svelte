@@ -2,14 +2,26 @@
 	import { TEST_NAMES } from '$lib/cms/tests/tests';
 	import { _getTestData } from './+page';
 	import { enhance } from '$app/forms';
+	import { showNotification } from '$lib/hooks/show-notification';
+	export let form;
 
 	let testData: ReturnType<typeof _getTestData>;
 	let testName: string | null = 'Choose a test';
 	const updateTestData = (testName: string | null) => {
 		if (testName) testData = _getTestData(testName.toLowerCase());
 	};
+	const setToast = (state: boolean | undefined) => {
+		switch (state) {
+			case true:
+				showNotification('Saved!', 2000);
+				break;
+			case false:
+				showNotification('Something went wrong!', 2000);
+				break;
+		}
+	};
 	$: updateTestData(testName);
-
+	$: setToast(form?.success);
 	// 2. Give some feedback on success
 	// 2. Add some help modal
 	// 3. Auto scroll on select click

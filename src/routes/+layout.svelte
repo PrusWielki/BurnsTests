@@ -3,6 +3,7 @@
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import type { LayoutData } from './$types';
+	import Toast from '$lib/components/toast/toast.svelte';
 
 	export let data: LayoutData;
 
@@ -21,4 +22,5 @@
 	});
 </script>
 
+<Toast />
 <slot />
