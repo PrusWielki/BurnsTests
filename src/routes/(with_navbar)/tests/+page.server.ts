@@ -36,6 +36,6 @@ export const actions: Actions = {
 				err
 			});
 		}
-		return { success: true };
+		return { success: true, total: questionsResults.reduce((a, b) => a + b, 0) };
 	}
 };

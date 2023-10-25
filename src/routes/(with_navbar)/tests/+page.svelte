@@ -4,6 +4,11 @@
 	import { enhance } from '$app/forms';
 	import { showNotification } from '$lib/hooks/show-notification';
 	import { GENERAL_TEST_DESCRIPTION_HELP, TEST_DESCRIPTION_HELP } from '$lib/cms/tests/description';
+	import { fade } from 'svelte/transition';
+	import {
+		SCORES_MEANING_RANGES,
+		SCORES_MEANING_SHORT_DESCRIPTION
+	} from '$lib/cms/tests/scores_meaning';
 	export let form;
 	let modal: HTMLDialogElement;
 
@@ -113,6 +118,7 @@
 									value={0}
 									class="range range-accent range-sm sm:range-md"
 									step={1}
+									disabled={form?.success}
 									on:change={() => scrollIntoView(index)}
 								/>
 								<div class="w-full flex justify-between text-xs px-2">
@@ -131,8 +137,31 @@
 					></textarea>
 					<div class="divider"></div>
 				</div>
-				<button class="btn btn-primary w-full" type="submit">Save answers</button>
+				<button class="btn btn-primary w-full" type="submit" disabled={form?.success}
+					>Save answers</button
+				>
 			{/if}
 		</form>
+		{#if form?.success}
+			<div class="divider"></div>
+			<div in:fade class="prose sm:prose-2xl prose-xl py-8 text-center">
+				<h1 class="bg-gradient-to-br bg-clip-text text-transparent from-primary to-85% to-accent">
+					Results
+				</h1>
+				<h2>Your total score:</h2>
+				<h2>{form.total}</h2>
+				<h4>Meaning:</h4>
+				<div class="grid grid-cols-2">
+					{#each SCORES_MEANING_RANGES.find((value) => value.test === testName)?.data || '' as range, index}
+						<p>{range}</p>
+						<p>
+							{SCORES_MEANING_SHORT_DESCRIPTION.find((value) => value.test === testName)?.data[
+								index
+							]}
+						</p>
+					{/each}
+				</div>
+			</div>
+		{/if}
 	</div>
 </section>
