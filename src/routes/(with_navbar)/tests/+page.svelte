@@ -22,7 +22,6 @@
 	};
 	$: updateTestData(testName);
 	$: setToast(form?.success);
-	// 2. Give some feedback on success
 	// 2. Add some help modal
 	// 3. Auto scroll on select click
 </script>
@@ -42,7 +41,7 @@
 			<select
 				name="testName"
 				bind:value={testName}
-				class="select select-bordered !px-4 select-accent sm:text-2xl w-full max-w-xs"
+				class="select select-bordered !px-4 select-accent sm:text-2xl text-xl w-full max-w-xs"
 			>
 				<option disabled selected class="text-center p-0 m-0">Choose a test</option>
 				{#each TEST_NAMES as test}
@@ -79,7 +78,7 @@
 						<div class="divider"></div>
 					{/each}
 					<textarea
-						class="textarea textarea-bordered w-full"
+						class="textarea textarea-bordered w-full text-xl sm:text-2xl"
 						name="description"
 						placeholder="additional information"
 					></textarea>
