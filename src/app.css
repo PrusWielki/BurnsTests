@@ -30,7 +30,7 @@
 	}
 
 	.leanscroll::-webkit-scrollbar {
-		width: 4px;
+		width: 8px;
 		margin-left: 10px;
 	}
 	.leanscroll::-webkit-scrollbar-thumb {

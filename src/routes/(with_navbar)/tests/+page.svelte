@@ -3,7 +3,9 @@
 	import { _getTestData } from './+page';
 	import { enhance } from '$app/forms';
 	import { showNotification } from '$lib/hooks/show-notification';
+	import { GENERAL_TEST_DESCRIPTION_HELP, TEST_DESCRIPTION_HELP } from '$lib/cms/tests/description';
 	export let form;
+	let modal: HTMLDialogElement;
 
 	let testData: ReturnType<typeof _getTestData>;
 	let testName: string | null = 'Choose a test';
@@ -29,7 +31,7 @@
 <section id="test-wrapper" class="w-full h-full bg-base-100">
 	<div class="container px-6 py-20 mx-auto flex flex-col items-center w-full">
 		<form
-			class="flex flex-col items-center w-full max-w-4xl"
+			class="flex flex-col items-center w-full max-w-4xl gap-4"
 			method="post"
 			action="?/saveTest"
 			use:enhance={() => {
@@ -49,7 +51,37 @@
 				{/each}
 			</select>
 			{#if testData}
-				<div class="mt-6 w-full">
+				<button
+					class="btn btn-outline btn-info"
+					type="button"
+					on:click={() => {
+						modal.showModal();
+					}}>instructions</button
+				>
+				<dialog bind:this={modal} class="modal">
+					<div class="modal-box prose prose-lg sm:prose-xl grid sm:leanscroll">
+						<h3 class="font-bold text-lg">Instructions</h3>
+						<p>
+							{GENERAL_TEST_DESCRIPTION_HELP.find((value) => value.test === testName)?.data}
+						</p>
+						<p class="text-center">
+							{#each TEST_DESCRIPTION_HELP.find((value) => value.test === testName)?.data || '' as text, index}
+								{index}. {text} <br />
+							{/each}
+						</p>
+						<button
+							type="button"
+							on:click={() => {
+								modal.close();
+							}}
+							class="btn w-full sm:w-1/2 btn-primary sm:btn-lg justify-self-center">close</button
+						>
+					</div>
+					<form method="dialog" class="modal-backdrop">
+						<button type="submit">close</button>
+					</form>
+				</dialog>
+				<div class="w-full">
 					{#each testData.questions as question, index}
 						<div class="flex flex-col sm:flex-row items-center justify-center sm:gap-2 w-full">
 							<p
