@@ -42,8 +42,6 @@
 
 	$: updateTestData(testName);
 	$: setToast(form?.success);
-
-	// 1. Results screen on submission
 </script>
 
 <section id="test-wrapper" class="w-full h-full bg-base-100">
