@@ -149,16 +149,18 @@
 				<h2>Your total score:</h2>
 				<h2>{form.total}</h2>
 				<h4>Meaning:</h4>
-				<div class="grid grid-cols-2">
-					{#each SCORES_MEANING_RANGES.find((value) => value.test === testName)?.data || '' as range, index}
+
+				{#each SCORES_MEANING_RANGES.find((value) => value.test === testName)?.data || '' as range, index}
+					<div class="grid grid-cols-2 [&_p]:my-2">
 						<p>{range}</p>
 						<p>
 							{SCORES_MEANING_SHORT_DESCRIPTION.find((value) => value.test === testName)?.data[
 								index
 							]}
 						</p>
-					{/each}
-				</div>
+					</div>
+					<div class="divider"></div>
+				{/each}
 			</div>
 		{/if}
 	</div>
