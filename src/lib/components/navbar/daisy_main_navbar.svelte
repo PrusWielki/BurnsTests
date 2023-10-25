@@ -39,7 +39,7 @@
 						</ul>
 					</li>
 					<li><a href="/methods">Methods</a></li>
-					<li><a href="/logout" class="pt-4 font-semibold">Logout</a></li>
+					<li><a href="/logout" class="mt-4 font-semibold">Logout</a></li>
 				</ul>
 			</div>
 			<a href="/tests" class="btn btn-ghost normal-case text-xl">{TITLE}</a>
