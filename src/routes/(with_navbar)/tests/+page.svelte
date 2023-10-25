@@ -9,6 +9,9 @@
 
 	let testData: ReturnType<typeof _getTestData>;
 	let testName: string | null = 'Choose a test';
+
+	let questionsContainer: HTMLElement;
+
 	const updateTestData = (testName: string | null) => {
 		if (testName) testData = _getTestData(testName.toLowerCase());
 	};
@@ -22,10 +25,18 @@
 				break;
 		}
 	};
+
+	function scrollIntoView(id: number) {
+		const el = questionsContainer.querySelector('#question-' + (id + 1).toString());
+		if (!el) return;
+		el.scrollIntoView({
+			behavior: 'smooth',
+			block: 'center'
+		});
+	}
+
 	$: updateTestData(testName);
 	$: setToast(form?.success);
-	// 2. Add some help modal
-	// 3. Auto scroll on select click
 </script>
 
 <section id="test-wrapper" class="w-full h-full bg-base-100">
@@ -81,10 +92,11 @@
 						<button type="submit">close</button>
 					</form>
 				</dialog>
-				<div class="w-full">
+				<div class="w-full" bind:this={questionsContainer}>
 					{#each testData.questions as question, index}
 						<div class="flex flex-col sm:flex-row items-center justify-center sm:gap-2 w-full">
 							<p
+								id={`question-${index}`}
 								class="sm:w-1/2 py-4 w-full sm:justify-start text-center sm:text-start text-xl sm:text-2xl"
 							>
 								{index + 1}.{' '}{question}
@@ -99,6 +111,7 @@
 									value={0}
 									class="range range-accent range-sm sm:range-md"
 									step={1}
+									on:change={() => scrollIntoView(index)}
 								/>
 								<div class="w-full flex justify-between text-xs px-2">
 									{#each Array(testData.maxRange - testData.minRange + 1) as _, number}
