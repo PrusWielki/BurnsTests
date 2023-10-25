@@ -153,6 +153,7 @@
 				</h1>
 				<h2>Your total score:</h2>
 				<h2>{form.total}</h2>
+				<progress class="progress progress-accent w-full" value={form.total} max="100"></progress>
 				<h4>Meaning:</h4>
 
 				{#each SCORES_MEANING_RANGES.find((value) => value.test === testName)?.data || '' as range, index}
