@@ -11,6 +11,7 @@
 	} from '$lib/cms/tests/scores_meaning';
 	export let form;
 	let modal: HTMLDialogElement;
+	let results: HTMLElement;
 
 	let testData: ReturnType<typeof _getTestData>;
 	let testName: string | null = 'Choose a test';
@@ -42,6 +43,10 @@
 
 	$: updateTestData(testName);
 	$: setToast(form?.success);
+	$: results &&
+		results.scrollIntoView({
+			behavior: 'smooth'
+		});
 </script>
 
 <section id="test-wrapper" class="w-full h-full bg-base-100">
@@ -141,7 +146,7 @@
 			{/if}
 		</form>
 		{#if form?.success}
-			<div class="divider"></div>
+			<div bind:this={results} class="divider"></div>
 			<div in:fade class="prose sm:prose-2xl prose-xl py-8 text-center">
 				<h1 class="bg-gradient-to-br bg-clip-text text-transparent from-primary to-85% to-accent">
 					Results
