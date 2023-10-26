@@ -54,7 +54,6 @@
 				dataPoints.push(test.questions_sum);
 				labels.push(test.created_at.substring(0, 10));
 			});
-		console.log(dataPoints);
 		lineData.datasets[0].data = dataPoints;
 		lineData.labels = labels;
 	};

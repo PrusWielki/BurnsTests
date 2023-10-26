@@ -1,16 +1,17 @@
 import { getTestsData } from '$lib/hooks/test_data.js';
+import { error, json } from '@sveltejs/kit';
 
-export async function GET({ locals: { supabase } }) {
-	const response: PlansGetResponse = { success: true, reason: '', data: undefined };
+export async function GET({ locals: { supabase }, url }) {
+	const response = { success: true, reason: '' };
+	let data: unknown;
+	const from = url.searchParams.get('from');
+	const to = url.searchParams.get('to');
 
-	await getTestsData(from, to, supabase).then((result) => {
-		if (testData !== null && result.data !== null) {
-			returnedTestData = result.data;
-			testData = testData.concat(result.data);
-		}
-		fetching = false;
-	});
-	if (!response.success) return json({ code: 400, response });
+	if (from && to)
+		await getTestsData(+from, +to, supabase).then((result) => {
+			data = result;
+		});
 
-	return json({ code: 200, data: response.data });
+	if (!response.success) throw error(400, response.reason);
+	else return json({ code: 200, data: data });
 }

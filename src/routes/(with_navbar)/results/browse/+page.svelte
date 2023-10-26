@@ -2,14 +2,14 @@
 	import { getPagination } from '$lib/hooks/pagination';
 	import { fly } from 'svelte/transition';
 	import type { PageData } from './$types';
-	import { getTestsData } from '$lib/hooks/test_data';
+	import type { getTestsData } from '$lib/hooks/test_data';
 	import { TITLES } from '$lib/cms/tests/titles';
 	import { browser } from '$app/environment';
 	export let data: PageData;
 	type TestDataResponse = Awaited<ReturnType<typeof getTestsData>>;
 	type TestDataResponseSuccess = TestDataResponse['data'];
 
-	let { testData, supabase } = data;
+	let { testData } = data;
 	let page: number = 0;
 	let type: string = 'All';
 	let paginationResult: { from: number; to: number };
@@ -21,7 +21,6 @@
 
 	if (browser) {
 		window.addEventListener('scroll', () => {
-			console.log(scrollY, resultsContainer?.scrollHeight);
 			if (
 				!fetching &&
 				resultsContainer?.scrollHeight &&
@@ -33,14 +32,14 @@
 		});
 	}
 
-	const updateTestsData = (from: number, to: number) => {
+	const updateTestsData = async (from: number, to: number) => {
 		if (from !== 0) {
-			getTestsData(from, to, supabase).then((result) => {
-				if (testData !== null && result.data !== null) {
-					returnedTestData = result.data;
-					testData = testData.concat(result.data);
-				}
-				fetching = false;
+			await fetch(`/api/tests?from=${from}&to=${to}`, { method: 'GET' }).then((result) => {
+				result.json().then((resultData) => {
+					returnedTestData = resultData.data.data;
+					if (testData) testData = testData.concat(resultData.data.data);
+					fetching = false;
+				});
 			});
 		}
 	};
@@ -50,7 +49,6 @@
 		else filteredTestData = testData;
 	};
 
-	$: console.log(page);
 	$: paginationResult = getPagination(page, 20);
 	$: updateTestsData(paginationResult.from, paginationResult.to);
 	$: filterTestData(type, testData);
