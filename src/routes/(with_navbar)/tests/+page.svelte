@@ -9,13 +9,12 @@
 		SCORES_MEANING_RANGES,
 		SCORES_MEANING_SHORT_DESCRIPTION
 	} from '$lib/cms/tests/scores_meaning';
-	import { text } from '@sveltejs/kit';
 	export let form;
 	let modal: HTMLDialogElement;
 	let results: HTMLElement;
 
 	let testData: ReturnType<typeof _getTestData>;
-	let testName: string | null = 'Choose a test';
+	let testName: string | null = 'Anxiety';
 
 	let questionsContainer: HTMLElement;
 

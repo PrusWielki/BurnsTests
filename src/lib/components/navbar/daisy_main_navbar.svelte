@@ -2,7 +2,12 @@
 	import { TITLE } from '$lib/cms/home/home';
 	import { fly } from 'svelte/transition';
 	import ThemePicker from '../theme_picker/theme_picker.svelte';
+	import { browser } from '$app/environment';
 	let resultsMenu: HTMLElement;
+	if (browser)
+		window.addEventListener('click', function (e) {
+			resultsMenu.removeAttribute('open');
+		});
 </script>
 
 <div class="w-full fixed top-0 backdrop-blur-sm z-50 bg-base-100 bg-opacity-60">
@@ -53,26 +58,10 @@
 					<details bind:this={resultsMenu}>
 						<summary bind:this={resultsMenu} class="text-lg">Results</summary>
 						<ul class="p-2">
-							<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-							<li
-								on:click={() => {
-									resultsMenu.removeAttribute('open');
-								}}
-								on:keydown={() => {
-									resultsMenu.removeAttribute('open');
-								}}
-							>
+							<li>
 								<a class="text-lg" href="/results/statistics">Statistics</a>
 							</li>
-							<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-							<li
-								on:click={() => {
-									resultsMenu.removeAttribute('open');
-								}}
-								on:keydown={() => {
-									resultsMenu.removeAttribute('open');
-								}}
-							>
+							<li>
 								<a class="text-lg" href="/results/browse">Browse</a>
 							</li>
 						</ul>
