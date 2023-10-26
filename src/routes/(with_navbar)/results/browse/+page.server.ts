@@ -5,7 +5,7 @@ export const load: PageServerLoad = async ({ locals: { supabase } }) => {
 		.from('Tests')
 		.select()
 		.order('created_at', { ascending: false })
-		.range(0, 10);
+		.range(0, 20);
 
 	return { testData: data };
 };

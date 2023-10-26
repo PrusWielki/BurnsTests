@@ -31,63 +31,56 @@
 		else filteredTestData = testData;
 	};
 
-	$: paginationResult = getPagination(page);
+	$: paginationResult = getPagination(page, 20);
 	$: updateTestsData(paginationResult.from, paginationResult.to);
 	$: filterTestData(type, testData);
 </script>
 
-<div class="bg-base-100">
+<section class="bg-base-100">
 	<div
 		id="main-results-wrapper"
-		class="dynamic-full-screen flex w-screen flex-col items-center justify-center px-4 py-20"
+		class="flex w-screen flex-col items-center justify-center container mx-auto px-4 py-20"
 		in:fly={{ y: -screen.height / 2, duration: 500 }}
 	>
-		<div id="filters-container" class="flex-col items-center justify-center py-2">
-			<p class="mb-2 text-center text-xl sm:text-2xl text-slate-100">Filters</p>
+		<div id="filters-container" class="flex flex-col items-center justify-center py-2 w-full">
+			<p class="mb-2 text-center text-xl sm:text-2xl font-semibold">Filters</p>
 			<select
 				bind:value={type}
-				class=" bg-gray-700 text-slate-100 border border-slate-100 rounded-md px-2 py-2 text-lg sm:text-xl"
+				class="select select-bordered !px-4 select-accent sm:text-2xl text-xl w-full max-w-sm"
 			>
-				<option value="All">All</option>
+				<option disabled selected class="text-center p-0 m-0">Choose a test</option>
+				<option class="text-center p-0 m-0" value="All">All</option>
 				{#each TITLES as title}
-					<option value={title}>{title}</option>
+					<option class="text-center p-0 m-0" value={title}>{title}</option>
 				{/each}
 			</select>
 		</div>
 		{#if filteredTestData != null}
 			<div
-				id="test-result-title-row"
-				class=" mb-6 grid text-slate-100 w-full grid-cols-3 items-center justify-center gap-2 border-b-[1px] text-center md:w-1/2"
+				class="flex flex-col divide-y-[1px] divide-neutral-focus w-full sm:text-2xl text-xl mt-6"
 			>
-				<h1 class="text-xl sm:text-2xl">Type</h1>
-				<h1 class="text-xl sm:text-2xl">Questions Sum</h1>
-				<h1 class="text-xl sm:text-2xl">Date</h1>
-			</div>
-			<div
-				id="test-result-container"
-				class="leanscroll text-slate-100 flex max-h-96 w-full flex-col gap-3 divide-y-[1px] overflow-auto md:w-1/2"
-			>
+				<div
+					class="grid [&_p]:font-semibold grid-cols-[1fr_0.5fr_1fr] items-center lg:grid-cols-[1.5fr_1fr_0.8fr_1fr_1.5fr] w-full justify-center text-center odd:bg-base-200 even:bg-base-100 py-4"
+				>
+					<div class="lg:block hidden" />
+					<p>Type</p>
+					<p>Questions Sum</p>
+					<p>Date</p>
+					<div class="lg:block hidden" />
+				</div>
+
 				{#each filteredTestData as test}
 					<div
-						id="test-result"
-						class="grid w-full grid-cols-3 items-center justify-center gap-2 text-center"
+						class="grid grid-cols-[1fr_0.5fr_1fr] items-center lg:grid-cols-[1.5fr_1fr_0.8fr_1fr_1.5fr] w-full justify-center text-center odd:bg-base-200 even:bg-base-100 py-4"
 					>
-						<p class="text-xl sm:text-2xl" id="test-name">{test.type}</p>
-						<p class="text-xl sm:text-2xl" id="test-sum">{test.questions_sum}</p>
-						<p class="text-xl sm:text-2xl" id="test-created">
-							{test.created_at.substring(0, 10)}
-						</p>
+						<div class="lg:block hidden" />
+						<p>{test.type}</p>
+						<p>{test.questions_sum}</p>
+						<p>{test.created_at.substring(0, 10)}</p>
+						<div class="lg:block hidden" />
 					</div>
 				{/each}
 			</div>
-			{#if returnedTestData && returnedTestData.length >= paginationResult.to - paginationResult.from + 1}
-				<button
-					class="mt-2 bg-zinc-950 py-2 px-4 rounded-md hover:-translate-y-1 text-slate-100"
-					on:click={() => {
-						page++;
-					}}>show more</button
-				>
-			{/if}
 		{/if}
 	</div>
-</div>
+</section>

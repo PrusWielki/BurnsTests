@@ -1,5 +1,5 @@
-export const getPagination = (page: number, size = 10) => {
-	const limit = size ? +size : 10;
+export const getPagination = (page: number, size = 100) => {
+	const limit = size ? +size : 100;
 	const from = page ? page * limit : 0;
 	const to = page ? from + size - 1 : size - 1;
 
