@@ -9,6 +9,7 @@
 		SCORES_MEANING_RANGES,
 		SCORES_MEANING_SHORT_DESCRIPTION
 	} from '$lib/cms/tests/scores_meaning';
+	import { text } from '@sveltejs/kit';
 	export let form;
 	let modal: HTMLDialogElement;
 	let results: HTMLElement;
@@ -80,16 +81,28 @@
 					}}>instructions</button
 				>
 				<dialog bind:this={modal} class="modal">
-					<div class="modal-box prose prose-lg sm:prose-xl grid sm:leanscroll">
+					<div class="modal-box prose prose-lg sm:prose-xl grid sm:leanscroll text-center">
 						<h3 class="font-bold text-lg">Instructions</h3>
 						<p>
 							{GENERAL_TEST_DESCRIPTION_HELP.find((value) => value.test === testName)?.data}
 						</p>
-						<p class="text-center">
-							{#each TEST_DESCRIPTION_HELP.find((value) => value.test === testName)?.data || '' as text, index}
-								{index}. {text} <br />
-							{/each}
-						</p>
+						<table
+							class="table table-zebra w-fit place-self-center text-center sm:text-xl my-0 sm:my-2"
+						>
+							<thead>
+								<tr>
+									<th />
+									<th class="sm:text-xl">Intenisty</th>
+									<th class="sm:text-xl">Meaning</th><th />
+								</tr>
+							</thead>
+							<tbody>
+								{#each TEST_DESCRIPTION_HELP.find((value) => value.test === testName)?.data || '' as text, index}
+									<tr><td /><td>{index}</td><td>{text}</td><td /></tr>
+								{/each}
+							</tbody>
+						</table>
+
 						<button
 							type="button"
 							on:click={() => {

@@ -4,7 +4,7 @@ const RELATIONSHIPS_TEST_DESCRIPTION_HELP = [
 	'Very Dissatisfied',
 	'Moderately Dissatisfied',
 	'Slightly Dissatisfied',
-	'Neautral',
+	'Neutral',
 	'Slightly Satisfied',
 	'Moderately Satisfied',
 	'Very Satisfied'
