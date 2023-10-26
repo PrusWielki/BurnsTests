@@ -36,7 +36,7 @@
 						<label>Results</label>
 						<ul class="p-2">
 							<li><a href="/results/statistics">Statistics</a></li>
-							<li><a href="/results/results">Browse</a></li>
+							<li><a href="/results/browse">Browse</a></li>
 						</ul>
 					</li>
 					<li><a href="/methods">Methods</a></li>
@@ -73,7 +73,7 @@
 									resultsMenu.removeAttribute('open');
 								}}
 							>
-								<a class="text-lg" href="/results/results">Browse</a>
+								<a class="text-lg" href="/results/browse">Browse</a>
 							</li>
 						</ul>
 					</details>
