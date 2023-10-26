@@ -62,10 +62,10 @@
 	$: extractDataPoints(testData);
 </script>
 
-<div class="bg-slate-700">
+<div class="bg-base-100">
 	<div
 		id="statistics-main-wrapper"
-		class="flex dynamic-full-screen w-screen flex-col items-center justify-center px-4 py-12"
+		class="flex dynamic-full-screen w-screen flex-col items-center px-4 py-20"
 		in:fly={{ y: -screen.height / 2, duration: 500 }}
 	>
 		<div id="filters-container" class="flex-col items-center justify-center py-2">
