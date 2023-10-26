@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { getPagination } from '../../../../lib/hooks/pagination';
+	import { getPagination } from '$lib/hooks/pagination';
 	import { fly } from 'svelte/transition';
 	import type { PageData } from './$types';
-	import { getTestsData } from '../../../../lib/hooks/test_data';
+	import { getTestsData } from '$lib/hooks/test_data';
 	import { TITLES } from '$lib/cms/tests/titles';
+	import { browser } from '$app/environment';
 	export let data: PageData;
 	type TestDataResponse = Awaited<ReturnType<typeof getTestsData>>;
 	type TestDataResponseSuccess = TestDataResponse['data'];
@@ -14,6 +15,23 @@
 	let paginationResult: { from: number; to: number };
 	let filteredTestData: TestDataResponseSuccess | undefined;
 	let returnedTestData: TestDataResponseSuccess | undefined = testData;
+	let fetching: boolean = false;
+	let resultsContainer: HTMLElement | undefined = undefined;
+	let scrollY: number = 0;
+
+	if (browser) {
+		window.addEventListener('scroll', () => {
+			console.log(scrollY, resultsContainer?.scrollHeight);
+			if (
+				!fetching &&
+				resultsContainer?.scrollHeight &&
+				scrollY > resultsContainer?.scrollHeight - 1000
+			) {
+				fetching = true;
+				page++;
+			}
+		});
+	}
 
 	const updateTestsData = (from: number, to: number) => {
 		if (from !== 0) {
@@ -22,6 +40,7 @@
 					returnedTestData = result.data;
 					testData = testData.concat(result.data);
 				}
+				fetching = false;
 			});
 		}
 	};
@@ -31,12 +50,14 @@
 		else filteredTestData = testData;
 	};
 
+	$: console.log(page);
 	$: paginationResult = getPagination(page, 20);
 	$: updateTestsData(paginationResult.from, paginationResult.to);
 	$: filterTestData(type, testData);
 </script>
 
-<section class="bg-base-100">
+<svelte:window bind:scrollY />
+<section bind:this={resultsContainer} class="bg-base-100">
 	<div
 		id="main-results-wrapper"
 		class="flex w-screen flex-col items-center justify-center container mx-auto px-4 py-20"
