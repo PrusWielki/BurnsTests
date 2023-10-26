@@ -2,6 +2,7 @@
 	import { TITLE } from '$lib/cms/home/home';
 	import { fly } from 'svelte/transition';
 	import ThemePicker from '../theme_picker/theme_picker.svelte';
+	let resultsMenu: HTMLElement;
 </script>
 
 <div class="w-full fixed top-0 backdrop-blur-sm z-50 bg-base-100 bg-opacity-60">
@@ -49,11 +50,31 @@
 				<li><a href="/tests" class="text-lg">Tests</a></li>
 				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 				<li tabindex="0">
-					<details>
-						<summary class="text-lg">Results</summary>
+					<details bind:this={resultsMenu}>
+						<summary bind:this={resultsMenu} class="text-lg">Results</summary>
 						<ul class="p-2">
-							<li><a class="text-lg" href="/results/statistics">Statistics</a></li>
-							<li><a class="text-lg" href="/results/results">Browse</a></li>
+							<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+							<li
+								on:click={() => {
+									resultsMenu.removeAttribute('open');
+								}}
+								on:keydown={() => {
+									resultsMenu.removeAttribute('open');
+								}}
+							>
+								<a class="text-lg" href="/results/statistics">Statistics</a>
+							</li>
+							<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+							<li
+								on:click={() => {
+									resultsMenu.removeAttribute('open');
+								}}
+								on:keydown={() => {
+									resultsMenu.removeAttribute('open');
+								}}
+							>
+								<a class="text-lg" href="/results/results">Browse</a>
+							</li>
 						</ul>
 					</details>
 				</li>
