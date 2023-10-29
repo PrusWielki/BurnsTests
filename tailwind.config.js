@@ -10,7 +10,17 @@ export default {
 	},
 	plugins: [require('@tailwindcss/typography'), require('daisyui')],
 	daisyui: {
-		themes: true,
+		themes: [
+			{
+				dark: {
+					...require('daisyui/src/theming/themes')['[data-theme=dark]'],
+					'base-content': '#d6d3d1'
+				}
+			},
+			'light',
+			'cupcake',
+			'business'
+		],
 		darkTheme: 'dark',
 		logs: false
 	}
