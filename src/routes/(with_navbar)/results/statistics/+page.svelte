@@ -4,7 +4,6 @@
 	import { getTestDataByDate } from '../../../../lib/hooks/test_data';
 	import { Line } from 'svelte-chartjs';
 	import { lineData } from '$lib/cms/results/statistics';
-
 	import {
 		Chart as ChartJS,
 		Title,
@@ -17,6 +16,7 @@
 		Filler
 	} from 'chart.js';
 	import { TITLES } from '$lib/cms/tests/titles';
+	import { browser } from '$app/environment';
 
 	ChartJS.register(
 		Title,
@@ -39,6 +39,7 @@
 	let dataPoints: Array<number> = [];
 	let labels: Array<string> = [];
 	let type: string = 'Anxiety';
+	let color: string = '#666';
 
 	const getTestData = (dateFrom: Date, dateTo: Date, type: string) => {
 		getTestDataByDate(supabase, dateFrom, dateTo).then((response) => {
@@ -57,45 +58,80 @@
 		lineData.datasets[0].data = dataPoints;
 		lineData.labels = labels;
 	};
+	function hslToHex(h: number, s: number, l: number) {
+		l /= 100;
+		const a = (s * Math.min(l, 1 - l)) / 100;
+		const f = (n: number) => {
+			const k = (n + h / 30) % 12;
+			const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+			return Math.round(255 * color)
+				.toString(16)
+				.padStart(2, '0');
+		};
+		return `#${f(0)}${f(8)}${f(4)}`;
+	}
+
+	function changeColor() {
+		color = getComputedStyle(document.documentElement).getPropertyValue('--bc');
+		let splitHSL = color.split(' ');
+		color = hslToHex(
+			+splitHSL[0],
+			+splitHSL[1].slice(0, splitHSL[1].length - 1),
+			+splitHSL[2].slice(0, splitHSL[2].length - 1)
+		);
+	}
+	if (browser) {
+		changeColor();
+		let observer = new MutationObserver(function (mutations) {
+			mutations.forEach(function (mutation) {
+				if (mutation.type === 'attributes') {
+					changeColor();
+				}
+			});
+		});
+		let documentHtml = document.querySelector('html');
+		if (documentHtml)
+			observer.observe(documentHtml, {
+				attributes: true //configure it to listen to attribute changes
+			});
+	}
 	$: getTestData(dateFrom, dateTo, type);
 	$: extractDataPoints(testData);
 </script>
 
-<div class="bg-base-100">
+<div class="bg-base-100 h-full w-screen">
 	<div
 		id="statistics-main-wrapper"
-		class="flex dynamic-full-screen w-screen flex-col items-center px-4 py-20"
+		class="flex flex-col items-center px-4 py-20"
 		in:fly={{ y: -screen.height / 2, duration: 500 }}
 	>
 		<div id="filters-container" class="flex-col items-center justify-center py-2">
-			<p class="mb-2 text-center text-xl sm:text-2xl text-slate-100">Filters</p>
+			<p class="mb-2 text-center text-xl sm:text-2xl">Filters</p>
 			<select
 				bind:value={type}
-				class=" bg-gray-700 text-slate-100 border border-slate-100 rounded-md px-2 py-2 text-lg sm:text-xl"
+				class="select select-bordered !px-4 select-accent sm:text-2xl text-xl w-full max-w-sm"
 			>
 				{#each TITLES as title}
 					<option value={title}>{title}</option>
 				{/each}
 			</select>
 		</div>
-		<div
-			class="flex w-screen items-center justify-center rounded-md fill-zinc-100 px-1 sm:h-5/6 sm:w-5/6"
-			id="line-container"
-		>
+		<div class="relative sm:h-96 h-80 w-full" id="line-container">
 			<Line
-				class="fill-zinc-50"
 				data={lineData}
 				options={{
 					responsive: true,
-					color: '#E4E4E7',
+					color: color,
 					scales: {
 						y: {
-							ticks: { color: '#E4E4E7' }
+							ticks: { color: color }
 						},
 						x: {
-							ticks: { color: '#E4E4E7' }
+							ticks: { color: color }
 						}
-					}
+					},
+
+					maintainAspectRatio: false
 				}}
 			/>
 		</div>
