@@ -2,7 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import type { PageData } from './$types';
 	import { getTestDataByDate } from '../../../../lib/hooks/test_data';
-	import { Line } from 'svelte-chartjs';
+	import { Line, Radar } from 'svelte-chartjs';
 	import { lineData } from '$lib/cms/results/statistics';
 	import {
 		Chart as ChartJS,
@@ -13,7 +13,8 @@
 		LinearScale,
 		PointElement,
 		CategoryScale,
-		Filler
+		Filler,
+		RadialLinearScale
 	} from 'chart.js';
 	import { TITLES } from '$lib/cms/tests/titles';
 	import { browser } from '$app/environment';
@@ -26,7 +27,10 @@
 		LinearScale,
 		PointElement,
 		CategoryScale,
-		Filler
+		Filler,
+		Title,
+
+		RadialLinearScale
 	);
 	export let data: PageData;
 	let { supabase } = data;
@@ -39,7 +43,10 @@
 	let dataPoints: Array<number> = [];
 	let labels: Array<string> = [];
 	let type: string = 'Anxiety';
-	let color: string = '#666';
+
+	// Charts Colors
+	let textColor: string = '#666';
+	let backgroundColor: string = '#fff';
 
 	const getTestData = (dateFrom: Date, dateTo: Date, type: string) => {
 		getTestDataByDate(supabase, dateFrom, dateTo).then((response) => {
@@ -58,7 +65,7 @@
 		lineData.datasets[0].data = dataPoints;
 		lineData.labels = labels;
 	};
-	function hslToHex(h: number, s: number, l: number) {
+	function hslToHex(h: number, s: number, l: number, alpha?: number) {
 		l /= 100;
 		const a = (s * Math.min(l, 1 - l)) / 100;
 		const f = (n: number) => {
@@ -67,17 +74,33 @@
 			return Math.round(255 * color)
 				.toString(16)
 				.padStart(2, '0');
+			// convert to Hex and prefix "0" if needed
 		};
-		return `#${f(0)}${f(8)}${f(4)}`;
+		//alpha conversion
+		let _alpha = '';
+		if (alpha)
+			_alpha = Math.round(alpha * 255)
+				.toString(16)
+				.padStart(2, '0');
+
+		return `#${f(0)}${f(8)}${f(4)}${_alpha}`;
 	}
 
 	function changeColor() {
-		color = getComputedStyle(document.documentElement).getPropertyValue('--bc');
-		let splitHSL = color.split(' ');
-		color = hslToHex(
+		textColor = getComputedStyle(document.documentElement).getPropertyValue('--bc');
+		let splitHSL = textColor.split(' ');
+		textColor = hslToHex(
 			+splitHSL[0],
 			+splitHSL[1].slice(0, splitHSL[1].length - 1),
 			+splitHSL[2].slice(0, splitHSL[2].length - 1)
+		);
+		backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--p');
+		splitHSL = backgroundColor.split(' ');
+		backgroundColor = hslToHex(
+			+splitHSL[0],
+			+splitHSL[1].slice(0, splitHSL[1].length - 1),
+			+splitHSL[2].slice(0, splitHSL[2].length - 1),
+			0.6
 		);
 	}
 	if (browser) {
@@ -97,11 +120,20 @@
 	}
 	$: getTestData(dateFrom, dateTo, type);
 	$: extractDataPoints(testData);
+
+	const radarData = {
+		labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
+		datasets: [
+			{
+				label: 'My First Dataset',
+				data: [65, 59, 90, 81, 56, 55, 40]
+			}
+		]
+	};
 </script>
 
-<div class="bg-base-100 h-full w-screen">
+<div id="statistics-main-wrapper" class="bg-base-100 h-full w-full">
 	<div
-		id="statistics-main-wrapper"
 		class="flex flex-col items-center px-4 py-20 container mx-auto"
 		in:fly={{ y: -screen.height / 2, duration: 500 }}
 	>
@@ -121,17 +153,27 @@
 				data={lineData}
 				options={{
 					responsive: true,
-					color: color,
+					backgroundColor: backgroundColor,
 					scales: {
 						y: {
-							ticks: { color: color }
+							ticks: { color: textColor }
 						},
 						x: {
-							ticks: { color: color }
+							ticks: { color: textColor }
 						}
 					},
 
 					maintainAspectRatio: false
+				}}
+			/>
+		</div>
+		<p class="mb-2 mt-6 text-center text-xl sm:text-2xl">Your overall profile</p>
+		<div class="relative sm:h-96 h-80 flex justify-center">
+			<Radar
+				data={radarData}
+				options={{
+					responsive: true,
+					backgroundColor: backgroundColor
 				}}
 			/>
 		</div>
