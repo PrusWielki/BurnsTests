@@ -102,14 +102,14 @@
 <div class="bg-base-100 h-full w-screen">
 	<div
 		id="statistics-main-wrapper"
-		class="flex flex-col items-center px-4 py-20"
+		class="flex flex-col items-center px-4 py-20 container mx-auto"
 		in:fly={{ y: -screen.height / 2, duration: 500 }}
 	>
-		<div id="filters-container" class="flex-col items-center justify-center py-2">
+		<div id="filters-container" class="flex-col items-center justify-center py-2 w-full sm:w-fit">
 			<p class="mb-2 text-center text-xl sm:text-2xl">Filters</p>
 			<select
 				bind:value={type}
-				class="select select-bordered !px-4 select-accent sm:text-2xl text-xl w-full max-w-sm"
+				class="select select-bordered !px-8 select-accent sm:text-2xl text-xl w-full text-center sm:text-start sm:w-fit sm:max-w-md"
 			>
 				{#each TITLES as title}
 					<option value={title}>{title}</option>
