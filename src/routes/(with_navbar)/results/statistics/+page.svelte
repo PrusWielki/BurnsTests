@@ -48,6 +48,8 @@
 	// Charts Colors
 	let textColor: string = '#666';
 	let backgroundColor: string = '#fff';
+	let borderColor: string = '#666';
+	let gridColor: string = '#666';
 
 	const getTestData = (dateFrom: Date, dateTo: Date, type: string) => {
 		getTestDataByDate(supabase, dateFrom, dateTo).then((response) => {
@@ -75,6 +77,12 @@
 
 		colorSplit = getComputedStyle(document.documentElement).getPropertyValue('--p').split(' ');
 		backgroundColor = chroma
+			.oklch(parseFloat(colorSplit[0]), parseFloat(colorSplit[1]), parseFloat(colorSplit[2]))
+			.hex();
+		borderColor = textColor;
+		colorSplit = getComputedStyle(document.documentElement).getPropertyValue('--n').split(' ');
+
+		gridColor = chroma
 			.oklch(parseFloat(colorSplit[0]), parseFloat(colorSplit[1]), parseFloat(colorSplit[2]))
 			.hex();
 	}
@@ -129,12 +137,17 @@
 				options={{
 					responsive: true,
 					backgroundColor: backgroundColor,
+					borderColor,
+
 					scales: {
 						y: {
-							ticks: { color: textColor }
+							ticks: { color: textColor },
+							grid: { color: gridColor }
 						},
+
 						x: {
-							ticks: { color: textColor }
+							ticks: { color: textColor },
+							grid: { color: gridColor }
 						}
 					},
 
