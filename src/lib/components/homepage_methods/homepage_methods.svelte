@@ -5,7 +5,7 @@
 {#each METHODS as method, index}
 	<div
 		id={`section-${index + 1}`}
-		class="flex shrink-0 snap-start items-center justify-center bg-zinc-950 pb-24 pt-6 sm:h-full sm:basis-full sm:py-0"
+		class="flex shrink-0 snap-start items-center justify-center bg-base-100 pb-24 pt-6 sm:h-full sm:basis-full"
 	>
 		<div
 			id="cbt-method-main-container"
@@ -13,7 +13,7 @@
 		>
 			<div
 				id="cbt-article-container"
-				class="prose prose-slate text-center sm:prose-2xl prose-h1:text-slate-100 prose-h3:text-slate-100"
+				class="prose prose-slate text-center sm:prose-2xl"
 				contenteditable="false"
 				bind:innerHTML={method}
 			/>

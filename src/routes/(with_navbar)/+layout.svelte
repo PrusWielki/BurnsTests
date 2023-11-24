@@ -1,6 +1,6 @@
 <script lang="ts">
-	import MainNavbar from '$lib/components/navbar/main_navbar.svelte';
+	import DaisyMainNavbar from '$lib/components/navbar/daisy_main_navbar.svelte';
 </script>
 
-<MainNavbar />
+<DaisyMainNavbar />
 <slot />

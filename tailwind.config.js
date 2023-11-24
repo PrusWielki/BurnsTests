@@ -8,5 +8,20 @@ export default {
 			}
 		}
 	},
-	plugins: [require('@tailwindcss/typography')]
+	plugins: [require('@tailwindcss/typography'), require('daisyui')],
+	daisyui: {
+		themes: [
+			{
+				dark: {
+					...require('daisyui/src/theming/themes')["dark"],
+					'base-content': '#d6d3d1'
+				}
+			},
+			'light',
+			'cupcake',
+			'business'
+		],
+		darkTheme: 'dark',
+		logs: false
+	}
 };

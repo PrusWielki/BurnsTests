@@ -14,7 +14,7 @@
 			id={0}
 			testName="Results"
 			backgroundName={BACKGROUND_NAMES[0]}
-			navigateTo="/results/results"
+			navigateTo="/results/browse"
 		/>
 
 		<Option
