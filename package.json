@@ -37,6 +37,7 @@
 		"@supabase/auth-helpers-sveltekit": "^0.10.7",
 		"@supabase/supabase-js": "^2.38.4",
 		"chart.js": "^4.4.0",
+		"chroma-js": "^2.4.2",
 		"svelte-chartjs": "^3.1.2"
 	},
 	"overrides": {

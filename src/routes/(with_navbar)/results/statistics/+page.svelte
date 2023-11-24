@@ -18,6 +18,7 @@
 	} from 'chart.js';
 	import { TITLES } from '$lib/cms/tests/titles';
 	import { browser } from '$app/environment';
+	import chroma from 'chroma-js';
 
 	ChartJS.register(
 		Title,
@@ -65,43 +66,17 @@
 		lineData.datasets[0].data = dataPoints;
 		lineData.labels = labels;
 	};
-	function hslToHex(h: number, s: number, l: number, alpha?: number) {
-		l /= 100;
-		const a = (s * Math.min(l, 1 - l)) / 100;
-		const f = (n: number) => {
-			const k = (n + h / 30) % 12;
-			const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-			return Math.round(255 * color)
-				.toString(16)
-				.padStart(2, '0');
-			// convert to Hex and prefix "0" if needed
-		};
-		//alpha conversion
-		let _alpha = '';
-		if (alpha)
-			_alpha = Math.round(alpha * 255)
-				.toString(16)
-				.padStart(2, '0');
-
-		return `#${f(0)}${f(8)}${f(4)}${_alpha}`;
-	}
 
 	function changeColor() {
-		textColor = getComputedStyle(document.documentElement).getPropertyValue('--bc');
-		let splitHSL = textColor.split(' ');
-		textColor = hslToHex(
-			+splitHSL[0],
-			+splitHSL[1].slice(0, splitHSL[1].length - 1),
-			+splitHSL[2].slice(0, splitHSL[2].length - 1)
-		);
-		backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--p');
-		splitHSL = backgroundColor.split(' ');
-		backgroundColor = hslToHex(
-			+splitHSL[0],
-			+splitHSL[1].slice(0, splitHSL[1].length - 1),
-			+splitHSL[2].slice(0, splitHSL[2].length - 1),
-			0.6
-		);
+		let colorSplit = getComputedStyle(document.documentElement).getPropertyValue('--bc').split(' ');
+		textColor = chroma
+			.oklch(parseFloat(colorSplit[0]), parseFloat(colorSplit[1]), parseFloat(colorSplit[2]))
+			.hex();
+
+		colorSplit = getComputedStyle(document.documentElement).getPropertyValue('--p').split(' ');
+		backgroundColor = chroma
+			.oklch(parseFloat(colorSplit[0]), parseFloat(colorSplit[1]), parseFloat(colorSplit[2]))
+			.hex();
 	}
 	if (browser) {
 		changeColor();
@@ -167,7 +142,7 @@
 				}}
 			/>
 		</div>
-		<p class="mb-2 mt-6 text-center text-xl sm:text-2xl">Your overall profile</p>
+		<!-- <p class="mb-2 mt-6 text-center text-xl sm:text-2xl">Your overall profile</p>
 		<div class="relative sm:h-96 h-80 flex justify-center">
 			<Radar
 				data={radarData}
@@ -176,6 +151,6 @@
 					backgroundColor: backgroundColor
 				}}
 			/>
-		</div>
+		</div> -->
 	</div>
 </div>
