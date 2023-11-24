@@ -141,12 +141,12 @@
 
 					scales: {
 						y: {
-							ticks: { color: textColor },
+							ticks: { color: textColor, font: { size: 14 } },
 							grid: { color: gridColor }
 						},
 
 						x: {
-							ticks: { color: textColor },
+							ticks: { color: textColor, font: { size: 14 } },
 							grid: { color: gridColor }
 						}
 					},

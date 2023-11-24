@@ -5,6 +5,8 @@ export const lineData = {
 		{
 			label: 'Test Questions Sum',
 			lineTension: 0.3,
+			pointRadius: 5,
+			pointHoverRadius: 10,
 			/* fill: true,
 						borderColor: '#ffff',
 			borderDash: [],
