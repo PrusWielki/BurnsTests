@@ -15,14 +15,11 @@
 		<div class="flex flex-row gap-8">
 			<ThemePicker class="" />
 			<a
-				target="_blank"
-				rel="noopener noreferrer"
-				id="github-link"
-				class=" z-10 cursor-pointer font-extrabold decoration-wavy hover:text-accent hover:underline sm:right-12"
-				href="https://github.com/PrusWielki/BurnsTests"
+				href="/login"
+				class="relative z-10 font-sans font-semibold decoration-wavy transition duration-75 hover:text-accent hover:underline"
 			>
-				GitHub
-			</a>
+				Login</a
+			>
 		</div>
 	</div>
 </div>

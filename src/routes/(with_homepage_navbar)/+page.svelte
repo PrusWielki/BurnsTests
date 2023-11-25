@@ -34,19 +34,6 @@
 					class="relative mt-8 flex flex-row items-center"
 					in:fade={{ duration: 200 }}
 				>
-					<div id="login-button-container" class="group relative">
-						<div
-							id="button-glow"
-							class="absolute -inset-2/3 rounded-full bg-gradient-radial from-accent opacity-5 blur-xl transition-all duration-1000 group-hover:-inset-full group-hover:opacity-20 group-hover:duration-500"
-						/>
-						<a
-							href="/login"
-							class="relative z-10 font-sans text-xl font-semibold decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-accent hover:underline xl:text-2xl"
-						>
-							Login</a
-						>
-					</div>
-					<div id="slash-container" class="z-10 px-2 text-2xl xl:text-3xl">/</div>
 					<div id="register-button-container" class="group relative">
 						<div
 							id="button-glow"
@@ -54,9 +41,9 @@
 						/>
 						<a
 							href="/register"
-							class="relative z-10 text-xl font-semibold decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-accent hover:underline xl:text-2xl"
+							class="relative z-10 text-2xl font-bold decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-accent hover:underline xl:text-3xl"
 						>
-							Register</a
+							Get started</a
 						>
 					</div>
 				</div>
@@ -73,7 +60,7 @@
 					<img
 						src="homepage_gif.gif"
 						alt="gif showing main functionalities"
-						class="relative z-10 h-full w-full blur-none"
+						class="relative z-10 h-full w-full blur-none rounded-lg"
 						in:fade={{ duration: 200 }}
 					/>
 				</div>
