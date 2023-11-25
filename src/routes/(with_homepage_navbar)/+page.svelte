@@ -41,7 +41,7 @@
 						/>
 						<a
 							href="/register"
-							class="relative z-10 text-2xl font-bold decoration-wavy transition duration-75 hover:-translate-y-0.5 hover:text-accent hover:underline xl:text-3xl"
+							class="relative z-10 text-2xl font-bold decoration-wavy text-primary transition duration-75 hover:-translate-y-0.5 hover:text-accent hover:underline xl:text-3xl"
 						>
 							Get started</a
 						>
