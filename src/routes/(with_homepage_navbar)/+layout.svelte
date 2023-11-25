@@ -3,6 +3,8 @@
 	import HomepageNavbar from '$lib/components/navbar/homepage_navbar.svelte';
 </script>
 
-<HomepageNavbar />
-<slot />
-<Footer />
+<div class="min-h-[100svh] bg-base-100 justify-between flex flex-col">
+	<HomepageNavbar />
+	<slot />
+	<Footer />
+</div>
