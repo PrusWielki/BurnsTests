@@ -22,7 +22,7 @@
 			<input
 				type="text"
 				name="email"
-				class="w-3/4 input input-bordered md:w-1/2 lg:w-2/3"
+				class="w-3/4 input border-base-content input-bordered md:w-1/2 lg:w-2/3"
 				bind:value={email}
 				placeholder="Email"
 			/>
@@ -30,7 +30,7 @@
 			<input
 				type="password"
 				name="password"
-				class="w-3/4 input input-bordered md:w-1/2 lg:w-2/3"
+				class="w-3/4 input input-bordered md:w-1/2 border-base-content lg:w-2/3"
 				placeholder="Password"
 			/>
 

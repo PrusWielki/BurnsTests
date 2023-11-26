@@ -21,20 +21,20 @@
 			<input
 				type="text"
 				name="email"
-				class="w-3/4 input input-bordered md:w-1/2 lg:w-2/3"
+				class="w-3/4 input input-bordered border-base-content md:w-1/2 lg:w-2/3"
 				placeholder="Email i.e. newuser@mail.com"
 			/>
 
 			<input
 				type="password"
 				name="password"
-				class="w-3/4 input input-bordered md:w-1/2 lg:w-2/3"
+				class="w-3/4 input input-bordered md:w-1/2 lg:w-2/3 border-base-content"
 				placeholder="Password i.e. secretpassword123"
 			/>
 			<input
 				type="password"
 				name="passwordRepeated"
-				class="w-3/4 input input-bordered md:w-1/2 lg:w-2/3"
+				class="w-3/4 input input-bordered md:w-1/2 lg:w-2/3 border-base-content"
 				placeholder="Repeat Password"
 			/>
 			<button
