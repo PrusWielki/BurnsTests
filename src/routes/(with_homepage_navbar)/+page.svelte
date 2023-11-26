@@ -2,6 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { MEDIA_SM } from '$lib/constants/media_query';
 	import HomepageMethods from '$lib/components/homepage_methods/homepage_methods.svelte';
+	import HomepageFeatures from '$lib/components/homepage_features/homepage_features.svelte';
 	let scrollY: number = 0;
 	let homepageWrapper: HTMLElement;
 	let windowWidth: number;
@@ -74,7 +75,11 @@
 				</p>
 			{/if}
 		</section>
-
-		<HomepageMethods />
+		<div class="container mx-auto px-4 py-8">
+			<HomepageFeatures />
+		</div>
+		<div class="container mx-auto px-4 py-8">
+			<HomepageMethods />
+		</div>
 	</div>
 </div>
