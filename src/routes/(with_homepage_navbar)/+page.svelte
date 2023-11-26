@@ -75,7 +75,7 @@
 				</p>
 			{/if}
 		</section>
-		<div class="container mx-auto px-4 py-8">
+		<div class="container mx-auto px-4 py-14 z-20">
 			<HomepageFeatures />
 		</div>
 		<div class="container mx-auto px-4 py-8">
