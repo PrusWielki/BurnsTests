@@ -12,6 +12,6 @@ export async function GET({ locals: { supabase }, url }) {
 			data = result;
 		});
 
-	if (!response.success) throw error(400, response.reason);
+	if (!response.success) error(400, response.reason);
 	else return json({ code: 200, data: data });
 }
