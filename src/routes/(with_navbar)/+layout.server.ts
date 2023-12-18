@@ -4,7 +4,7 @@ import type { LayoutServerLoad } from './$types.js';
 export const load: LayoutServerLoad = async ({ locals: { getSession } }) => {
 	const session = await getSession();
 	if (!session) {
-		throw redirect(302, '/');
+		redirect(302, '/');
 	}
 	return { session: session };
 };

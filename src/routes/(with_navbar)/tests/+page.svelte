@@ -10,6 +10,7 @@
 		SCORES_MEANING_SHORT_DESCRIPTION
 	} from '$lib/cms/tests/scores_meaning';
 	export let form;
+	let formRef: HTMLFormElement;
 	let modal: HTMLDialogElement;
 	let results: HTMLElement;
 
@@ -18,18 +19,22 @@
 
 	let questionsContainer: HTMLElement;
 
+	const value = (node: HTMLInputElement, param: number) =>
+		node.setAttribute('value', param.toString());
+
 	const updateTestData = (testName: string | null) => {
 		if (testName) testData = _getTestData(testName.toLowerCase());
 	};
 	const setToast = (state: boolean | undefined) => {
-		switch (state) {
-			case true:
-				showNotification('Saved!', 2000);
-				break;
-			case false:
-				showNotification('Something went wrong!', 2000);
-				break;
-		}
+		if (state !== undefined)
+			switch (state) {
+				case true:
+					showNotification('Saved!', 2000);
+					break;
+				case false:
+					showNotification('Something went wrong!', 2000);
+					break;
+			}
 	};
 
 	function scrollIntoView(id: number) {
@@ -51,7 +56,22 @@
 
 <section id="test-wrapper" class="w-full h-full bg-base-100">
 	<div class="container px-6 py-20 mx-auto flex flex-col items-center w-full">
+		<select
+			on:change={() => {
+				if (form) form.success = undefined;
+				if (formRef) formRef.reset();
+			}}
+			name="testName"
+			bind:value={testName}
+			class="select select-bordered mb-4 !px-4 select-accent sm:text-2xl text-xl w-full max-w-xs"
+		>
+			<option disabled selected class="text-center p-0 m-0">Choose a test</option>
+			{#each TEST_NAMES as test}
+				<option class="text-center p-0 m-0" value={test}>{test}</option>
+			{/each}
+		</select>
 		<form
+			bind:this={formRef}
 			class="flex flex-col items-center w-full max-w-4xl gap-4"
 			method="post"
 			action="?/saveTest"
@@ -61,16 +81,6 @@
 				};
 			}}
 		>
-			<select
-				name="testName"
-				bind:value={testName}
-				class="select select-bordered !px-4 select-accent sm:text-2xl text-xl w-full max-w-xs"
-			>
-				<option disabled selected class="text-center p-0 m-0">Choose a test</option>
-				{#each TEST_NAMES as test}
-					<option class="text-center p-0 m-0" value={test}>{test}</option>
-				{/each}
-			</select>
 			{#if testData}
 				<button
 					class="btn btn-outline btn-info"
@@ -130,7 +140,7 @@
 									name={`question-${index}`}
 									min={testData.minRange}
 									max={testData.maxRange}
-									value={0}
+									use:value={0}
 									class="range range-accent range-sm sm:range-md"
 									step={1}
 									disabled={form?.success}

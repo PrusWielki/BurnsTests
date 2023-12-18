@@ -10,7 +10,7 @@ import {
 } from '$lib/cms/tests/scores_meaning.js';
 export function load({ params }: { params: { testName: string } }) {
 	const index = TEST_NAMES_LOWER.indexOf(params.testName);
-	if (-1 === index) throw error(404, 'Not found');
+	if (-1 === index) error(404, 'Not found');
 
 	return {
 		title: TITLES[index],
