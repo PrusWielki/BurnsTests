@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { enhance } from '$app/forms';
+	import { BASE_URL } from '$lib/constants/url.js';
 	export let form;
+	export let data;
+	let { supabase } = data;
 </script>
 
 <div id="register_main_wrapper" class="my-auto w-full bg-base-100 px-6 py-16 sm:gap-12">
@@ -45,6 +48,13 @@
 				Register</button
 			>
 		</form>
+		<button
+			on:click={() => {
+				supabase.auth.signInWithOAuth({
+					provider: 'google'
+				});
+			}}>Sign Up with Google</button
+		>
 		{#if form?.error}
 			<div class="absolute bottom-20 text-lg font-semibold text-accent sm:bottom-32 sm:text-3xl">
 				{form?.error}
