@@ -18,7 +18,7 @@
 			>
 				<h1
 					id="hero-title"
-					class="z-10 px-2 font-sans text-4xl lg:text-5xl font-bold 2xl:text-6xl"
+					class="z-10 px-2 font-sans text-4xl lg:text-5xl font-bold 2xl:text-6xl [text-wrap:balance] sm:[text-wrap:normal]"
 					in:fade={{ duration: 200 }}
 				>
 					How are you feeling today?
