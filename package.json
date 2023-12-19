@@ -36,7 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/auth-helpers-sveltekit": "^0.10.7",
+		"@supabase/ssr": "^0.0.10",
 		"@supabase/supabase-js": "^2.39.0",
 		"@sveltejs/adapter-vercel": "^4.0.2",
 		"chart.js": "^4.4.1",
