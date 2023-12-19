@@ -51,7 +51,10 @@
 		<button
 			on:click={() => {
 				supabase.auth.signInWithOAuth({
-					provider: 'google'
+					provider: 'google',
+					options: {
+						redirectTo: `${BASE_URL}auth/callback`
+					}
 				});
 			}}>Sign Up with Google</button
 		>
