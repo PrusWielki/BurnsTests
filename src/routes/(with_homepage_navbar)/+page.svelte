@@ -42,10 +42,10 @@
 						/>
 						<a
 							href="/register"
-							class="relative btn btn-outline z-10 text-2xl capitalize font-bold dtransition duration-75 xl:text-3xl"
+							class="relative btn btn-outline z-10 text-2xl capitalize font-bold transition duration-75 xl:text-3xl"
 						>
-							Get started</a
-						>
+							<p class="z-10">Get started</p>
+						</a>
 					</div>
 				</div>
 
