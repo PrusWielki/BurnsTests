@@ -48,7 +48,7 @@
 				Register</button
 			>
 		</form>
-		Or
+		<p>Or</p>
 		<button
 			class="btn btn-neutral w-fit btn-outline gap-2"
 			on:click={() => {
