@@ -8,9 +8,9 @@
 </script>
 
 <div id="register_main_wrapper" class="my-auto w-full bg-base-100 px-6 py-16 sm:gap-12">
-	<div class="flex flex-col w-full items-center gap-6 max-w-xl mx-auto">
-		<h1 class="text-center text-2xl font-bold sm:text-3xl">Glad to see You</h1>
-		<h2 class="text-center font-semibold max-w-md [text-wrap:balance]">
+	<div class="flex flex-col w-full items-center gap-3 max-w-xl mx-auto">
+		<h1 class="text-center text-2xl font-bold sm:text-3xl mb-3">Glad to see You</h1>
+		<h2 class="text-center font-semibold max-w-md [text-wrap:balance] mb-3">
 			Just a few more steps before You can start feeling better
 		</h2>
 		<form

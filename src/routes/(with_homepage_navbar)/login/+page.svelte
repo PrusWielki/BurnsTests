@@ -10,8 +10,8 @@
 </script>
 
 <div id="login_main_wrapper" class="my-auto w-full bg-base-100 px-6 py-16 sm:gap-12">
-	<div class="flex flex-col w-full items-center gap-6 max-w-xl mx-auto">
-		<h1 class="text-center text-2xl font-bold sm:text-3xl">Welcome Back</h1>
+	<div class="flex flex-col w-full items-center gap-3 max-w-xl mx-auto">
+		<h1 class="text-center text-2xl font-bold sm:text-3xl mb-3">Welcome Back</h1>
 		<form
 			id="login-form"
 			action="?/login"
