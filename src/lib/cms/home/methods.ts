@@ -1,4 +1,4 @@
-const CBT = `<h1>TEAM-CBT</h1>
+const CBT = `<h2>TEAM-CBT</h2>
 <h3>Cognitive-Behavioural Therapy</h3>
 <p>
     For quite some time Cognitive Behavioural Therapy has been the gold standard of psychotherapy.
@@ -12,7 +12,7 @@ const CBT = `<h1>TEAM-CBT</h1>
     and discover that Your painful feelings actually show what's awesome and beautiful about You.
 </p>`;
 
-const ACT = `<h1>ACT</h1>
+const ACT = `<h2>ACT</h2>
 <h3>Acceptance and Commitment Therapy</h3>
 <p>
     ACT, developed by dr. Steven Hayes, is a radically different approach to emotional problems.
@@ -20,7 +20,7 @@ const ACT = `<h1>ACT</h1>
     attitude of kindness and curiosity so that they no longer have a grip on You. Moreover You will discover Your values, what's truly important to You.
 </p>`;
 
-const MBCT = `<h1>MBCT</h1>
+const MBCT = `<h2>MBCT</h2>
 <h3>Mindfulness-Based Cognitive Therapy</h3>
 <p>
     A very effective approach to make the positive emotional healing last. If You struggle with

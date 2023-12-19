@@ -2,6 +2,13 @@
 	import { METHODS } from '$lib/cms/home/methods';
 </script>
 
+<div class=" pb-10 flex flex-col items-center gap-4 mx-auto">
+	<h1 class="text-2xl sm:text-4xl 2xl:text-5xl font-bold">Approaches</h1>
+	<p class=" text-lg sm:text-xl [text-wrap:balance] text-center">
+		We have collected the best of the best approaches to mental health so that You can reach Your
+		feeling good goals from the comfort of your home
+	</p>
+</div>
 {#each METHODS as method, index}
 	<div
 		id={`section-${index + 1}`}
@@ -13,7 +20,7 @@
 		>
 			<div
 				id="cbt-article-container"
-				class="prose prose-slate text-center sm:prose-2xl"
+				class="prose prose-slate text-center sm:prose-xl prose-h2:font-extrabold"
 				contenteditable="false"
 				bind:innerHTML={method}
 			/>
