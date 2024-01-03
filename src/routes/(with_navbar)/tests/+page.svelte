@@ -81,6 +81,7 @@
 				};
 			}}
 		>
+			<input name="testName" value={testName} class="hidden" />
 			{#if testData}
 				<button
 					class="btn btn-outline btn-info"
