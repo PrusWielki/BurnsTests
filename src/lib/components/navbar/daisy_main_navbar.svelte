@@ -3,10 +3,10 @@
 	import { fly } from 'svelte/transition';
 	import ThemePicker from '../theme_picker/theme_picker.svelte';
 	import { browser } from '$app/environment';
-	let resultsMenu: HTMLElement;
+	let resultsMenu: HTMLDetailsElement;
 	if (browser)
 		window.addEventListener('click', function (e) {
-			resultsMenu.removeAttribute('open');
+			if (resultsMenu && resultsMenu.removeAttribute) resultsMenu.removeAttribute('open');
 		});
 </script>
 
@@ -56,7 +56,16 @@
 				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 				<li tabindex="0">
 					<details bind:this={resultsMenu}>
-						<summary bind:this={resultsMenu} class="text-lg">Results</summary>
+						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<summary
+							on:click={(e) => {
+								if (resultsMenu.open) e.preventDefault();
+							}}
+							on:keydown={(e) => {
+								if (resultsMenu.open) e.preventDefault();
+							}}
+							class="text-lg">Results</summary
+						>
 						<ul class="p-2">
 							<li>
 								<a class="text-lg" href="/results/statistics">Statistics</a>

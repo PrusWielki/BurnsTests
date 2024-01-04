@@ -102,7 +102,7 @@
 							<thead>
 								<tr>
 									<th />
-									<th class="sm:text-xl">Intenisty</th>
+									<th class="sm:text-xl">Intensity</th>
 									<th class="sm:text-xl">Meaning</th><th />
 								</tr>
 							</thead>
