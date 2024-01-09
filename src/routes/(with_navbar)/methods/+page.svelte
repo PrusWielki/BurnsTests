@@ -15,22 +15,29 @@
 
 <section class="w-full h-full bg-base-100">
 	<div class="container px-6 py-20 mx-auto flex flex-col items-center w-full">
-		<div>filters</div>
-		{#each METHODS as method}
-			<div class="grid grid-cols-2 items-center text-center w-full">
-				<h1>Method</h1>
-				<h1>Good For</h1>
-			</div>
-			<div class="mt-6 grid grid-cols-2 items-center text-center w-full">
-				<h1>{method.name}</h1>
-				<div class="flex flex-row overflow-auto sm:flex-wrap gap-2 sm:justify-center w-full px-1">
-					{#each method.goodFor as goodFor}
-						<div class={`rounded-xl border border-solid p-2 ${goodForColorBadgeMap[goodFor]}`}>
-							{goodFor}
-						</div>
-					{/each}
+		<h1>filters</h1>
+		<div class="grid grid-cols-2 items-center text-center w-full">
+			<h1 class="sm:text-2xl font-semibold">Method</h1>
+			<h1 class="sm:text-2xl font-semibold">Good For</h1>
+		</div>
+		<div class="mt-6 flex flex-col items-center w-full">
+			{#each METHODS as method}
+				<div class="grid grid-cols-2 gap-1 items-center text-center w-full">
+					<h2 class="sm:text-xl font-semibold">{method.name}</h2>
+					<div
+						class="flex flex-row overflow-auto sm:flex-wrap gap-2 sm:justify-center w-full leanscroll"
+					>
+						{#each method.goodFor as goodFor}
+							<p
+								class={`rounded-xl border border-solid p-2 sm:text-lg ${goodForColorBadgeMap[goodFor]}`}
+							>
+								{goodFor}
+							</p>
+						{/each}
+					</div>
 				</div>
-			</div>
-		{/each}
+				<div class="divider w-full h-[2px]" />
+			{/each}
+		</div>
 	</div>
 </section>

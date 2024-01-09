@@ -4,4 +4,10 @@ const dmj = {
 	goodFor: ['Anxiety', 'Depression', 'Anger', 'Addictions', 'Relationships', 'Happines']
 };
 
-export const METHODS = [dmj];
+const rj = {
+	name: 'Relationship Journal',
+	description: 'Change how your relationship.',
+	goodFor: ['Relationships']
+};
+
+export const METHODS = [dmj, rj];
