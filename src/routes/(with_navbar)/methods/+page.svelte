@@ -28,7 +28,11 @@
 			{#each METHODS as method}
 				<div class="even:bg-base-200 odd:bg-base-100 w-full">
 					<div class="grid grid-cols-2 gap-1 items-center text-center w-full py-4">
-						<h2 class="sm:text-xl font-semibold">{method.name}</h2>
+						<h2
+							class="sm:text-xl font-semibold decoration-wavy transition duration-75 hover:text-accent hover:underline cursor-pointer"
+						>
+							{method.name}
+						</h2>
 						<div
 							class="flex flex-row overflow-auto sm:flex-wrap gap-2 sm:justify-center w-full leanscroll"
 						>
