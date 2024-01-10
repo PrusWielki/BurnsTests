@@ -75,9 +75,7 @@
 			</select>
 		</div>
 		{#if filteredTestData != null}
-			<div
-				class="flex flex-col divide-y-[1px] divide-neutral-focus w-full sm:text-2xl text-xl mt-6"
-			>
+			<div class="flex flex-col divide-y-[1px] divide-neutral w-full sm:text-2xl text-xl mt-6">
 				<div
 					class="grid [&_p]:font-semibold grid-cols-[1fr_0.5fr_1fr] items-center lg:grid-cols-[1.5fr_1fr_0.8fr_1fr_1.5fr] w-full justify-center text-center odd:bg-base-200 even:bg-base-100 py-4"
 				>
