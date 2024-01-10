@@ -7,7 +7,7 @@
 		Anger: 'border-red-800',
 		Addictions: 'border-green-800',
 		Relationships: 'border-pink-800',
-		Happines: 'border-yellow-800'
+		Happiness: 'border-yellow-800'
 	};
 	// Maybe let's make it a simple list for now with filtering, each method should have some badges corresponding what it is useful for
 	// Plus something like 'help me choose' that asks a couple of questions and lists best fitting methods with some descriptions. This can be done via openAI even
