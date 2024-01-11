@@ -2,12 +2,12 @@
 	import { METHODS } from '$lib/cms/methods/main_methods';
 
 	const goodForColorBadgeMap = {
-		Anxiety: 'border-blue-800',
-		Depression: 'border-white-800',
-		Anger: 'border-red-800',
-		Addictions: 'border-green-800',
-		Relationships: 'border-pink-800',
-		Happiness: 'border-yellow-800'
+		Anxiety: 'border-primary',
+		Depression: 'border-secondary',
+		Anger: 'border-accent',
+		Addictions: 'border-warning',
+		Relationships: 'border-info',
+		Happiness: 'border-success'
 	};
 	// Maybe let's make it a simple list for now with filtering, each method should have some badges corresponding what it is useful for
 	// Plus something like 'help me choose' that asks a couple of questions and lists best fitting methods with some descriptions. This can be done via openAI even
@@ -16,6 +16,7 @@
 <section class="w-full h-full bg-base-100">
 	<div class="container px-6 py-20 mx-auto flex flex-col items-center w-full">
 		<h1>filters</h1>
+		<p>Click on one of the methods to use it.</p>
 
 		<div class="mt-6 flex flex-col items-center w-full">
 			<div
@@ -38,7 +39,7 @@
 						>
 							{#each method.goodFor as goodFor}
 								<p
-									class={`rounded-xl border border-solid p-2 sm:text-lg ${goodForColorBadgeMap[goodFor]}`}
+									class={`rounded-box px-4 py-2 border border-solid sm:text-lg text-base-content ${goodForColorBadgeMap[goodFor]}`}
 								>
 									{goodFor}
 								</p>
