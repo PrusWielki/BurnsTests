@@ -18,7 +18,7 @@
 			>
 				<h1
 					id="hero-title"
-					class="z-10 px-2 font-sans text-4xl lg:text-5xl font-bold 2xl:text-6xl [text-wrap:balance] sm:[text-wrap:normal]"
+					class="z-10 px-2 font-sans text-4xl lg:text-5xl font-extrabold 2xl:text-6xl [text-wrap:balance] sm:[text-wrap:normal]"
 					in:fade={{ duration: 200 }}
 				>
 					How are you feeling today?
@@ -42,7 +42,7 @@
 						/>
 						<a
 							href="/register"
-							class="relative btn btn-outline z-10 text-2xl capitalize font-bold transition duration-75 xl:text-3xl"
+							class="relative btn btn-outline z-10 text-2xl capitalize font-extrabold transition duration-75 xl:text-3xl"
 						>
 							<p class="z-10">Get started</p>
 						</a>

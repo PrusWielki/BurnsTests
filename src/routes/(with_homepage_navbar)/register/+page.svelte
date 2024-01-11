@@ -43,14 +43,14 @@
 			<button
 				id="submit-button"
 				type="submit"
-				class="w-3/4 md:w-1/2 lg:w-2/3 btn btn-primary text-xl"
+				class="w-3/4 md:w-1/2 font-bold lg:w-2/3 btn btn-primary text-xl"
 			>
 				Register</button
 			>
 		</form>
 		<p>Or</p>
 		<button
-			class="btn btn-neutral w-fit btn-outline gap-2"
+			class="btn btn-neutral w-3/4 md:w-1/2 lg:w-2/3 text-lg btn-outline gap-1 sm:gap-2"
 			on:click={() => {
 				supabase.auth.signInWithOAuth({
 					provider: 'google',
@@ -61,7 +61,7 @@
 			}}
 		>
 			<p
-				class="py-1 bg-[linear-gradient(to_right,theme(colors.red.500),theme(colors.yellow.500),theme(colors.green.500),theme(colors.blue.500))] inline-block text-transparent bg-clip-text"
+				class="py-1 font-bold bg-[linear-gradient(to_right,theme(colors.red.500),theme(colors.yellow.500),theme(colors.green.500),theme(colors.blue.500))] inline-block text-transparent bg-clip-text"
 			>
 				Sign Up with Google
 			</p>

@@ -19,7 +19,7 @@
 </script>
 
 <div class={`dropdown dropdown-hover ${className}`}>
-	<button class="btn btn-neutral btn-xs btn-outline">{theme ? theme : 'Theme'}</button>
+	<button class="btn btn-neutral btn-xs btn-outline font-bold">{theme ? theme : 'Theme'}</button>
 	<ul class="dropdown-content z-30 menu p-2 shadow bg-base-200 rounded-box w-fit">
 		{#each themes as themeName}
 			<li><button on:click={() => onThemeSelect(themeName)}>{themeName}</button></li>

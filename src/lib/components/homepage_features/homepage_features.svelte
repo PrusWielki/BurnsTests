@@ -30,7 +30,7 @@
 
 <div class="flex flex-col justify-around sm:pt-16 sm:gap-8">
 	<div class="flex flex-col gap-4 text-center [text-wrap:balance] sm:gap-6">
-		<h1 class="text-2xl sm:text-4xl 2xl:text-5xl font-bold">What You will find inside</h1>
+		<h1 class="text-2xl sm:text-4xl 2xl:text-5xl font-extrabold">What You will find inside</h1>
 		<p class=" text-lg sm:text-xl">
 			We make use of variety of modern technologies and protocols to make it all worth Your time
 		</p>

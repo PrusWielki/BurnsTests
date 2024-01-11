@@ -8,7 +8,7 @@
 		<a
 			id="title-container"
 			href="/"
-			class=" cursor-pointer font-sans font-semibold decoration-wavy hover:text-accent hover:underline sm:left-12"
+			class=" cursor-pointer font-sans font-bold decoration-wavy hover:text-accent hover:underline sm:left-12"
 		>
 			{TITLE}
 		</a>
@@ -16,7 +16,7 @@
 			<ThemePicker class="" />
 			<a
 				href="/login"
-				class="relative z-10 font-sans font-semibold decoration-wavy transition duration-75 hover:text-accent hover:underline"
+				class="relative z-10 font-sans font-bold decoration-wavy transition duration-75 hover:text-accent hover:underline"
 			>
 				Login</a
 			>
