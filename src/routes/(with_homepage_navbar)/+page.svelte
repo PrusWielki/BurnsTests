@@ -42,7 +42,7 @@
 						/>
 						<a
 							href="/register"
-							class="relative btn btn-outline z-10 text-2xl capitalize font-extrabold transition duration-75 xl:text-3xl"
+							class="relative btn btn-outline z-10 text-2xl capitalize font-bold transition duration-75 xl:text-3xl"
 						>
 							<p class="z-10">Get started</p>
 						</a>
