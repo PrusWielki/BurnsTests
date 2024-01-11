@@ -38,6 +38,7 @@
 				result.json().then((resultData) => {
 					returnedTestData = resultData.data.data;
 					if (testData) testData = testData.concat(resultData.data.data);
+					else testData = resultData.data.data;
 					fetching = false;
 				});
 			});
@@ -49,13 +50,29 @@
 		else filteredTestData = testData;
 	};
 
+	/* 	const getMoreTypedData = (filteredTestData: TestDataResponseSuccess | undefined) => {
+		filteredTestData;
+		if (browser) {
+			console.log(fetching, resultsContainer?.clientHeight, window.innerHeight);
+			if (
+				!fetching &&
+				resultsContainer?.clientHeight &&
+				resultsContainer.clientHeight <= window.innerHeight
+			) {
+				console.log('xd1');
+				page = page + 1;
+			}
+		}
+	}; */
+
 	$: paginationResult = getPagination(page, 20);
 	$: updateTestsData(paginationResult.from, paginationResult.to);
 	$: filterTestData(type, testData);
+	// $: getMoreTypedData(filteredTestData);
 </script>
 
 <svelte:window bind:scrollY />
-<section bind:this={resultsContainer} class="bg-base-100">
+<section bind:this={resultsContainer} class="bg-base-100 h-fit">
 	<div
 		id="main-results-wrapper"
 		class="flex w-screen flex-col items-center justify-center container mx-auto px-4 py-20"
@@ -99,5 +116,11 @@
 				{/each}
 			</div>
 		{/if}
+		<button
+			on:click={() => {
+				page++;
+			}}
+			class="btn btn-secondary btn-outline mt-6">Load More</button
+		>
 	</div>
 </section>
