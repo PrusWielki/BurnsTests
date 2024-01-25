@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { METHODS } from '$lib/cms/methods/main_methods';
 
 	const goodForColorBadgeMap = {
@@ -15,8 +16,8 @@
 
 <section class="w-full h-full bg-base-100">
 	<div class="container px-6 py-20 mx-auto flex flex-col items-center w-full">
-		<h1>filters</h1>
-		<p>Click on one of the methods to use it.</p>
+		<!-- <h1>filters</h1> -->
+		<p class="text-info italic">Click on one of the methods to use it.</p>
 
 		<div class="mt-6 flex flex-col items-center w-full">
 			<div
@@ -26,29 +27,34 @@
 				<h1 class="sm:text-2xl font-bold">Good For</h1>
 			</div>
 			<div class="divider my-0 w-full h-[2px]" />
-			{#each METHODS as method}
-				<div class="even:bg-base-200 odd:bg-base-100 w-full">
-					<div class="grid grid-cols-2 gap-1 items-center text-center w-full py-4">
-						<h2
-							class="sm:text-xl font-semibold decoration-wavy transition duration-75 hover:text-accent hover:underline cursor-pointer"
-						>
-							{method.name}
-						</h2>
-						<div
-							class="flex flex-row overflow-auto sm:flex-wrap gap-2 sm:justify-center w-full leanscroll"
-						>
-							{#each method.goodFor as goodFor}
-								<p
-									class={`rounded-box px-4 py-2 border border-solid sm:text-lg text-base-content ${goodForColorBadgeMap[goodFor]}`}
-								>
-									{goodFor}
-								</p>
-							{/each}
+			<div>
+				{#each METHODS as method}
+					<div class="even:bg-base-200 odd:bg-base-100 w-full">
+						<div class="grid grid-cols-2 gap-1 items-center text-center w-full py-4">
+							<button
+								class="sm:text-xl font-semibold decoration-wavy transition duration-75 hover:text-accent hover:underline cursor-pointer"
+								on:click={() => {
+									goto('/methods' + method.url);
+								}}
+							>
+								{method.name}
+							</button>
+							<div
+								class="flex flex-row overflow-auto sm:flex-wrap gap-2 sm:justify-center w-full leanscroll"
+							>
+								{#each method.goodFor as goodFor}
+									<p
+										class={`rounded-box px-4 py-2 border border-solid sm:text-lg text-base-content ${goodForColorBadgeMap[goodFor]}`}
+									>
+										{goodFor}
+									</p>
+								{/each}
+							</div>
 						</div>
+						<div class="divider my-0 w-full h-[2px]" />
 					</div>
-					<div class="divider my-0 w-full h-[2px]" />
-				</div>
-			{/each}
+				{/each}
+			</div>
 		</div>
 	</div>
 </section>
