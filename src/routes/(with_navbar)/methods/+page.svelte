@@ -34,7 +34,7 @@
 							<button
 								class="sm:text-xl font-semibold decoration-wavy transition duration-75 hover:text-accent hover:underline cursor-pointer"
 								on:click={() => {
-									goto('/methods' + method.url);
+									goto('methods' + method.url + '/browse');
 								}}
 							>
 								{method.name}
