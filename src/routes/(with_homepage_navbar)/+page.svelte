@@ -14,7 +14,7 @@
 		<section id="section-0" class="flex dynamic-full-screen w-full flex-row">
 			<div
 				id="homepage-hero-title-button-container"
-				class="flex h-full w-full flex-col items-center justify-center pb-8 pt-12 text-center sm:w-full"
+				class="flex py-14 w-full flex-col items-center my-auto text-center sm:w-full"
 			>
 				<h1
 					id="hero-title"
